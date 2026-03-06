@@ -1,5 +1,10 @@
 import type { Metadata } from 'next'
 import { ThemeProvider } from '@/components/ThemeProvider'
+import '@fontsource/onest/400.css'
+import '@fontsource/onest/500.css'
+import '@fontsource/onest/600.css'
+import '@fontsource/onest/700.css'
+import '@fontsource/onest/800.css'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -14,11 +19,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ru" suppressHydrationWarning>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-      </head>
       <body>
         <ThemeProvider>
           {children}

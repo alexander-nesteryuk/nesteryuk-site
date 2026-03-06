@@ -3,7 +3,6 @@
 import Header from '@/components/Header'
 import FunButton from '@/components/FunButton'
 import { Send, Download, ArrowRight } from 'lucide-react'
-import Image from 'next/image'
 
 const stats = [
   { number: '200M+', label: 'просмотров' },
