@@ -1,14 +1,9 @@
 meta:
-  environment: node
+  environment: static
   toolchain:
-    name: npm
-    version: "20"
-
-build:
-  additionalCommands:
-    - npm run build
+    name: nginx
+    version: "1.25"
 
 run:
-  command: npm run start
   persistenceMount: /data
-  containerPort: 3000
+  containerPort: 80
