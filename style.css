@@ -263,10 +263,10 @@ a {
 }
 
 .btn-primary:hover {
-  background: var(--accent-hover);
-  border-color: var(--accent-hover);
+  background: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-3px);
-  box-shadow: 0 10px 28px rgba(37, 99, 235, 0.40);
+  box-shadow: 0 10px 32px rgba(37, 99, 235, 0.55);
 }
 
 .btn-primary:hover::before {
@@ -406,8 +406,9 @@ a {
 .btn-fun {
   background: var(--bg-card);
   color: var(--text);
-  border: 2px solid var(--border);
+  border: 2px dashed var(--border);
   user-select: none;
+  letter-spacing: 0.01em;
 }
 
 .btn-fun:hover {
