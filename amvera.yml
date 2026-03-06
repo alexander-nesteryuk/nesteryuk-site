@@ -5,11 +5,10 @@ meta:
     version: "20"
 
 build:
-  skip: false
   additionalCommands:
     - npm run build
 
 run:
   command: npm run start
   persistenceMount: /data
-  containerPort: "3000"
+  containerPort: 3000
