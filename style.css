@@ -402,6 +402,30 @@ a {
   box-shadow: 0 8px 22px rgba(37, 99, 235, 0.30);
 }
 
+/* ===== FUN BUTTON ===== */
+.btn-fun {
+  background: var(--bg-card);
+  color: var(--text);
+  border: 2px solid var(--border);
+  user-select: none;
+}
+
+.btn-fun:hover {
+  border-color: var(--text-muted);
+  background: var(--border);
+  transform: translateY(-2px);
+}
+
+.btn-fun.shake {
+  animation: shake 0.3s ease;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
 /* ===== ABOUT ===== */
 .about-card {
   padding: 40px;
