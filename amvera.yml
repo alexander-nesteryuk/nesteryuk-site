@@ -1,9 +1,5 @@
 meta:
-  environment: static
-  toolchain:
-    name: nginx
-    version: "1.25"
+  environment: dockerfile
 
 run:
-  persistenceMount: /data
   containerPort: 80
