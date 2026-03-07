@@ -362,13 +362,68 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // Scroll reveal
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+    // 1. TYPEWRITER — hero description typed word-by-word on load
+    const heroDesc = document.querySelector('.hero-desc');
+    if (heroDesc && !prefersReducedMotion) {
+      const words = heroDesc.textContent.trim().split(' ');
+      heroDesc.textContent = '';
+      let wi = 0;
+      function typeWord() {
+        if (wi < words.length) {
+          heroDesc.textContent += (wi > 0 ? ' ' : '') + words[wi++];
+          setTimeout(typeWord, 48 + Math.random() * 28);
+        }
+      }
+      setTimeout(typeWord, 380);
+    }
+
+    // 2. MAGNETIC BUTTONS — hero buttons follow cursor slightly
+    if (hasFinePointer && !prefersReducedMotion) {
+      document.querySelectorAll('.hero-buttons .btn').forEach(btn => {
+        btn.addEventListener('mouseenter', () => {
+          btn.style.transition = 'transform 0.08s ease, background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s';
+        });
+        btn.addEventListener('mousemove', e => {
+          const r = btn.getBoundingClientRect();
+          const dx = (e.clientX - (r.left + r.width  / 2)) * 0.28;
+          const dy = (e.clientY - (r.top  + r.height / 2)) * 0.28;
+          btn.style.transform = `translate(${dx}px, ${dy}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transition = 'transform 0.55s cubic-bezier(0.34,1.56,0.64,1), background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s';
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    // 3. PARALLAX — hero photo moves slower than page scroll
+    if (hasFinePointer && window.innerWidth > 768 && !prefersReducedMotion) {
+      const photoWrap = document.querySelector('.hero-photo-wrap');
+      if (photoWrap) {
+        window.addEventListener('scroll', () => {
+          photoWrap.style.transform = `translateY(${window.scrollY * -0.14}px)`;
+        }, { passive: true });
+      }
+    }
+
+    // 4. SCROLL REVEAL + SKILL STAGGER
     const sections = document.querySelectorAll('.section');
+    const skillsWrap = document.querySelector('.skills-wrap');
     const revealObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('revealed');
           revealObserver.unobserve(entry.target);
+          // Stagger skills when their section appears
+          if (skillsWrap && entry.target.contains(skillsWrap)) {
+            document.querySelectorAll('.skill').forEach((skill, i) => {
+              setTimeout(() => skill.classList.add('skill-visible'),
+                prefersReducedMotion ? 0 : 80 + i * 58);
+            });
+          }
         }
       });
     }, { threshold: 0.08 });
