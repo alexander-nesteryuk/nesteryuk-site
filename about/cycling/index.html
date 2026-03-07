@@ -39,18 +39,15 @@
 
       <div class="inner-section">
         <h2>Фото</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="../../images/bike.jpg" alt="Велосипед" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🚴</div><span>Велосипед</span>';" />
-          </div>
-          <div class="gallery-item">
-            <img src="../../images/cyclists.jpg" alt="С велосипедистами" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🚴</div><span>Заезд</span>';" />
-          </div>
-          <div class="gallery-item">
-            <img src="../../images/cycling-route.jpg" alt="Маршрут" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🗺️</div><span>Маршрут</span>';" />
+        <div class="photo-marquee">
+          <div class="photo-marquee-track">
+            <img class="photo-marquee-img" src="../../images/bike.jpg" alt="Велосипед" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/cyclists.jpg" alt="С велосипедистами" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/cycling-route.jpg" alt="Маршрут" loading="lazy" />
+            <!-- duplicates for seamless loop -->
+            <img class="photo-marquee-img" src="../../images/bike.jpg" alt="Велосипед" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/cyclists.jpg" alt="С велосипедистами" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/cycling-route.jpg" alt="Маршрут" loading="lazy" />
           </div>
         </div>
       </div>

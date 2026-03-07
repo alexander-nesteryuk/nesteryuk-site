@@ -393,7 +393,7 @@ a {
 /* Mini stats inside project card */
 .project-mini-stats {
   display: flex;
-  gap: 24px;
+  gap: 32px;
   flex-wrap: wrap;
 }
 
@@ -404,14 +404,14 @@ a {
 }
 
 .project-mini-num {
-  font-size: 1.125rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: var(--accent);
   letter-spacing: -0.02em;
 }
 
 .project-mini-label {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: var(--text-muted);
 }
 
@@ -945,6 +945,71 @@ a {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
+}
+
+/* ===== GRADIENT TEXT (hero accent) ===== */
+.hero-title-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline;
+}
+
+/* ===== HERO CARD PREMIUM GLOW ===== */
+.hero-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 80% 20%, rgba(59, 130, 246, 0.07) 0%, transparent 55%),
+    radial-gradient(ellipse at 20% 90%, rgba(129, 140, 248, 0.05) 0%, transparent 55%);
+  pointer-events: none;
+  border-radius: var(--radius);
+}
+
+/* ===== PHOTO MARQUEE (auto-scroll gallery) ===== */
+.photo-marquee {
+  overflow: hidden;
+  width: 100%;
+  border-radius: var(--radius-sm);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.photo-marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee-scroll 28s linear infinite;
+}
+
+.photo-marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.photo-marquee-img {
+  height: 240px;
+  width: auto;
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+  transition: transform 0.35s ease;
+  cursor: zoom-in;
+  display: block;
+}
+
+.photo-marquee-img:hover {
+  transform: scale(1.04);
+}
+
+@keyframes marquee-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 
 /* ===== SCROLL TO TOP ===== */

@@ -25,6 +25,7 @@
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="shortcut icon" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/images/hero.jpg" />
   <!-- Structured Data -->
   <script type="application/ld+json">
   {
@@ -39,7 +40,7 @@
     "knowsAbout": ["Контент-стратегия", "Контент-заводы", "UGC", "YouTube-маркетинг", "Influence-маркетинг", "E-commerce"]
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=6" />
+  <link rel="stylesheet" href="style.css?v=7" />
 </head>
 <body>
 
@@ -62,7 +63,7 @@
         <div class="card hero-card">
           <div class="hero-content">
             <div class="hero-text">
-              <h1 class="hero-title">Привет,<br>я Александр Нестерюк</h1>
+              <h1 class="hero-title">Привет,<br>я Александр <span class="hero-title-gradient">Нестерюк</span></h1>
               <p class="hero-desc">Один из первых в России запустил контент-заводы — более 200 миллионов просмотров для М.Видео, Х5, SKIFMUSIC, ROCO. Руковожу командами до 130 человек. Снимал интервью с Пушным и Арией.</p>
               <div class="hero-buttons">
                 <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
@@ -86,15 +87,15 @@
       <!-- STATS -->
       <section class="section">
         <div class="stats-grid">
-          <div class="card stat-card">
+          <div class="card stat-card" data-count="200000000" data-final="200 000 000+">
             <div class="stat-number">200 000 000+</div>
             <div class="stat-label">просмотров</div>
           </div>
-          <div class="card stat-card">
+          <div class="card stat-card" data-count="50000" data-final="50 000+">
             <div class="stat-number">50 000+</div>
             <div class="stat-label">роликов</div>
           </div>
-          <div class="card stat-card">
+          <div class="card stat-card" data-count="130" data-final="130+">
             <div class="stat-number">130+</div>
             <div class="stat-label">человек в команде</div>
           </div>
@@ -128,7 +129,7 @@
               </div>
               <div class="project-mini-stats">
                 <div class="project-mini-stat">
-                  <span class="project-mini-num">110М+</span>
+                  <span class="project-mini-num">110 000 000+</span>
                   <span class="project-mini-label">просмотров</span>
                 </div>
                 <div class="project-mini-stat">
@@ -146,10 +147,6 @@
               </div>
               <a href="projects/privery.html" class="btn btn-secondary project-more-btn">Подробнее →</a>
             </div>
-            <div class="project-card-h-photo">
-              <img src="images/privery-card.jpg" alt="Privery — награда" class="project-card-img" loading="lazy"
-                onerror="this.parentElement.classList.add('photo-placeholder')" />
-            </div>
           </div>
 
           <!-- SKIFMUSIC -->
@@ -165,7 +162,7 @@
               <p class="project-h-desc">Топ-1 сеть музыкальных магазинов. Создал отдел маркетинга с нуля, вывел YouTube в лидеры индустрии.</p>
               <div class="project-mini-stats">
                 <div class="project-mini-stat">
-                  <span class="project-mini-num">90М+</span>
+                  <span class="project-mini-num">90 000 000+</span>
                   <span class="project-mini-label">просмотров</span>
                 </div>
                 <div class="project-mini-stat">
@@ -182,10 +179,6 @@
                 </div>
               </div>
               <a href="projects/skifmusic.html" class="btn btn-secondary project-more-btn">Подробнее →</a>
-            </div>
-            <div class="project-card-h-photo">
-              <img src="images/skifmusic-card.jpg" alt="SKIFMUSIC — серебряная кнопка" class="project-card-img" loading="lazy"
-                onerror="this.parentElement.classList.add('photo-placeholder')" />
             </div>
           </div>
 
@@ -222,7 +215,6 @@
         <div class="card about-card">
 
           <div class="about-bio">
-            <p class="about-hi">Привет! Я Александр.</p>
             <p>Строю контент-заводы. Первый запустил в SKIFMUSIC в 2020 году — тогда это ещё так не называлось. Сейчас это тренд, а тогда просто нужно было сделать так, чтобы работало.</p>
             <p>За это время: 200+ млн просмотров, 50 000+ роликов, серебряная кнопка YouTube, команды до 130 человек.</p>
             <p>Живу в Москве. Работаю с теми, кому нужен результат в цифрах.</p>
@@ -323,6 +315,43 @@
       void funBtn.offsetWidth;
       funBtn.classList.add('shake');
     });
+
+    // Count-up animation for stats
+    (function() {
+      const cards = document.querySelectorAll('.stat-card[data-count]');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          observer.unobserve(entry.target);
+          const el = entry.target.querySelector('.stat-number');
+          const target = parseInt(entry.target.dataset.count);
+          const finalText = entry.target.dataset.final;
+          const duration = 1800;
+          const startTime = performance.now();
+          function format(n) {
+            if (target >= 1000000) {
+              const m = Math.round(n / 1000000);
+              return m + ' 000 000+';
+            } else if (target >= 1000) {
+              const k = Math.floor(n / 1000);
+              const r = String(Math.round(n % 1000)).padStart(3, '0');
+              return k + ' ' + r + '+';
+            }
+            return Math.round(n) + '+';
+          }
+          function tick(now) {
+            const t = Math.min((now - startTime) / duration, 1);
+            const ease = 1 - Math.pow(1 - t, 3);
+            el.textContent = format(ease * target);
+            if (t < 1) requestAnimationFrame(tick);
+            else el.textContent = finalText;
+          }
+          el.textContent = '0';
+          requestAnimationFrame(tick);
+        });
+      }, { threshold: 0.6 });
+      cards.forEach(el => observer.observe(el));
+    })();
 
     // Scroll to top
     const scrollTopBtn = document.getElementById('scrollTopBtn');

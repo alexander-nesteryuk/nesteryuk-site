@@ -39,18 +39,15 @@
 
       <div class="inner-section">
         <h2>Фото</h2>
-        <div class="gallery-grid">
-          <div class="gallery-item">
-            <img src="../../images/grace.jpg" alt="Грейс" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🐕</div><span>Грейс</span>';" />
-          </div>
-          <div class="gallery-item">
-            <img src="../../images/grace-training.jpg" alt="Дрессировка" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🎾</div><span>Дрессировка</span>';" />
-          </div>
-          <div class="gallery-item">
-            <img src="../../images/grace-ball.jpg" alt="Грейс с мячом" loading="lazy"
-              onerror="this.parentElement.classList.add('gallery-placeholder'); this.remove(); this.parentElement.innerHTML='<div class=\'gallery-placeholder-icon\'>🐾</div><span>С мячом</span>';" />
+        <div class="photo-marquee">
+          <div class="photo-marquee-track" id="graceTrack">
+            <img class="photo-marquee-img" src="../../images/grace.jpg" alt="Грейс" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/grace-training.jpg" alt="Дрессировка" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/grace-ball.jpg" alt="Грейс с мячом" loading="lazy" />
+            <!-- duplicates for seamless loop -->
+            <img class="photo-marquee-img" src="../../images/grace.jpg" alt="Грейс" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/grace-training.jpg" alt="Дрессировка" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/grace-ball.jpg" alt="Грейс с мячом" loading="lazy" />
           </div>
         </div>
       </div>
