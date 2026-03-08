@@ -886,8 +886,10 @@ a {
 
 .gallery-item img {
   width: 100%;
-  height: 200px;
+  aspect-ratio: 16 / 9;
+  height: auto;
   object-fit: cover;
+  display: block;
   transition: transform 0.50s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
@@ -898,7 +900,7 @@ a {
 .gallery-placeholder {
   background: linear-gradient(135deg, var(--border) 0%, var(--bg-card) 100%);
   border-radius: var(--radius-sm);
-  height: 200px;
+  aspect-ratio: 16 / 9;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1064,6 +1066,7 @@ a {
 .photo-marquee-img {
   height: 240px;
   width: auto;
+  max-width: none; /* prevents global img{max-width:100%} from squashing horizontal layout */
   border-radius: var(--radius-sm);
   flex-shrink: 0;
   transition: transform 0.35s ease;
