@@ -6,7 +6,7 @@
   <meta name="description" content="Грейс — собака Александра Нестерюка. 20 команд, 1 мяч." />
   <title>Грейс — Нестерюк</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="../../style.css?v=6" />
+  <link rel="stylesheet" href="../../style.css?v=9" />
 </head>
 <body>
 
@@ -39,17 +39,7 @@
 
       <div class="inner-section">
         <h2>Фото</h2>
-        <div class="photo-marquee">
-          <div class="photo-marquee-track" id="graceTrack">
-            <img class="photo-marquee-img" src="../../images/grace.jpg" alt="Грейс" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/grace-training.jpg" alt="Дрессировка" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/grace-ball.jpg" alt="Грейс с мячом" loading="lazy" />
-            <!-- duplicates for seamless loop -->
-            <img class="photo-marquee-img" src="../../images/grace.jpg" alt="Грейс" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/grace-training.jpg" alt="Дрессировка" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/grace-ball.jpg" alt="Грейс с мячом" loading="lazy" />
-          </div>
-        </div>
+        <img class="featured-photo" src="../../images/grace.jpg" alt="Грейс" loading="lazy" />
       </div>
 
       <div class="bottom-nav">
@@ -96,6 +86,27 @@
     scrollTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // WOW effects
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const innerHeader = document.querySelector('.inner-header');
+    if (innerHeader && !prefersReducedMotion) {
+      setTimeout(() => innerHeader.classList.add('visible'), 80);
+    } else if (innerHeader) {
+      innerHeader.classList.add('visible');
+    }
+
+    const revealEls = document.querySelectorAll('.inner-section, .photo-marquee');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    revealEls.forEach(el => revealObs.observe(el));
   </script>
 </body>
 </html>

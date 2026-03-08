@@ -6,7 +6,7 @@
   <meta name="description" content="Кожевенное дело — хобби Александра Нестерюка. Шью сумки вручную." />
   <title>Кожевенное дело — Нестерюк</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <link rel="stylesheet" href="../../style.css?v=6" />
+  <link rel="stylesheet" href="../../style.css?v=9" />
 </head>
 <body>
 
@@ -43,17 +43,13 @@
           <div class="photo-marquee-track">
             <img class="photo-marquee-img" src="../../images/bag-full.jpg" alt="Кожаная сумка" loading="lazy" />
             <img class="photo-marquee-img" src="../../images/bag-hands.jpg" alt="Сумка в руках" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/bag-detail.jpg" alt="Детали" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/bag-detail.jpg" alt="Детали сумки" loading="lazy" />
             <img class="photo-marquee-img" src="../../images/bag-open.jpg" alt="Открытая сумка" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/leather-process.jpg" alt="Процесс работы" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/leather-tools.jpg" alt="Инструменты" loading="lazy" />
             <!-- duplicates for seamless loop -->
             <img class="photo-marquee-img" src="../../images/bag-full.jpg" alt="Кожаная сумка" loading="lazy" />
             <img class="photo-marquee-img" src="../../images/bag-hands.jpg" alt="Сумка в руках" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/bag-detail.jpg" alt="Детали" loading="lazy" />
+            <img class="photo-marquee-img" src="../../images/bag-detail.jpg" alt="Детали сумки" loading="lazy" />
             <img class="photo-marquee-img" src="../../images/bag-open.jpg" alt="Открытая сумка" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/leather-process.jpg" alt="Процесс работы" loading="lazy" />
-            <img class="photo-marquee-img" src="../../images/leather-tools.jpg" alt="Инструменты" loading="lazy" />
           </div>
         </div>
       </div>
@@ -102,6 +98,27 @@
     scrollTopBtn.addEventListener('click', () => {
       window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // WOW effects
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const innerHeader = document.querySelector('.inner-header');
+    if (innerHeader && !prefersReducedMotion) {
+      setTimeout(() => innerHeader.classList.add('visible'), 80);
+    } else if (innerHeader) {
+      innerHeader.classList.add('visible');
+    }
+
+    const revealEls = document.querySelectorAll('.inner-section, .photo-marquee');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          revealObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.06 });
+    revealEls.forEach(el => revealObs.observe(el));
   </script>
 </body>
 </html>

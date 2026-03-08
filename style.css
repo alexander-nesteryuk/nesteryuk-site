@@ -716,6 +716,49 @@ a {
 /* Inner section with text */
 .inner-section {
   margin: 40px 0;
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.inner-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Inner header entrance */
+.inner-header {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.65s ease, transform 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.inner-header.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Single featured photo (when only 1 image available) */
+.featured-photo {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: var(--radius-sm);
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.featured-photo:hover {
+  transform: scale(1.01);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner-header,
+  .inner-section {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }
 
 .body-text p {
@@ -994,9 +1037,17 @@ a {
 .photo-marquee {
   overflow: hidden;
   width: 100%;
+  opacity: 0;
+  transform: scale(0.97);
+  transition: opacity 0.7s ease, transform 0.7s ease;
   border-radius: var(--radius-sm);
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
   mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+}
+
+.photo-marquee.revealed {
+  opacity: 1;
+  transform: scale(1);
 }
 
 .photo-marquee-track {
