@@ -40,7 +40,7 @@
     "knowsAbout": ["Контент-стратегия", "Контент-заводы", "UGC", "YouTube-маркетинг", "Influence-маркетинг", "E-commerce"]
   }
   </script>
-  <link rel="stylesheet" href="style.css?v=7" />
+  <link rel="stylesheet" href="style.css?v=9" />
 </head>
 <body>
 
@@ -426,8 +426,14 @@
           }
         }
       });
-    }, { threshold: 0.08 });
+    }, { threshold: 0.01 });
     sections.forEach(section => revealObserver.observe(section));
+
+    // Safety fallback: reveal everything after 1.2s in case observer didn't fire
+    setTimeout(() => {
+      sections.forEach(s => s.classList.add('revealed'));
+      document.querySelectorAll('.skill').forEach(s => s.classList.add('skill-visible'));
+    }, 1200);
   </script>
 
 </body>
