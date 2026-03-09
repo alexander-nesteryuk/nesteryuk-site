@@ -261,54 +261,74 @@
 
         /* === MOBILE FIXES === */
         @media (max-width: 640px) {
-            h1 { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
-            h2 { font-size: clamp(1.4rem, 7vw, 2.2rem) !important; }
-            .hero-gradient, .hero-gradient-privery, .hero-gradient-skif,
-            .hero-gradient-skif-detail, .hero-gradient-roco,
-            .hero-gradient-leather, .hero-gradient-bike, .hero-gradient-grace {
-                min-height: auto;
-            }
-            /* Hero section padding */
-            section.hero-gradient { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
-            /* Main padding */
-            main { padding-left: 1rem !important; padding-right: 1rem !important; padding-top: 6rem !important; }
-            /* Sections spacing */
-            main > .space-y-24 { gap: 3rem; }
-            /* Hero photo */
-            .hero-photo-wrap { height: 300px !important; }
-            /* Stat grid — 2 cols on mobile */
-            section#numbers .grid { grid-template-columns: repeat(2, 1fr) !important; }
-            /* Skills grid */
-            section#skills .grid { grid-template-columns: 1fr !important; }
-            /* How I work grid */
-            section .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
-            /* Management scale */
+            /* Main padding and spacing */
+            main { padding-left: 1rem !important; padding-right: 1rem !important; padding-top: 5.5rem !important; }
+
+            /* Hero section */
+            .hero-gradient { padding: 1.75rem 1.25rem !important; border-radius: 24px !important; gap: 2rem !important; }
+            /* Hero h1 size */
+            .hero-gradient h1 { font-size: clamp(2.2rem, 9vw, 3rem) !important; margin-bottom: 1rem !important; }
+            /* Hero photo — make shorter on mobile */
+            .hero-gradient > div:last-child { height: 280px !important; width: 100% !important; }
+            /* Badge "Открыт к проектам" spacing */
+            .hero-gradient .mb-12 { margin-bottom: 1.5rem !important; }
+            .hero-gradient .mb-8 { margin-bottom: 0.75rem !important; }
+
+            /* Numbers section — 2 cols */
+            #numbers .grid { grid-template-columns: repeat(2, 1fr) !important; gap: 0.75rem !important; }
+            #numbers .min-h-\[160px\] { min-height: 120px !important; }
+            #numbers .text-\[36px\] { font-size: 1.75rem !important; }
+
+            /* Clients — 2 cols */
+            #clients .grid { grid-template-columns: repeat(2, 1fr) !important; }
+            #clients { padding: 1.5rem 1.25rem !important; border-radius: 24px !important; }
+
+            /* Cases — 1 col */
+            #projects .grid { grid-template-columns: 1fr !important; }
+
+            /* Skills — 1 col */
+            #skills .grid { grid-template-columns: 1fr !important; }
+            #skills .rounded-\[28px\] { padding: 1.25rem !important; }
+
+            /* Not only content dark card */
+            .bg-brand-card { padding: 1.75rem 1.25rem !important; border-radius: 24px !important; }
+            .bg-brand-card .grid { grid-template-columns: 1fr !important; }
+            .bg-brand-card .grid-cols-2 { grid-template-columns: 1fr !important; }
+
+            /* Management scale — 2 cols */
             section .grid.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+            .text-\[44px\] { font-size: 2rem !important; }
+
+            /* How I work — 1 col */
+            section .grid.md\:grid-cols-2.lg\:grid-cols-3 { grid-template-columns: 1fr !important; }
+
+            /* About card */
+            .about-card { padding: 1.75rem 1.25rem !important; border-radius: 24px !important; }
+            .about-card .grid { grid-template-columns: 1fr !important; }
+            /* Hobby cards height */
+            .hobby-card { height: auto !important; min-height: 130px !important; }
+
             /* CTA section */
             .cta-gradient { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
-            /* About card */
-            .about-card { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
-            /* Clients grid */
-            section#clients .grid { grid-template-columns: repeat(2, 1fr) !important; }
-            /* Cases grid */
-            section#projects .grid { grid-template-columns: 1fr !important; }
-            /* Hobby cards */
-            .hobby-card { height: auto !important; min-height: 140px; }
+            .cta-gradient h2 { font-size: clamp(1.8rem, 8vw, 2.5rem) !important; }
+            .cta-gradient .absolute.top-1\/2 { display: none !important; }
+
             /* Back to top */
             #back-to-top { bottom: 16px; right: 16px; width: 44px; height: 44px; }
-            /* Hide scroll arrow in CTA */
-            .cta-gradient > button.absolute { display: none; }
-            /* Buttons wrap */
+
+            /* Buttons */
             .flex-wrap { gap: 0.75rem !important; }
-            /* Large stat numbers */
-            .text-\[44px\] { font-size: 2.25rem !important; }
-            .text-\[36px\] { font-size: 1.875rem !important; }
-            /* Ensure images don't overflow */
-            img { max-width: 100%; height: auto; }
-            /* Project hero sections */
-            section[class*="rounded-\[40px\]"] { padding: 1.5rem 1.25rem !important; border-radius: 24px !important; }
-            /* Hobby hero cards */
-            .hobby-hero-card { min-height: auto !important; }
+
+            /* General images */
+            img { max-width: 100%; }
+
+            /* Project pages hero sections */
+            .pt-40 { padding-top: 9rem !important; }
+        }
+        /* Tablet fixes */
+        @media (max-width: 768px) {
+            .grid.lg\:grid-cols-3 { grid-template-columns: 1fr !important; }
+            .grid.lg\:grid-cols-2 { grid-template-columns: 1fr !important; }
         }
     </style>
 </head>
@@ -359,7 +379,7 @@
                         <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="bg-brand-blue hover:bg-blue-500 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
                             Написать в Telegram
                         </a>
-                        <a href="cv.pdf" download class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                        <a href="cv.html" target="_blank" class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
                             Скачать CV
                         </a>
                         <button id="funny-btn" onclick="nextFunnyMsg()" class="funny-btn text-slate-300 hover:text-white font-medium transition-colors border border-white/20 hover:border-white/40 px-5 py-3.5 rounded-full text-sm">Кнопка</button>
@@ -762,7 +782,7 @@
                 <p class="text-slate-400 text-xs">Сделано моими руками под чутким надзором Грейс 🐕</p>
                 <div class="flex items-center gap-6">
                     <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors">@s_nesteryuk</a>
-                    <a href="cv.pdf" download class="text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors">Скачать CV</a>
+                    <a href="cv.html" target="_blank" class="text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors">Скачать CV</a>
                 </div>
             </div>
         </footer>
@@ -1220,7 +1240,7 @@
                             <div class="float-anim absolute bottom-[8%] left-[8%] backdrop-blur-xl rounded-[20px] px-4 py-3 shadow-xl" style="background:rgba(255,255,255,0.07);border:1px solid rgba(217,119,6,0.3)">
                                 <div class="flex items-center gap-2">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-dasharray="4 4"></path></svg>
-                                    <span class="text-xs font-bold" style="color:#fde68a">Saddle stitch</span>
+                                    <span class="text-xs font-bold" style="color:#fde68a">50+ изделий</span>
                                 </div>
                             </div>
                         </div>
@@ -1233,19 +1253,19 @@
                         <div class="text-slate-500 text-sm font-medium">ручная работа</div>
                     </div>
                     <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm">
-                        <div class="text-3xl font-black text-slate-900 mb-1">Saddle</div>
-                        <div class="text-slate-500 text-sm font-medium">седельный шов</div>
+                        <div class="text-3xl font-black text-slate-900 mb-1">50+</div>
+                        <div class="text-slate-500 text-sm font-medium">изделий</div>
                     </div>
                     <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm">
-                        <div class="text-3xl font-black text-slate-900 mb-1">под заказ</div>
-                        <div class="text-slate-500 text-sm font-medium">сумки и кошельки</div>
+                        <div class="text-xl font-black text-slate-900 mb-1">вложена любовь</div>
+                        <div class="text-slate-500 text-sm font-medium">и...немного нервов :)</div>
                     </div>
                 </div>
                 <section class="grid lg:grid-cols-12 gap-12 lg:gap-20">
                     <div class="lg:col-span-7 flex flex-col justify-center">
                         <div class="prose prose-lg prose-slate max-w-none text-[19px] leading-[1.8] text-slate-600">
-                            <p class="mb-6">Всё началось с маленькой сумки. Захотел понять, как делают вещи, которые живут десятилетиями — не одноразово, а на совесть. Купил инструменты, нашёл кожу, посмотрел видео.</p>
-                            <p>Сейчас шью под заказ: сумки, кошельки, обложки для документов. Каждая вещь — единственная в своём роде.</p>
+                            <p class="mb-6">Всё началось с маленького кошелька в 2022 году. Захотел понять, как делают вещи, которые живут десятилетиями — не одноразово, а на совесть. Вслепую купил инструменты, нашёл кожу, посмотрел видео. Десятки видео. Нет, сотни.</p>
+                            <p>Сейчас шью для себя: сумки, кошельки, обложки для документов. Каждая вещь — единственная в своём роде. Кожевенное ремесло напоминает мне, что большие результаты достигаются только маленькими шагами.</p>
                         </div>
                     </div>
                     <div class="lg:col-span-5 space-y-4">
@@ -1370,7 +1390,7 @@
                                 🐾 Мой напарник
                             </div>
                             <h1 class="text-5xl lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">Грейс</h1>
-                            <p class="text-lg text-slate-300 font-light max-w-lg leading-relaxed">20 команд, бесконечная энергия и идеальное послушание.<br>Спортивная собака, которая учит меня лидерству.</p>
+                            <p class="text-lg text-slate-300 font-light max-w-lg leading-relaxed">20 команд, бесконечная энергия и идеальное послушание.<br>Собака-друг, которая многому меня научила.</p>
                         </div>
                         <!-- Right illustration: CSS-animated paw icon -->
                         <div class="relative flex-shrink-0 w-full lg:w-[380px] h-[240px] lg:h-[280px] flex items-center justify-center pr-0 lg:pr-8">
@@ -1394,7 +1414,7 @@
                             <div class="float-anim absolute bottom-[8%] left-[6%] backdrop-blur-xl rounded-[20px] px-4 py-3 shadow-xl" style="background:rgba(255,255,255,0.07);border:1px solid rgba(244,63,94,0.3)">
                                 <div class="flex items-center gap-2">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
-                                    <span class="text-xs font-bold" style="color:#fda4af">KKCS порода</span>
+                                    <span class="text-xs font-bold" style="color:#fda4af">Кавалер кинг-чарльз-спаниель</span>
                                 </div>
                             </div>
                         </div>
@@ -1407,7 +1427,7 @@
                         <div class="text-slate-500 text-sm font-medium">команд в арсенале</div>
                     </div>
                     <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm">
-                        <div class="text-3xl font-black text-slate-900 mb-1">KKCS</div>
+                        <div class="text-base font-black text-slate-900 mb-1 leading-tight">Кавалер кинг-<br>чарльз-спаниель</div>
                         <div class="text-slate-500 text-sm font-medium">порода</div>
                     </div>
                     <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm">
@@ -1418,7 +1438,7 @@
                 <section class="grid lg:grid-cols-12 gap-12 lg:gap-20">
                     <div class="lg:col-span-7 flex flex-col justify-center">
                         <div class="prose prose-lg prose-slate max-w-none text-[19px] leading-[1.8] text-slate-600">
-                            <p class="mb-6">Грейс — это не просто собака, это напарник. Мы занимаемся дрессировкой и спортом вместе. 20 команд в арсенале — базовые и сложные. Кавалер Кинг Чарльз Спаниель.</p>
+                            <p class="mb-6">Грейс — это не просто собака, это друг. Кавалер кинг-чарльз-спаниель. 20 команд в арсенале — базовые и сложные. Собака, которая многому меня научила.</p>
                         </div>
                     </div>
                     <div class="lg:col-span-5 space-y-4">

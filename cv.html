@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV — Александр Нестерюк</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            dark: '#0B1221',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #E2E8F0;
+            -webkit-font-smoothing: antialiased;
+        }
+        .hero-gradient {
+            background: linear-gradient(135deg, #0B1120 0%, #17243E 100%);
+        }
+        .a4-container {
+            width: 794px;
+            min-height: 1123px;
+            background-color: #F8F9FA;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        @media print {
+            @page {
+                size: A4 portrait;
+                margin: 0;
+            }
+            body {
+                background-color: #F8F9FA !important;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            .a4-container {
+                width: 100%;
+                min-height: 100vh;
+                box-shadow: none !important;
+                margin: 0;
+                padding: 1.5rem !important;
+            }
+            .shadow-sm {
+                box-shadow: none !important;
+                border-color: #E2E8F0 !important;
+            }
+            .page-break-avoid {
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+            .no-print { display: none !important; }
+        }
+        @media (max-width: 840px) {
+            body { padding: 0 !important; }
+            .a4-container {
+                width: 100% !important;
+                min-height: auto;
+                box-shadow: none;
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col items-center py-8 font-sans text-slate-900">
+
+    <!-- Print button -->
+    <div class="no-print mb-4 flex gap-3">
+        <button onclick="window.print()" class="bg-slate-800 hover:bg-slate-700 text-white px-6 py-2.5 rounded-full font-semibold text-sm transition-colors flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            Печать / Сохранить PDF
+        </button>
+        <a href="index.html" class="border border-slate-300 hover:border-slate-500 text-slate-600 px-6 py-2.5 rounded-full font-semibold text-sm transition-colors">
+            ← На сайт
+        </a>
+    </div>
+
+    <div class="a4-container p-6 flex flex-col gap-4 box-border relative mx-auto">
+
+        <!-- HEADER -->
+        <header class="hero-gradient rounded-[20px] p-5 flex items-center justify-between gap-5 relative overflow-hidden page-break-avoid shrink-0 border border-slate-800">
+
+            <!-- Photo -->
+            <div class="rounded-[16px] overflow-hidden border-2 border-white/20 shrink-0" style="width:120px; height:120px; min-width:120px; box-shadow: 0 4px 16px rgba(0,0,0,0.4); background: #1e2d45;">
+                <img src="images/hero.jpg" alt="Александр Нестерюк" style="display:block; width:120px; height:120px; object-fit:cover; object-position:top;" loading="eager">
+            </div>
+
+            <!-- Info -->
+            <div class="flex-1 z-10">
+                <h1 class="text-2xl font-black text-white uppercase tracking-tight mb-1 leading-none">Нестерюк Александр</h1>
+                <h2 class="text-sm font-medium text-blue-400 mb-2.5">Директор по контенту | Head of Content</h2>
+
+                <div class="flex flex-wrap items-center gap-x-4 gap-y-1.5 text-slate-300 text-[11px] font-medium">
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        Москва
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
+                        @s_nesteryuk
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"></rect><path d="M12 18h.01"></path></svg>
+                        +7 (927) 266-38-78
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-slate-400"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                        nesteryuk.com
+                    </div>
+                </div>
+            </div>
+
+            <!-- QR Code -->
+            <div class="w-[84px] h-[84px] rounded-[12px] overflow-hidden border-2 border-white/20 shrink-0" style="box-shadow: 0 4px 16px rgba(0,0,0,0.4); background: #fff;">
+                <img src="images/qr-telegram.png" alt="QR — @s_nesteryuk в Telegram" style="display:block; width:100%; height:100%; image-rendering: pixelated;">
+            </div>
+        </header>
+
+        <!-- Personal + Skills -->
+        <div class="grid grid-cols-2 gap-4 page-break-avoid">
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm flex flex-col">
+                <h3 class="font-bold text-slate-900 text-sm mb-2.5">Личные данные</h3>
+                <p class="text-[12px] text-slate-600 leading-[1.6]">
+                    Прошёл путь от помощника SMM-специалиста до директора по контенту. Начинал с написания постов в группы, а сегодня управляю командами, влияю на развитие бренда и являюсь мастером спорта по креативу :)
+                </p>
+            </div>
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm flex flex-col">
+                <h3 class="font-bold text-slate-900 text-sm mb-2.5">Ключевые навыки</h3>
+                <ul class="text-[12px] text-slate-600 leading-[1.5] space-y-1.5">
+                    <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-[5px] shrink-0"></div><span>Видение и коммуникационная стратегия бизнеса</span></li>
+                    <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-[5px] shrink-0"></div><span>Работа со смыслами, креативное производство, насмотренность в дизайне, копирайте и видеопродакшне</span></li>
+                    <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-[5px] shrink-0"></div><span>Digital и geo-маркетинг; AI, SEO, SMM, influence</span></li>
+                    <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-[5px] shrink-0"></div><span>Создание, управление и координация кросс-функциональных команд</span></li>
+                    <li class="flex items-start gap-2"><div class="w-1.5 h-1.5 rounded-full bg-brand-blue mt-[5px] shrink-0"></div><span>Высокие навыки коммуникаций и переговоров</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="grid grid-cols-4 gap-3 page-break-avoid">
+            <div class="bg-white rounded-[16px] p-5 border border-slate-200/60 shadow-sm flex flex-col justify-center items-center text-center">
+                <div class="font-black text-brand-blue tracking-tighter mb-1 leading-none" style="font-size:17px;">200 000 000<span class="text-amber-500">+</span></div>
+                <div class="text-[10px] text-slate-500 font-medium leading-snug uppercase tracking-wide">просмотров<br>суммарно</div>
+            </div>
+            <div class="bg-white rounded-[16px] p-5 border border-slate-200/60 shadow-sm flex flex-col justify-center items-center text-center">
+                <div class="text-3xl font-black text-brand-blue tracking-tighter mb-1 leading-none">50 000<span class="text-amber-500">+</span></div>
+                <div class="text-[10px] text-slate-500 font-medium leading-snug uppercase tracking-wide">единиц<br>контента</div>
+            </div>
+            <div class="bg-white rounded-[16px] p-5 border border-slate-200/60 shadow-sm flex flex-col justify-center items-center text-center">
+                <div class="text-3xl font-black text-brand-blue tracking-tighter mb-1 leading-none">130<span class="text-amber-500">+</span></div>
+                <div class="text-[10px] text-slate-500 font-medium leading-snug uppercase tracking-wide">человек<br>в управлении</div>
+            </div>
+            <div class="bg-white rounded-[16px] p-5 border border-slate-200/60 shadow-sm flex flex-col justify-center items-center text-center">
+                <div class="text-3xl font-black text-brand-blue tracking-tighter mb-1 leading-none">110<span class="text-amber-500">+</span></div>
+                <div class="text-[10px] text-slate-500 font-medium leading-snug uppercase tracking-wide">креаторов<br>в системе</div>
+            </div>
+        </div>
+
+        <!-- Silver Button -->
+        <div class="rounded-[16px] p-4 flex items-center gap-4 border page-break-avoid" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%); border-color: rgba(192,192,192,0.4); box-shadow: 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.1), 0 4px 16px rgba(0,0,0,0.3);">
+            <div class="w-14 h-14 rounded-xl flex items-center justify-center shrink-0" style="background: linear-gradient(135deg, #C0C0C0 0%, #E8E8E8 40%, #A8A8A8 70%, #D0D0D0 100%); box-shadow: 0 2px 8px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.6);">
+                <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-8 h-8">
+                    <rect width="40" height="40" rx="8" fill="url(#btnGradTop)"></rect>
+                    <polygon points="20,8 23.5,16.5 33,17.5 26.5,23.5 28.5,33 20,28 11.5,33 13.5,23.5 7,17.5 16.5,16.5" fill="white" opacity="0.9"></polygon>
+                    <defs><linearGradient id="btnGradTop" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="#E8E8E8"></stop><stop offset="50%" stop-color="#B0B0B0"></stop><stop offset="100%" stop-color="#909090"></stop></linearGradient></defs>
+                </svg>
+            </div>
+            <div>
+                <div class="text-[13px] font-black tracking-wide" style="color: #E0E0E0; text-shadow: 0 1px 2px rgba(0,0,0,0.5);">🥈 Серебряная кнопка YouTube</div>
+                <div class="text-[11px] font-semibold mt-0.5" style="color: #A0A8B8;">SKIFMUSIC — за системный рост канала с 19К до 144К подписчиков</div>
+            </div>
+        </div>
+
+        <!-- Experience heading -->
+        <div class="flex items-center gap-3 mt-1 mb-1 page-break-avoid">
+            <div class="w-[5px] h-[22px] bg-brand-blue rounded-full"></div>
+            <h2 class="text-lg font-bold text-slate-900 tracking-tight">Опыт работы</h2>
+        </div>
+
+        <div class="flex flex-col gap-3">
+
+            <!-- Privery -->
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm page-break-avoid">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                        <h3 class="text-[15px] font-black text-slate-900 tracking-tight mb-0.5">Privery</h3>
+                        <p class="text-[13px] font-medium text-slate-700 mb-1">Директор по контенту / Head of Content</p>
+                        <p class="text-[11px] text-slate-500 leading-tight">Privery – первое креативное агентство полного цикла по работе с контентом и блогерами</p>
+                    </div>
+                    <span class="bg-blue-50 text-brand-blue text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shrink-0 border border-blue-100">Февраль 2025 — н.в.</span>
+                </div>
+                <ul class="space-y-1.5 text-[12px] text-slate-600">
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>С нуля организовал производство 33 420 роликов за 55 дней (включая 7290 уникальных с CPV 0,4₽);</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>Масштабировал команду до 130+ сотрудников: создал «контент-завод» на базе UGC/EGC-креаторов;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>Добился роста просмотров с 0 до 79 млн при стабильном недельном приросте 30–40% за 55 дней;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>Организовал работу 110+ активных креаторов: обучение, контроль качества, сценарии, KPI;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>Настроил систему массового выпуска коротких видео на 6 платформах;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-brand-blue mt-[6px] shrink-0"></div><p>Повысил конверсию с роликов до 10% на сайт заказчика.</p></li>
+                </ul>
+            </div>
+
+            <!-- ROCO Coffee -->
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm page-break-avoid">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                        <h3 class="text-[15px] font-black text-slate-900 tracking-tight mb-0.5">ROCO Coffee</h3>
+                        <p class="text-[13px] font-medium text-slate-700">Директор по digital-маркетингу и контенту</p>
+                    </div>
+                    <span class="bg-orange-50 text-orange-600 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shrink-0 border border-orange-100">Ноябрь 2025 — н.в., внешний эксперт</span>
+                </div>
+                <ul class="space-y-1.5 text-[12px] text-slate-600">
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-orange-500 mt-[6px] shrink-0"></div><p>Вывел бренд на Wildberries с нуля;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-orange-500 mt-[6px] shrink-0"></div><p>Увеличил Telegram-канал до 18 000 подписчиков за 3 месяца;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-orange-500 mt-[6px] shrink-0"></div><p>Запустил работу с 50+ блогерами;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-orange-500 mt-[6px] shrink-0"></div><p>Управлял рекламным бюджетом 10+ млн ₽;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-orange-500 mt-[6px] shrink-0"></div><p>Добился роста активных покупателей в 3 раза.</p></li>
+                </ul>
+            </div>
+
+            <!-- SKIFMUSIC -->
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm page-break-avoid">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                        <h3 class="text-[15px] font-black text-slate-900 tracking-tight mb-0.5">SKIFMUSIC</h3>
+                        <p class="text-[13px] font-medium text-slate-700 mb-1">Head of Content / Директор по контенту и digital-маркетингу</p>
+                        <p class="text-[11px] text-slate-500 leading-tight">Крупнейшая топ-1 сеть музыкальных магазинов. Рост сети с 3 до 35 магазинов.</p>
+                    </div>
+                    <span class="bg-violet-50 text-violet-600 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shrink-0 border border-violet-100">Март 2020 — Октябрь 2024</span>
+                </div>
+                <ul class="space-y-1.5 text-[12px] text-slate-600">
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>Создал с нуля отдел маркетинга, добился стремительного роста числа лидов и выручки;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>Посещаемость сайта 80 000 → 312 000 посетителей;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>YouTube-канал 19К → 144К, серебряная кнопка YouTube; 90+ млн просмотров;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>Запустил in-house продакшн-студию;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>Развил influence-маркетинг: блогеры от 5 тыс. до 2 млн. подписчиков;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>+4 млн ₽ выручки через geo-маркетинг;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-violet-500 mt-[6px] shrink-0"></div><p>Внедрил AI-ассистентов для SEO и копирайтинга, экономия 1 млн ₽.</p></li>
+                </ul>
+            </div>
+
+            <!-- Intop Click -->
+            <div class="bg-white rounded-[20px] p-5 border border-slate-200/60 shadow-sm page-break-avoid">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                    <div>
+                        <h3 class="text-[15px] font-black text-slate-900 tracking-tight mb-0.5">Digital-агентство Intop Click &amp; 27 HEADS</h3>
+                        <p class="text-[13px] font-medium text-slate-700">Руководитель отдела SMM / Руководитель отдела контента</p>
+                    </div>
+                    <span class="bg-slate-100 text-slate-600 text-[10px] font-bold px-3 py-1.5 rounded-lg uppercase tracking-wider shrink-0 border border-slate-200">Январь 2018 — Март 2020</span>
+                </div>
+                <ul class="space-y-1.5 text-[12px] text-slate-600">
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-slate-400 mt-[6px] shrink-0"></div><p>Реализовал более 25 проектов по недвижимости do e-com;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-slate-400 mt-[6px] shrink-0"></div><p>Создал с нуля отдел контент-маркетинга;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-slate-400 mt-[6px] shrink-0"></div><p>Руководил командой из 3 человек: SMM-специалиста и копирайтера, инфлюенс-менеджера;</p></li>
+                    <li class="flex items-start gap-2.5"><div class="w-1 h-1 rounded-full bg-slate-400 mt-[6px] shrink-0"></div><p>Участвовал в создании брендинга и айдентики компании, рост компании в х2.</p></li>
+                </ul>
+            </div>
+        </div>
+
+        <footer class="text-center pt-2 pb-1 page-break-avoid mt-auto">
+            <p class="text-[11px] text-slate-400 font-medium">© 2026 Александр Нестерюк &nbsp;•&nbsp; @s_nesteryuk &nbsp;•&nbsp; nesteryuk.com</p>
+        </footer>
+    </div>
+</body>
+</html>
