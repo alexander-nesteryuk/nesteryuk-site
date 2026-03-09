@@ -3,8 +3,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Александр Нестерюк — Head of Content</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="shortcut icon" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.png">
     <meta name="description" content="Александр Нестерюк — Head of Content. Контент-стратегия, production, команды и дистрибуция. Опыт: SKIFMUSIC, Privery, ROCO Coffee.">
     <meta name="keywords" content="Head of Content, контент-стратегия, контент-продакшн, контент-менеджер, Александр Нестерюк">
     <meta name="author" content="Александр Нестерюк">
@@ -268,8 +269,12 @@
             .hero-gradient { padding: 1.75rem 1.25rem !important; border-radius: 24px !important; gap: 2rem !important; }
             /* Hero h1 size */
             .hero-gradient h1 { font-size: clamp(2.2rem, 9vw, 3rem) !important; margin-bottom: 1rem !important; }
+            /* Hero description text — smaller on mobile */
+            .hero-gradient p.text-lg, .hero-gradient p.lg\:text-xl { font-size: 0.85rem !important; line-height: 1.6 !important; margin-bottom: 1rem !important; }
             /* Hero photo — make shorter on mobile */
-            .hero-gradient > div:last-child { height: 280px !important; width: 100% !important; }
+            .hero-gradient > div:last-child { height: auto !important; width: 100% !important; padding-bottom: 0.5rem !important; }
+            /* Levitating badge — reposition inside photo area on mobile, no animation overflow */
+            .yt-levitate { position: static !important; left: auto !important; bottom: auto !important; margin-top: 0.75rem !important; width: 100% !important; border-radius: 16px !important; padding: 0.75rem 1rem !important; animation: none !important; }
             /* Badge "Открыт к проектам" spacing */
             .hero-gradient .mb-12 { margin-bottom: 1.5rem !important; }
             .hero-gradient .mb-8 { margin-bottom: 0.75rem !important; }
@@ -396,10 +401,43 @@
                     <button onclick="showPage('page-home'); setTimeout(()=>window.location.hash='clients',10);" class="text-slate-500 hover:text-slate-900 font-medium transition-colors">Клиенты</button>
                     <button onclick="showPage('page-home'); setTimeout(()=>{document.getElementById('about').scrollIntoView({behavior:'smooth'})},100);" class="text-slate-500 hover:text-slate-900 font-medium transition-colors">Обо мне</button>
                 </nav>
-                <button onclick="showPage('page-home'); setTimeout(()=>window.location.hash='contact',10);" class="bg-brand-blue hover:bg-blue-700 text-white px-7 py-2.5 rounded-full font-semibold transition-all shadow-sm shadow-blue-500/20 active:scale-95 flex items-center gap-2">
+                <button onclick="showPage('page-home'); setTimeout(()=>window.location.hash='contact',10);" class="hidden md:flex bg-brand-blue hover:bg-blue-700 text-white px-7 py-2.5 rounded-full font-semibold transition-all shadow-sm shadow-blue-500/20 active:scale-95 items-center gap-2">
                     <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
                     Связаться
                 </button>
+                <!-- Hamburger button (mobile only) -->
+                <button id="hamburger-btn" onclick="toggleMobileMenu()" class="md:hidden w-10 h-10 flex flex-col items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white/80 hover:bg-slate-50 transition-colors" aria-label="Меню">
+                    <span class="hamburger-line w-5 h-0.5 bg-slate-700 rounded transition-all duration-300"></span>
+                    <span class="hamburger-line w-5 h-0.5 bg-slate-700 rounded transition-all duration-300"></span>
+                    <span class="hamburger-line w-5 h-0.5 bg-slate-700 rounded transition-all duration-300"></span>
+                </button>
+            </div>
+            <!-- Mobile nav dropdown -->
+            <div id="mobile-menu" class="md:hidden hidden border-t border-slate-200/60 bg-white/98 backdrop-blur-md">
+                <div class="max-w-[1400px] mx-auto px-6 py-4 flex flex-col gap-1">
+                    <button onclick="showPage('page-projects'); closeMobileMenu();" class="text-left text-slate-700 font-semibold py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path></svg>
+                        Проекты
+                    </button>
+                    <button onclick="showPage('page-home'); setTimeout(()=>window.location.hash='skills',50); closeMobileMenu();" class="text-left text-slate-700 font-semibold py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        Что умею
+                    </button>
+                    <button onclick="showPage('page-home'); setTimeout(()=>window.location.hash='clients',50); closeMobileMenu();" class="text-left text-slate-700 font-semibold py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                        Клиенты
+                    </button>
+                    <button onclick="showPage('page-home'); setTimeout(()=>{document.getElementById('about').scrollIntoView({behavior:'smooth'})},100); closeMobileMenu();" class="text-left text-slate-700 font-semibold py-3 px-4 rounded-xl hover:bg-slate-50 transition-colors flex items-center gap-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M6 20v-2a6 6 0 0 1 12 0v2"></path></svg>
+                        Обо мне
+                    </button>
+                    <div class="border-t border-slate-100 mt-2 pt-3">
+                        <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" onclick="closeMobileMenu();" class="w-full bg-brand-blue hover:bg-blue-700 text-white px-5 py-3 rounded-full font-semibold transition-all flex items-center justify-center gap-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
+                            Написать в Telegram
+                        </a>
+                    </div>
+                </div>
             </div>
         </header>
         <main class="w-full pt-32 pb-24 px-6 max-w-[1400px] mx-auto space-y-24">
@@ -1001,6 +1039,14 @@
                         </div>
                     </div>
                 </section>
+                <div class="cta-gradient rounded-[32px] p-10 text-center border border-slate-800 mt-8">
+                    <h3 class="text-2xl font-black text-white mb-3">Хотите работать вместе?</h3>
+                    <p class="text-slate-400 mb-6">Если нужна система, которая выпускает много, быстро и без просадки по качеству — давайте обсудим.</p>
+                    <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-white text-brand-blue px-8 py-3 rounded-full font-bold hover:-translate-y-0.5 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
+                        Написать в Telegram
+                    </a>
+                </div>
             </div>
             <!-- ROCO PROJECT -->
             <div id="project-content-roco" class="tab-content hidden">
@@ -1101,9 +1147,12 @@
                     </div>
                 </section>
                 <div class="cta-gradient rounded-[32px] p-10 text-center border border-slate-800">
-                    <h3 class="text-2xl font-black text-white mb-3">Нужен рост, а не имитация бурной деятельности?</h3>
+                    <h3 class="text-2xl font-black text-white mb-3">Хотите работать вместе?</h3>
                     <p class="text-slate-400 mb-6">Если вам нужен человек, который умеет собирать спрос вокруг продукта — давайте обсудим.</p>
-                    <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-blue px-8 py-3 rounded-full font-bold hover:-translate-y-0.5 transition-all">Написать в Telegram</a>
+                    <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-white text-brand-blue px-8 py-3 rounded-full font-bold hover:-translate-y-0.5 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
+                        Написать в Telegram
+                    </a>
                 </div>
             </div>
             <!-- SKIFMUSIC PROJECT -->
@@ -1223,9 +1272,12 @@
                     </div>
                 </section>
                 <div class="cta-gradient rounded-[32px] p-10 text-center border border-slate-800">
-                    <h3 class="text-2xl font-black text-white mb-3">Хотите, чтобы контент работал как актив бренда?</h3>
+                    <h3 class="text-2xl font-black text-white mb-3">Хотите работать вместе?</h3>
                     <p class="text-slate-400 mb-6">Если вам нужен контент, который не пылится на канале, а помогает расти — давайте обсудим задачу.</p>
-                    <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="bg-white text-brand-blue px-8 py-3 rounded-full font-bold hover:-translate-y-0.5 transition-all">Написать в Telegram</a>
+                    <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2.5 bg-white text-brand-blue px-8 py-3 rounded-full font-bold hover:-translate-y-0.5 transition-all">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"></path></svg>
+                        Написать в Telegram
+                    </a>
                 </div>
             </div>
         </main>
@@ -1613,14 +1665,53 @@
         }
     </script>
     <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('hamburger-btn');
+            const lines = btn.querySelectorAll('.hamburger-line');
+            const isOpen = !menu.classList.contains('hidden');
+            if (isOpen) {
+                menu.classList.add('hidden');
+                lines[0].style.transform = '';
+                lines[1].style.opacity = '';
+                lines[2].style.transform = '';
+            } else {
+                menu.classList.remove('hidden');
+                lines[0].style.transform = 'translateY(8px) rotate(45deg)';
+                lines[1].style.opacity = '0';
+                lines[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+            }
+        }
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('hamburger-btn');
+            if (!menu) return;
+            menu.classList.add('hidden');
+            const lines = btn ? btn.querySelectorAll('.hamburger-line') : [];
+            lines.forEach(l => { l.style.transform = ''; l.style.opacity = ''; });
+        }
+
         const funnyMsgs = [
             'Кнопка',
             'Привет, HR! 👋',
             'Хорош, да?',
             'Оффер? 😊',
             'Спасибо!',
-            'Пишите!',
-            'Ну всё 👇'
+            'Нажми ещё раз',
+            'Серьёзно?',
+            'Ладно, молодец',
+            'Стратег 👀',
+            'КПИ в порядке',
+            'Дедлайн — вчера',
+            'Ещё кликаешь?',
+            'Это уже 10 раз',
+            'Ты точно HR?',
+            'Оффер или нет?',
+            'Пиши в Telegram',
+            'Ну всё 👇',
+            'Я жду ☎️',
+            'Контент сам себя не сделает',
+            'Окей, уговорил'
         ];
         let funnyIdx = 0;
         function nextFunnyMsg() {
