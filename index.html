@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html lang="ru" class="scroll-smooth"><head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Александр Нестерюк — Head of Content</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="shortcut icon" href="favicon.svg">
+    <meta name="description" content="Александр Нестерюк — Head of Content. Контент-стратегия, production, команды и дистрибуция. Опыт: SKIFMUSIC, Privery, ROCO Coffee.">
+    <meta name="keywords" content="Head of Content, контент-стратегия, контент-продакшн, контент-менеджер, Александр Нестерюк">
+    <meta name="author" content="Александр Нестерюк">
+    <meta property="og:title" content="Александр Нестерюк — Head of Content">
+    <meta property="og:description" content="Контент-стратегия, production, команды и дистрибуция.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://nesteryuk.com">
+    <meta name="robots" content="index, follow">
     <script src="https://cdn.tailwindcss.com/3.4.17"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -248,6 +258,58 @@
         .icon-dog-head { animation: pawBounce 2s ease-in-out infinite; }
         .icon-tail { animation: dogWag 0.8s ease-in-out infinite; transform-origin: 140px 160px; }
         .icon-guitar { animation: guitarSway 3s ease-in-out infinite; transform-origin: center bottom; }
+
+        /* === MOBILE FIXES === */
+        @media (max-width: 640px) {
+            h1 { font-size: clamp(2rem, 10vw, 3.5rem) !important; }
+            h2 { font-size: clamp(1.4rem, 7vw, 2.2rem) !important; }
+            .hero-gradient, .hero-gradient-privery, .hero-gradient-skif,
+            .hero-gradient-skif-detail, .hero-gradient-roco,
+            .hero-gradient-leather, .hero-gradient-bike, .hero-gradient-grace {
+                min-height: auto;
+            }
+            /* Hero section padding */
+            section.hero-gradient { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
+            /* Main padding */
+            main { padding-left: 1rem !important; padding-right: 1rem !important; padding-top: 6rem !important; }
+            /* Sections spacing */
+            main > .space-y-24 { gap: 3rem; }
+            /* Hero photo */
+            .hero-photo-wrap { height: 300px !important; }
+            /* Stat grid — 2 cols on mobile */
+            section#numbers .grid { grid-template-columns: repeat(2, 1fr) !important; }
+            /* Skills grid */
+            section#skills .grid { grid-template-columns: 1fr !important; }
+            /* How I work grid */
+            section .grid.md\:grid-cols-2 { grid-template-columns: 1fr !important; }
+            /* Management scale */
+            section .grid.md\:grid-cols-2.lg\:grid-cols-4 { grid-template-columns: repeat(2, 1fr) !important; }
+            /* CTA section */
+            .cta-gradient { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
+            /* About card */
+            .about-card { padding: 2rem 1.25rem !important; border-radius: 24px !important; }
+            /* Clients grid */
+            section#clients .grid { grid-template-columns: repeat(2, 1fr) !important; }
+            /* Cases grid */
+            section#projects .grid { grid-template-columns: 1fr !important; }
+            /* Hobby cards */
+            .hobby-card { height: auto !important; min-height: 140px; }
+            /* Back to top */
+            #back-to-top { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+            /* Hide scroll arrow in CTA */
+            .cta-gradient > button.absolute { display: none; }
+            /* Buttons wrap */
+            .flex-wrap { gap: 0.75rem !important; }
+            /* Large stat numbers */
+            .text-\[44px\] { font-size: 2.25rem !important; }
+            .text-\[36px\] { font-size: 1.875rem !important; }
+            /* Ensure images don't overflow */
+            img { max-width: 100%; height: auto; }
+            /* Project hero sections */
+            section[class*="rounded-\[40px\]"] { padding: 1.5rem 1.25rem !important; border-radius: 24px !important; }
+            /* Hobby hero cards */
+            .hobby-hero-card { min-height: auto !important; }
+        }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -307,17 +369,6 @@
                     <div class="w-full h-full rounded-[32px] overflow-hidden shadow-2xl border border-white/10 relative bg-slate-800">
                         <img src="images/hero.jpg" alt="Александр Нестерюк" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent mix-blend-multiply opacity-50"></div>
-                    </div>
-                    <div class="yt-levitate silver-btn-hover absolute -bottom-6 -left-8 lg:-left-12 bg-white rounded-[24px] p-5 pr-8 flex items-center gap-5 border border-slate-100 z-20">
-                        <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center flex-shrink-0 border border-red-100 group-hover:scale-110 transition-transform duration-300">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EF4444" class="w-8 h-8">
-                                <path d="M21.582,6.186c-0.23-0.86-0.908-1.538-1.768-1.768C18.254,4,12,4,12,4S5.746,4,4.186,4.418c-0.86,0.23-1.538,0.908-1.768,1.768C2,7.746,2,12,2,12s0,4.254,0.418,5.814c0.23,0.86,0.908,1.538,1.768,1.768C5.746,20,12,20,12,20s6.254,0,7.814-0.418c0.86-0.23,1.538-0.908,1.768-1.768C22,16.254,22,12,22,12S22,7.746,21.582,6.186z M10,15.464V8.536L16,12L10,15.464z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-0.5">Награда</p>
-                            <p class="text-base font-black text-slate-900 leading-tight">Серебряная<br>кнопка</p>
-                        </div>
                     </div>
                 </div>
             </section>
@@ -443,14 +494,14 @@
                     <div class="w-1.5 h-8 bg-amber-400 rounded-full"></div>
                     <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Что закрываю как руководитель</h2>
                 </div>
-                <p class="text-slate-500 text-lg mb-10 ml-6">Не набор навыков, а рабочий контур ответственности.</p>
+                <p class="text-slate-500 text-lg mb-10 ml-6">Зоны, за которые я обычно отвечаю в проекте.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
                     <div class="bg-brand-blue rounded-[28px] p-7 shadow-xl shadow-blue-600/20 text-white relative overflow-hidden">
                         <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-5 border border-white/10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
                         </div>
                         <h4 class="text-xl font-bold mb-2 tracking-tight">Контент-стратегия</h4>
-                        <p class="text-blue-100 text-sm leading-relaxed">Не просто придумать рубрики, а собрать систему, которая работает на задачу бизнеса.</p>
+                        <p class="text-blue-100 text-sm leading-relaxed">Формирую контент-модель под задачу бизнеса: что делаем, для кого, на каких площадках и как оцениваем результат.</p>
                         <div class="absolute -right-8 -bottom-8 w-36 h-36 border-[20px] border-white/5 rounded-full pointer-events-none"></div>
                     </div>
                     <div class="skill-card bg-white rounded-[28px] p-7 border border-slate-100 shadow-sm">
@@ -458,35 +509,35 @@
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
                         </div>
                         <h4 class="text-lg font-bold text-slate-900 mb-2">Креатив и продакшн</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">От идеи до стабильного выпуска — без вечного режима «срочно спасаем проект».</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Собираю выпуск: формат, сценарии, продакшн, ритм команды и контроль качества.</p>
                     </div>
                     <div class="skill-card bg-white rounded-[28px] p-7 border border-slate-100 shadow-sm">
                         <div class="w-12 h-12 bg-emerald-50 rounded-xl flex items-center justify-center mb-5 text-emerald-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
                         </div>
                         <h4 class="text-lg font-bold text-slate-900 mb-2">Дистрибуция и рост</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Контент должен приносить просмотры, переходы, спрос и деньги. Иначе это просто красивый шум.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Подключаю дистрибуцию и рост: площадки, посевы, блогеров, трафик и связку с воронкой.</p>
                     </div>
                     <div class="skill-card bg-white rounded-[28px] p-7 border border-slate-100 shadow-sm">
                         <div class="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-5 text-indigo-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
                         </div>
                         <h4 class="text-lg font-bold text-slate-900 mb-2">Команда и найм</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Собираю людей, роли, ритм и ответственность. Хороший контент почти всегда начинается с хорошей команды.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Нанимаю команду, распределяю роли и выстраиваю рабочий ритм.</p>
                     </div>
                     <div class="skill-card bg-white rounded-[28px] p-7 border border-slate-100 shadow-sm">
                         <div class="w-12 h-12 bg-amber-50 rounded-xl flex items-center justify-center mb-5 text-amber-500">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"></rect><path d="M3 9h18"></path><path d="M9 21V9"></path></svg>
                         </div>
                         <h4 class="text-lg font-bold text-slate-900 mb-2">Процессы и операционка</h4>
-                        <p class="text-slate-500 text-sm leading-relaxed">Delivery, KPI, качество, отчётность, AI-инструменты, воронка найма. Да, звучит не так романтично, зато работает.</p>
+                        <p class="text-slate-500 text-sm leading-relaxed">Настраиваю процессы: KPI, планирование, контроль качества, отчётность и рабочие регламенты.</p>
                     </div>
                     <div class="skill-card bg-slate-900 rounded-[28px] p-7 border border-slate-800 shadow-sm">
                         <div class="w-12 h-12 bg-white/10 rounded-xl flex items-center justify-center mb-5 text-slate-300">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
                         </div>
                         <h4 class="text-lg font-bold text-white mb-2">Аналитика и результат</h4>
-                        <p class="text-slate-400 text-sm leading-relaxed">Метрики, тесты, стоимость результата. Без красивых отчётов ради отчётов.</p>
+                        <p class="text-slate-400 text-sm leading-relaxed">Смотрю на результат по цифрам: охват, трафик, стоимость, конверсия, спрос.</p>
                     </div>
                 </div>
             </section>
@@ -498,10 +549,10 @@
                         <div>
                             <div class="flex items-center gap-4 mb-6">
                                 <div class="w-1.5 h-8 bg-emerald-400 rounded-full"></div>
-                                <h2 class="text-3xl font-bold text-white tracking-tight">Не только про контент</h2>
+                                <h2 class="text-3xl font-bold text-white tracking-tight">Роль шире контента</h2>
                             </div>
-                            <p class="text-slate-300 text-lg leading-relaxed mb-5 font-light">По факту я почти всегда закрывал больше, чем просто контент. Ставил систему найма, собирал команды, выстраивал процессы, держал темп и качество, связывал креатив с цифрами и добивался того, чтобы вся эта история не просто выглядела бодро, а реально работала на бизнес.</p>
-                            <p class="text-slate-400 text-base leading-relaxed font-light">В Privery это было особенно заметно: кроме контент-стратегии, продакшна и креатива я лично занимался наймом по воронке, собирал команду, запускал роли, KPI, обучение и рабочий ритм.</p>
+                            <p class="text-slate-300 text-lg leading-relaxed mb-5 font-light">В большинстве проектов моя зона — не только стратегия и креатив. Я собираю команду, выстраиваю найм, задаю рабочий ритм, ставлю KPI и связываю контент с задачей бизнеса.</p>
+                            <p class="text-slate-400 text-base leading-relaxed font-light">В Privery это было особенно заметно: кроме контент-стратегии, продакшна и креатива я лично занимался наймом по воронке, собирал команду, запускал роли, KPI, обучение и рабочий ритм — …чтобы контент был управляемой функцией, а не набором разрозненных действий.</p>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
                             <div class="bg-white/5 border border-white/10 rounded-[24px] p-6 flex items-center gap-3">
@@ -538,7 +589,7 @@
                     <div class="w-1.5 h-8 bg-brand-blue rounded-full"></div>
                     <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Масштаб управления</h2>
                 </div>
-                <p class="text-slate-500 text-lg mb-10 ml-6">Я не просто делаю контент. Я собираю систему, в которой он даёт результат.</p>
+                <p class="text-slate-500 text-lg mb-10 ml-6">За последние годы я запускал команды, выстраивал производство и масштабировал выпуск на нескольких платформах.</p>
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
                     <div class="bg-white rounded-[28px] p-7 border border-slate-200/60 shadow-sm stat-card-animate">
                         <h3 class="text-[44px] font-black text-brand-blue tracking-tighter mb-2 leading-none"><span class="mgmt-num" data-target="130">0</span>+</h3>
@@ -587,28 +638,28 @@
                         <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-black text-lg flex-shrink-0">3</div>
                         <div>
                             <h4 class="font-bold text-slate-900 mb-1.5">Строю команду и роли</h4>
-                            <p class="text-slate-500 text-sm leading-relaxed">Хороший контент не держится на одном герое, который вечно всех спасает.</p>
+                            <p class="text-slate-500 text-sm leading-relaxed">Собираю роли и команду так, чтобы система не зависела от одного человека.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-[28px] p-7 border border-slate-200/60 shadow-sm flex gap-4">
                         <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-black text-lg flex-shrink-0">4</div>
                         <div>
                             <h4 class="font-bold text-slate-900 mb-1.5">Запускаю производство и дистрибуцию</h4>
-                            <p class="text-slate-500 text-sm leading-relaxed">Чтобы контент выходил стабильно, а не «когда получится».</p>
+                            <p class="text-slate-500 text-sm leading-relaxed">Настраиваю выпуск: процессы, дедлайны, контроль качества и дистрибуцию.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-[28px] p-7 border border-slate-200/60 shadow-sm flex gap-4">
                         <div class="w-10 h-10 rounded-full bg-slate-800 text-white flex items-center justify-center font-black text-lg flex-shrink-0">5</div>
                         <div>
                             <h4 class="font-bold text-slate-900 mb-1.5">Смотрю на цифры, а не на самоуспокоение</h4>
-                            <p class="text-slate-500 text-sm leading-relaxed">Просмотры — это хорошо. Но меня интересует, что было дальше.</p>
+                            <p class="text-slate-500 text-sm leading-relaxed">Слежу не только за просмотрами, но и за тем, во что они превращаются.</p>
                         </div>
                     </div>
                     <div class="bg-white rounded-[28px] p-7 border border-slate-200/60 shadow-sm flex gap-4">
                         <div class="w-10 h-10 rounded-full bg-brand-blue text-white flex items-center justify-center font-black text-lg flex-shrink-0">6</div>
                         <div>
                             <h4 class="font-bold text-slate-900 mb-1.5">Докручиваю систему</h4>
-                            <p class="text-slate-500 text-sm leading-relaxed">Не люблю хаос. Люблю, когда всё растёт и не разваливается.</p>
+                            <p class="text-slate-500 text-sm leading-relaxed">Регулярно пересобираю рабочие механики: усиливаю то, что даёт результат, и убираю лишнее.</p>
                         </div>
                     </div>
                 </div>
@@ -694,19 +745,11 @@
                             <div class="relative z-10 max-w-3xl">
                         <h2 class="text-5xl lg:text-6xl font-black text-white tracking-tight mb-5 leading-tight">Давайте работать вместе</h2>
                         <p class="text-slate-300 text-lg leading-relaxed mb-3 font-light">Если вам нужен не просто человек «про контент», а руководитель, который может собрать стратегию, команду, процессы и результат в цифрах — давайте обсудим задачу.</p>
-                        <p class="text-slate-500 text-sm mb-10">Быстро отвечаю, не душню и умею говорить не только про креатив, но и про реальную работу.</p>
-                        <div class="flex flex-wrap items-center gap-4">
-                            <button class="bg-white hover:bg-slate-50 text-brand-blue px-8 py-4 rounded-full font-bold flex items-center gap-3 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1">
+                        <div class="flex flex-wrap items-center gap-4 mt-10">
+                            <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="bg-white hover:bg-slate-50 text-brand-blue px-8 py-4 rounded-full font-bold flex items-center gap-3 transition-all shadow-[0_10px_30px_rgba(0,0,0,0.2)] hover:-translate-y-1">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
-                            Написать в Telegram
-                        </a>
-                            <button class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-3 transition-all">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg>
-                                Отправить email
-                            </button>
-                            <button class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold transition-all">
-                                Запросить кейсы
-                            </button>
+                                Написать в Telegram
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -716,7 +759,7 @@
         <footer class="text-center py-10 border-t border-slate-200/60 mt-auto bg-white relative z-10">
             <div class="max-w-[1400px] mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-slate-500 text-sm font-medium">© 2026 Александр Нестерюк</p>
-                <p class="text-slate-400 text-xs">Сделано руками с помощью Claude Code под надзором Грейс 🐕</p>
+                <p class="text-slate-400 text-xs">Сделано моими руками под чутким надзором Грейс 🐕</p>
                 <div class="flex items-center gap-6">
                     <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors">@s_nesteryuk</a>
                     <a href="cv.pdf" download class="text-slate-400 hover:text-slate-700 text-sm font-medium transition-colors">Скачать CV</a>
