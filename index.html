@@ -3,10 +3,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <title>Александр Нестерюк — Head of Content</title>
-    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=3">
-    <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3">
-    <link rel="shortcut icon" href="favicon.png?v=3">
-    <link rel="apple-touch-icon" href="favicon.png?v=3">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=4">
+    <link rel="icon" type="image/png" sizes="64x64" href="favicon.png?v=4">
+    <link rel="shortcut icon" href="favicon.ico?v=4">
+    <link rel="apple-touch-icon" href="favicon.png?v=4">
     <meta name="description" content="Александр Нестерюк — Head of Content. Контент-стратегия, production, команды и дистрибуция. Опыт: SKIFMUSIC, Privery, ROCO Coffee.">
     <meta name="keywords" content="Head of Content, контент-стратегия, контент-продакшн, контент-менеджер, Александр Нестерюк">
     <meta name="author" content="Александр Нестерюк">
@@ -154,36 +154,10 @@
         .content-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
         .content-card:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.05); }
         
-        /* === HERO PHOTO SHIMMER (mobile) === */
-        @keyframes heroPhotoShimmer {
-            0%   { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
-            10%  { opacity: 1; }
-            60%  { opacity: 1; }
-            100% { transform: translateX(250%) skewX(-18deg); opacity: 0; }
-        }
-        @keyframes heroBorderGlow {
-            0%, 100% { box-shadow: 0 0 0px 0px rgba(192,192,220,0); }
-            50%       { box-shadow: 0 0 22px 4px rgba(192,192,230,0.35), 0 0 60px 12px rgba(180,190,255,0.12); }
-        }
-        .hero-shimmer-overlay {
-            display: none;
-            position: absolute; inset: 0; z-index: 15; pointer-events: none;
-            overflow: hidden; border-radius: inherit;
-        }
-        .hero-shimmer-overlay::after {
-            content: '';
-            position: absolute; top: -20%; left: -40%;
-            width: 55%; height: 140%;
-            background: linear-gradient(105deg,
-                transparent 0%,
-                rgba(255,255,255,0.04) 25%,
-                rgba(220,225,255,0.22) 45%,
-                rgba(255,255,255,0.28) 50%,
-                rgba(220,225,255,0.22) 55%,
-                rgba(255,255,255,0.04) 75%,
-                transparent 100%
-            );
-            animation: heroPhotoShimmer 3.5s ease-in-out infinite;
+        /* === YT BADGE GLOW (mobile) === */
+        @keyframes ytBadgeGlow {
+            0%, 100% { box-shadow: 0 4px 18px rgba(180,190,220,0.18); }
+            50%       { box-shadow: 0 4px 28px rgba(200,210,255,0.55), 0 0 0 3px rgba(210,215,240,0.3); }
         }
 
         /* === CLIENT CARD HOVER === */
@@ -318,11 +292,8 @@
             .hero-gradient p.text-lg, .hero-gradient p.lg\:text-xl { font-size: 0.85rem !important; line-height: 1.6 !important; margin-bottom: 1rem !important; }
             /* Hero photo — make shorter on mobile */
             .hero-gradient > div:last-child { height: auto !important; width: 100% !important; padding-bottom: 0.5rem !important; }
-            /* Levitating badge — reposition inside photo area on mobile, no animation overflow */
-            .yt-levitate { position: static !important; left: auto !important; bottom: auto !important; margin-top: 0.75rem !important; width: 100% !important; border-radius: 16px !important; padding: 0.75rem 1rem !important; animation: none !important; }
-            /* Hero photo shimmer on mobile */
-            .hero-shimmer-overlay { display: block; }
-            .hero-photo-wrap { animation: heroBorderGlow 3.5s ease-in-out infinite; }
+            /* Levitating badge — reposition inside photo area on mobile, add silver glow */
+            .yt-levitate { position: static !important; left: auto !important; bottom: auto !important; margin-top: 0.75rem !important; width: 100% !important; border-radius: 16px !important; padding: 0.75rem 1rem !important; animation: ytBadgeGlow 2.8s ease-in-out infinite !important; }
             /* Badge "Открыт к проектам" spacing */
             .hero-gradient .mb-12 { margin-bottom: 1.5rem !important; }
             .hero-gradient .mb-8 { margin-bottom: 0.75rem !important; }
@@ -369,6 +340,9 @@
 
             /* Back to top */
             #back-to-top { bottom: 16px; right: 16px; width: 44px; height: 44px; }
+
+            /* Reduce huge section gaps on mobile */
+            main.space-y-24 > * + * { margin-top: 2.5rem !important; }
 
             /* Buttons */
             .flex-wrap { gap: 0.75rem !important; }
@@ -516,11 +490,10 @@
                         <button id="funny-btn" onclick="nextFunnyMsg()" class="funny-btn text-slate-300 hover:text-white font-medium transition-colors border border-white/20 hover:border-white/40 px-5 py-3.5 rounded-full text-sm">Кнопка</button>
                     </div>
                 </div>
-                <div class="hero-photo-wrap relative w-full lg:w-[460px] h-[520px] lg:h-[600px] flex-shrink-0 z-10 mt-8 lg:mt-0 group">
+                <div class="relative w-full lg:w-[460px] h-[520px] lg:h-[600px] flex-shrink-0 z-10 mt-8 lg:mt-0 group">
                     <div class="w-full h-full rounded-[32px] overflow-hidden shadow-2xl border border-white/10 relative bg-slate-800">
                         <img src="images/hero.jpg" alt="Александр Нестерюк" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-80">
                         <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/40 to-transparent mix-blend-multiply opacity-50"></div>
-                        <div class="hero-shimmer-overlay"></div>
                     </div>
                     <div class="yt-levitate silver-btn-hover absolute -bottom-6 -left-8 lg:-left-12 bg-white rounded-[24px] p-5 pr-8 flex items-center gap-5 border border-slate-100 z-20">
                         <div class="w-14 h-14 bg-red-50 rounded-2xl flex items-center justify-center flex-shrink-0 border border-red-100">
