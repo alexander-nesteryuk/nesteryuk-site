@@ -471,6 +471,21 @@
             #page-article-2 footer > div,
             #page-article-3 footer > div { flex-direction: column !important; gap: .5rem; }
         }
+        /* ===== Hobby Photo Carousel ===== */
+        .hobby-carousel { position:relative; width:240px; height:240px; border-radius:20px; overflow:hidden; cursor:pointer; flex-shrink:0; box-shadow:0 20px 60px rgba(0,0,0,0.45); }
+        .hobby-carousel img.hc-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .5s ease; pointer-events:none; }
+        .hobby-carousel img.hc-slide.hc-active { opacity:1; }
+        .hc-progress { position:absolute; top:10px; left:10px; right:10px; display:flex; gap:4px; z-index:10; }
+        .hc-prog-bar { flex:1; height:2px; background:rgba(255,255,255,0.3); border-radius:2px; overflow:hidden; }
+        .hc-prog-fill { height:100%; width:0; background:rgba(255,255,255,0.9); border-radius:2px; }
+        .hc-prog-fill.hc-done { width:100%; }
+        .hc-prog-fill.hc-anim { animation:hcFill 3s linear forwards; }
+        @keyframes hcFill { from { width:0 } to { width:100% } }
+        .hc-dots { position:absolute; bottom:10px; left:50%; transform:translateX(-50%); display:flex; gap:5px; z-index:10; }
+        .hc-dot { width:18px; height:3px; border-radius:2px; background:rgba(255,255,255,0.35); transition:all .3s; }
+        .hc-dot.hc-active { background:rgba(255,255,255,0.9); width:28px; }
+        .hc-wrap { display:flex; align-items:center; justify-content:center; padding: 1.5rem 0; }
+        @media (min-width:1024px) { .hc-wrap { padding-right:2rem; } }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -1540,31 +1555,21 @@
                             <h1 class="text-5xl lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">Кожевенное<br>дело</h1>
                             <p class="text-lg text-slate-300 font-light max-w-lg leading-relaxed">Шью сумки и изделия вручную из натуральной кожи.<br><span style="color:#fbbf24" class="font-semibold">100% ручная работа.</span> Каждая вещь — единственная.</p>
                         </div>
-                        <!-- Right illustration: CSS-animated needle/thread icon -->
-                        <div class="relative flex-shrink-0 w-full lg:w-[400px] h-[240px] lg:h-[280px] flex items-center justify-center pr-0 lg:pr-8">
-                            <div class="absolute inset-0 rounded-full blur-[60px]" style="background:rgba(180,83,9,0.15)"></div>
-                            <!-- Slow outer ring -->
-                            <div class="absolute w-52 h-52 rounded-full" style="border:1.5px dashed rgba(217,119,6,0.25);animation:wheelSpin 20s linear infinite"></div>
-                            <!-- Central leather craft icon -->
-                            <div style="animation:pawBounce 3s ease-in-out infinite;filter:drop-shadow(0 12px 32px rgba(217,119,6,0.45))">
-                                <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                                    <!-- scissors -->
-                                    <circle cx="6" cy="6" r="3"></circle>
-                                    <path d="M8.12 8.12 12 12"></path>
-                                    <path d="M20 4 8.12 15.88"></path>
-                                    <circle cx="6" cy="18" r="3"></circle>
-                                    <path d="M14.8 14.8 20 20"></path>
-                                </svg>
-                            </div>
-                            <!-- needle pulsing badge -->
-                            <div class="float-anim-delayed absolute top-[8%] right-[8%] w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl" style="background:rgba(217,119,6,0.85);border:1px solid rgba(251,191,36,0.3)">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5l6.74-6.76Z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
-                            </div>
-                            <!-- stitch badge bottom -->
-                            <div class="float-anim absolute bottom-[8%] left-[8%] backdrop-blur-xl rounded-[20px] px-4 py-3 shadow-xl" style="background:rgba(255,255,255,0.07);border:1px solid rgba(217,119,6,0.3)">
-                                <div class="flex items-center gap-2">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18" stroke-dasharray="4 4"></path></svg>
-                                    <span class="text-xs font-bold" style="color:#fde68a">50+ изделий</span>
+                        <!-- Right: photo carousel -->
+                        <div class="hc-wrap flex-shrink-0 w-full lg:w-auto">
+                            <div class="hobby-carousel" data-hc="leather">
+                                <div class="hc-progress">
+                                    <div class="hc-prog-bar"><div class="hc-prog-fill hc-anim"></div></div>
+                                    <div class="hc-prog-bar"><div class="hc-prog-fill"></div></div>
+                                    <div class="hc-prog-bar"><div class="hc-prog-fill"></div></div>
+                                </div>
+                                <img src="images/bag-full.jpg" class="hc-slide hc-active" alt="Кожаная сумка">
+                                <img src="images/bag-detail.jpg" class="hc-slide" alt="Деталь сумки">
+                                <img src="images/bag-open.jpg" class="hc-slide" alt="Сумка открытая">
+                                <div class="hc-dots">
+                                    <span class="hc-dot hc-active"></span>
+                                    <span class="hc-dot"></span>
+                                    <span class="hc-dot"></span>
                                 </div>
                             </div>
                         </div>
@@ -1632,38 +1637,19 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- Right illustration: CSS-animated spinning bike wheel -->
-                        <div class="relative flex-shrink-0 w-full lg:w-[380px] h-[240px] lg:h-[280px] flex items-center justify-center pr-0 lg:pr-8">
-                            <div class="absolute inset-0 rounded-full blur-[50px]" style="background:rgba(20,184,166,0.15)"></div>
-                            <!-- Spinning wheel using CSS -->
-                            <div style="position:relative;width:180px;height:180px;filter:drop-shadow(0 12px 32px rgba(20,184,166,0.35))">
-                                <!-- outer tire - spins -->
-                                <div class="icon-wheel-rim" style="position:absolute;inset:0;border-radius:50%;border:6px solid rgba(13,148,136,0.6)"></div>
-                                <!-- dashed tread -->
-                                <div class="icon-wheel-rim" style="position:absolute;inset:6px;border-radius:50%;border:3px dashed rgba(45,212,191,0.4);animation-duration:6s"></div>
-                                <!-- inner rim -->
-                                <div style="position:absolute;inset:28px;border-radius:50%;border:4px solid rgba(19,78,74,0.9)"></div>
-                                <!-- spokes - static, clean -->
-                                <svg style="position:absolute;inset:0" width="180" height="180" viewBox="0 0 180 180">
-                                    <line x1="90" y1="14" x2="90" y2="166" stroke="#2dd4bf" stroke-width="1.5" opacity="0.5"></line>
-                                    <line x1="14" y1="90" x2="166" y2="90" stroke="#2dd4bf" stroke-width="1.5" opacity="0.5"></line>
-                                    <line x1="35" y1="35" x2="145" y2="145" stroke="#2dd4bf" stroke-width="1.5" opacity="0.5"></line>
-                                    <line x1="145" y1="35" x2="35" y2="145" stroke="#2dd4bf" stroke-width="1.5" opacity="0.5"></line>
-                                </svg>
-                                <!-- hub -->
-                                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:24px;height:24px;border-radius:50%;background:#0f766e;border:2px solid #2dd4bf"></div>
-                                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:10px;height:10px;border-radius:50%;background:#2dd4bf"></div>
-                            </div>
-                            <!-- road badge -->
-                            <div class="float-anim-delayed absolute bottom-5 right-5 lg:right-8 rounded-2xl px-4 py-3 shadow-xl" style="background:rgba(13,148,136,0.9);border:1px solid rgba(45,212,191,0.3)">
-                                <div class="flex items-center gap-2">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#ccfbf1" stroke-width="2.5"><path d="m5 12 7-7 7 7"></path><path d="M12 19V5"></path></svg>
-                                    <span class="text-xs font-bold text-teal-100">вперёд</span>
+                        <!-- Right: photo carousel -->
+                        <div class="hc-wrap flex-shrink-0 w-full lg:w-auto">
+                            <div class="hobby-carousel" data-hc="bike">
+                                <div class="hc-progress">
+                                    <div class="hc-prog-bar"><div class="hc-prog-fill hc-anim"></div></div>
+                                    <div class="hc-prog-bar"><div class="hc-prog-fill"></div></div>
                                 </div>
-                            </div>
-                            <!-- km badge -->
-                            <div class="float-anim absolute top-[8%] left-[6%] w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl" style="background:rgba(20,184,166,0.25);border:1px solid rgba(45,212,191,0.35)">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18.5" cy="17.5" r="3.5"></circle><circle cx="5.5" cy="17.5" r="3.5"></circle><circle cx="15" cy="5" r="1"></circle><path d="M12 17.5V14l-3-3 4-3 2 3h2"></path></svg>
+                                <img src="images/bike.jpg" class="hc-slide hc-active" alt="Велосипед">
+                                <img src="images/cyclists.jpg" class="hc-slide" alt="Велосипедисты">
+                                <div class="hc-dots">
+                                    <span class="hc-dot hc-active"></span>
+                                    <span class="hc-dot"></span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -1716,30 +1702,10 @@
                             <h1 class="text-5xl lg:text-[64px] font-black text-white leading-[1.05] tracking-tight mb-4">Грейс</h1>
                             <p class="text-lg text-slate-300 font-light max-w-lg leading-relaxed">20 команд, бесконечная энергия и идеальное послушание.<br>Собака-друг, которая многому меня научила.</p>
                         </div>
-                        <!-- Right illustration: CSS-animated paw icon -->
-                        <div class="relative flex-shrink-0 w-full lg:w-[380px] h-[240px] lg:h-[280px] flex items-center justify-center pr-0 lg:pr-8">
-                            <div class="absolute inset-0 rounded-full blur-[60px]" style="background:rgba(244,63,94,0.15)"></div>
-                            <!-- Outer ring -->
-                            <div class="absolute w-52 h-52 rounded-full" style="border:1.5px dashed rgba(244,63,94,0.22);animation:wheelSpin 22s linear infinite reverse"></div>
-                            <!-- Central paw bouncing -->
-                            <div class="icon-dog-head" style="filter:drop-shadow(0 12px 36px rgba(244,63,94,0.4))">
-                                <svg width="110" height="110" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- paw icon -->
-                                    <path d="M10 5.172C10 3.782 8.423 2.679 6.5 3c-2.823.47-4.113 2.539-4 4 .085 1.082.903 1.63 1.5 2.5C4.5 10 4 11 4 12c0 2.21 1.791 4 4 4 1.105 0 2-.895 2-2 0-1.105-.895-2-2-2" stroke="#fb7185" stroke-width="1.5" stroke-linecap="round"></path>
-                                    <path d="M14 5.172C14 3.782 15.577 2.679 17.5 3c2.823.47 4.113 2.539 4 4-.085 1.082-.903 1.63-1.5 2.5.5.5 1 1.5 1 2.5 0 2.21-1.791 4-4 4-1.105 0-2-.895-2-2 0-1.105.895-2 2-2" stroke="#fb7185" stroke-width="1.5" stroke-linecap="round"></path>
-                                    <path d="M12 20c-1.105 0-2-.895-2-2s.895-2 2-2 2 .895 2 2-.895 2-2 2Z" stroke="#fb7185" stroke-width="1.5" fill="rgba(251,113,133,0.15)"></path>
-                                </svg>
-                            </div>
-                            <!-- wagging tail icon badge top-right -->
-                            <div class="float-anim-delayed absolute top-[8%] right-[6%] w-12 h-12 rounded-2xl flex items-center justify-center shadow-xl" style="background:rgba(190,24,93,0.8);border:1px solid rgba(251,113,133,0.3)">
-                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9c0 4.97 3.582 9 8 9s8-4.03 8-9"></path><line x1="12" y1="18" x2="12" y2="22"></line><line x1="8" y1="22" x2="16" y2="22"></line></svg>
-                            </div>
-                            <!-- sport badge bottom-left -->
-                            <div class="float-anim absolute bottom-[8%] left-[6%] backdrop-blur-xl rounded-[20px] px-4 py-3 shadow-xl" style="background:rgba(255,255,255,0.07);border:1px solid rgba(244,63,94,0.3)">
-                                <div class="flex items-center gap-2">
-                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fb7185" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="m4.93 4.93 4.24 4.24"></path><path d="m14.83 9.17 4.24-4.24"></path><path d="m14.83 14.83 4.24 4.24"></path><path d="m9.17 14.83-4.24 4.24"></path></svg>
-                                    <span class="text-xs font-bold" style="color:#fda4af">Кавалер кинг-чарльз-спаниель</span>
-                                </div>
+                        <!-- Right: photo carousel -->
+                        <div class="hc-wrap flex-shrink-0 w-full lg:w-auto">
+                            <div class="hobby-carousel" data-hc="grace">
+                                <img src="images/grace.jpg" class="hc-slide hc-active" alt="Грейс">
                             </div>
                         </div>
                     </div>
@@ -2240,32 +2206,89 @@
             }
         }
         
+        /* ===== Hobby Photo Carousel Logic ===== */
+        const _hcTimers = {};
+
+        function _hcGoTo(carousel, n) {
+            const slides = carousel.querySelectorAll('.hc-slide');
+            const dots   = carousel.querySelectorAll('.hc-dot');
+            const fills  = carousel.querySelectorAll('.hc-prog-fill');
+            const id     = carousel.dataset.hc;
+            if (!slides.length) return;
+
+            slides.forEach(s => s.classList.remove('hc-active'));
+            dots.forEach(d => d.classList.remove('hc-active'));
+            fills.forEach((f, i) => {
+                f.classList.remove('hc-anim');
+                if (i < n) f.classList.add('hc-done');
+                else f.classList.remove('hc-done');
+                void f.offsetWidth; /* force reflow to restart animation */
+            });
+
+            slides[n].classList.add('hc-active');
+            if (dots[n]) dots[n].classList.add('hc-active');
+            if (fills[n]) fills[n].classList.add('hc-anim');
+
+            carousel._hcCurrent = n;
+
+            if (_hcTimers[id]) clearTimeout(_hcTimers[id]);
+            if (slides.length > 1) {
+                _hcTimers[id] = setTimeout(() => _hcGoTo(carousel, (n + 1) % slides.length), 3000);
+            }
+        }
+
+        function _hcInit(carousel) {
+            const id = carousel.dataset.hc;
+            if (_hcTimers[id]) clearTimeout(_hcTimers[id]);
+            _hcGoTo(carousel, 0);
+            if (!carousel._hcInited) {
+                carousel._hcInited = true;
+                carousel.addEventListener('click', function() {
+                    const slides = this.querySelectorAll('.hc-slide');
+                    if (slides.length < 2) return;
+                    _hcGoTo(this, ((this._hcCurrent || 0) + 1) % slides.length);
+                });
+            }
+        }
+
+        function _hcStop(carousel) {
+            const id = carousel.dataset.hc;
+            if (_hcTimers[id]) { clearTimeout(_hcTimers[id]); delete _hcTimers[id]; }
+        }
+
         function showHobbies(tabId) {
             showPage('page-hobbies');
-            
-            
+
+
             document.querySelectorAll('#page-hobbies .tab-content').forEach(c => {
                 c.classList.remove('block');
                 c.classList.add('hidden');
             });
-            
-            
+
+
             const targetContent = document.getElementById('hobby-content-' + tabId);
             if(targetContent) {
                 targetContent.classList.remove('hidden');
                 targetContent.classList.add('block');
             }
-            
-            
+
+
             document.querySelectorAll('#page-hobbies .hobby-tab-btn').forEach(btn => {
                 btn.classList.remove('active', 'bg-white', 'text-brand-blue', 'shadow-sm', 'border-slate-200');
                 btn.classList.add('text-slate-500');
             });
-            
+
             const activeBtn = document.getElementById('hobby-btn-' + tabId);
             if(activeBtn) {
                 activeBtn.classList.remove('text-slate-500');
                 activeBtn.classList.add('active', 'bg-white', 'text-brand-blue', 'shadow-sm', 'border-slate-200');
+            }
+
+            /* Stop all carousels, start the active one */
+            document.querySelectorAll('.hobby-carousel[data-hc]').forEach(_hcStop);
+            if (targetContent) {
+                const activeCarousel = targetContent.querySelector('.hobby-carousel[data-hc]');
+                if (activeCarousel) _hcInit(activeCarousel);
             }
         }
     </script>
