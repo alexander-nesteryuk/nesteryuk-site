@@ -473,6 +473,7 @@
         }
         /* ===== Hobby Photo Carousel ===== */
         .hobby-carousel { position:relative; width:240px; height:240px; border-radius:20px; overflow:hidden; cursor:pointer; flex-shrink:0; box-shadow:0 20px 60px rgba(0,0,0,0.45); }
+        @media (max-width:1023px) { .hobby-carousel { width:100%; height:320px; } }
         .hobby-carousel img.hc-slide { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0; transition:opacity .5s ease; pointer-events:none; }
         .hobby-carousel img.hc-slide.hc-active { opacity:1; }
         .hc-progress { position:absolute; top:10px; left:10px; right:10px; display:flex; gap:4px; z-index:10; }
@@ -954,7 +955,7 @@
                 <!-- Cards grid: big left + 2 right -->
                 <div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6">
                     <!-- Featured card (dark, left) -->
-                    <div class="art-feat-card p-8 lg:p-10 flex flex-col justify-between min-h-[440px] lg:min-h-[500px]">
+                    <div class="art-feat-card p-8 lg:p-10 flex flex-col justify-between min-h-[440px] lg:min-h-[500px] cursor-pointer" onclick="showPage('page-article-1')">
                         <div>
                             <span class="art-feat-badge mb-6 block w-fit">ГЛАВНЫЙ МАТЕРИАЛ</span>
                             <h3 class="text-3xl lg:text-[2.35rem] font-black text-white leading-tight mb-5 tracking-tight">
@@ -965,7 +966,7 @@
                             </p>
                         </div>
                         <div class="flex flex-wrap items-center gap-5 mt-8">
-                            <a href="#" onclick="event.preventDefault();showPage('page-article-1')" class="art-feat-btn">Читать статью</a>
+                            <span class="art-feat-btn">Читать статью</span>
                             <span class="text-slate-400 text-sm">Время чтения: 10 минут</span>
                         </div>
                     </div>
@@ -1113,7 +1114,7 @@
     <div id="page-projects" class="page flex-1">
         <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60 transition-all duration-300">
             <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-                <div onclick="showPage('page-home')" class="flex items-center gap-3 cursor-pointer group">
+                <div onclick="showPage('page-home', 'projects')" class="flex items-center gap-3 cursor-pointer group">
                     <div class="w-10 h-10 bg-brand-dark rounded-xl flex items-center justify-center text-white font-bold text-sm tracking-wide group-hover:bg-brand-blue transition-colors">АН</div>
                     <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors hidden sm:block">Александр Нестерюк</span>
                 </div>
@@ -1127,7 +1128,7 @@
             </div>
             <div class="border-t border-slate-200/50 bg-slate-50/80 backdrop-blur-md">
                 <div class="max-w-[1400px] mx-auto px-6 py-3 flex items-center gap-2 overflow-x-auto hide-scrollbar">
-                    <button onclick="showPage('page-home')" class="text-slate-500 hover:text-brand-blue font-medium transition-colors px-2 py-1.5 rounded flex items-center gap-1 mr-4 flex-shrink-0">
+                    <button onclick="showPage('page-home', 'projects')" class="text-slate-500 hover:text-brand-blue font-medium transition-colors px-2 py-1.5 rounded flex items-center gap-1 mr-4 flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
                         Назад
                     </button>
@@ -1514,7 +1515,7 @@
     <div id="page-hobbies" class="page flex-1">
         <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60 transition-all duration-300">
             <div class="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
-                <div onclick="showPage('page-home')" class="flex items-center gap-3 cursor-pointer group">
+                <div onclick="showPage('page-home', 'about')" class="flex items-center gap-3 cursor-pointer group">
                     <div class="w-10 h-10 bg-brand-dark rounded-xl flex items-center justify-center text-white font-bold text-sm tracking-wide group-hover:bg-brand-blue transition-colors">АН</div>
                     <span class="text-xl font-bold tracking-tight text-slate-900 group-hover:text-brand-blue transition-colors hidden sm:block">Александр Нестерюк</span>
                 </div>
@@ -1527,7 +1528,7 @@
             </div>
             <div class="border-t border-slate-200/50 bg-slate-50/80 backdrop-blur-md">
                 <div class="max-w-[1400px] mx-auto px-6 py-3 flex items-center gap-2 overflow-x-auto hide-scrollbar">
-                    <button onclick="showPage('page-home')" class="text-slate-500 hover:text-brand-blue font-medium transition-colors px-2 py-1.5 rounded flex items-center gap-1 mr-4 flex-shrink-0">
+                    <button onclick="showPage('page-home', 'about')" class="text-slate-500 hover:text-brand-blue font-medium transition-colors px-2 py-1.5 rounded flex items-center gap-1 mr-4 flex-shrink-0">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"></path></svg>
                         Назад
                     </button>
@@ -1770,11 +1771,11 @@
     <div id="page-article-1" class="page flex-1">
         <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60">
             <div class="max-w-[900px] mx-auto px-6 h-16 flex items-center justify-between">
-                <button onclick="showPage('page-home')" class="art-back-btn">
+                <button onclick="showPage('page-home', 'articles')" class="art-back-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
                     На главную
                 </button>
-                <div onclick="showPage('page-home')" class="flex items-center gap-2 cursor-pointer">
+                <div onclick="showPage('page-home', 'articles')" class="flex items-center gap-2 cursor-pointer">
                     <div class="w-8 h-8 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs">АН</div>
                 </div>
             </div>
@@ -1903,11 +1904,11 @@
     <div id="page-article-2" class="page flex-1">
         <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60">
             <div class="max-w-[900px] mx-auto px-6 h-16 flex items-center justify-between">
-                <button onclick="showPage('page-home')" class="art-back-btn">
+                <button onclick="showPage('page-home', 'articles')" class="art-back-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
                     На главную
                 </button>
-                <div onclick="showPage('page-home')" class="flex items-center gap-2 cursor-pointer">
+                <div onclick="showPage('page-home', 'articles')" class="flex items-center gap-2 cursor-pointer">
                     <div class="w-8 h-8 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs">АН</div>
                 </div>
             </div>
@@ -2035,11 +2036,11 @@
     <div id="page-article-3" class="page flex-1">
         <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60">
             <div class="max-w-[900px] mx-auto px-6 h-16 flex items-center justify-between">
-                <button onclick="showPage('page-home')" class="art-back-btn">
+                <button onclick="showPage('page-home', 'articles')" class="art-back-btn">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
                     На главную
                 </button>
-                <div onclick="showPage('page-home')" class="flex items-center gap-2 cursor-pointer">
+                <div onclick="showPage('page-home', 'articles')" class="flex items-center gap-2 cursor-pointer">
                     <div class="w-8 h-8 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs">АН</div>
                 </div>
             </div>
@@ -2191,12 +2192,19 @@
             const card = el.closest('.stat-card-animate') || el.parentElement;
             if(card) countObserver.observe(card);
         });
-        function showPage(pageId) {
+        function showPage(pageId, scrollTarget) {
             document.querySelectorAll('.page').forEach(page => {
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
+            if (scrollTarget) {
+                setTimeout(() => {
+                    const el = document.getElementById(scrollTarget);
+                    if (el) el.scrollIntoView({behavior:'smooth'});
+                }, 50);
+            } else {
+                window.scrollTo(0, 0);
+            }
         }
         
         function showProjects(tabId) {
