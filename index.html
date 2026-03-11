@@ -452,11 +452,24 @@
         .art-back-btn { display: inline-flex; align-items: center; gap: 6px; color: #64748b; font-weight: 500; font-size: 14px; text-decoration: none; transition: color .2s; cursor: pointer; background: none; border: none; padding: 0; }
         .art-back-btn:hover { color: #2563EB; }
         @media (max-width: 640px) {
-            .article-hero { padding: 4.5rem 1.25rem 2.5rem; }
+            .article-hero { padding: 5.5rem 1.25rem 2.5rem; }
+            .article-hero h1 { font-size: clamp(1.5rem, 6vw, 2rem) !important; }
+            .article-meta-row { font-size: 13px; gap: .5rem; }
+            .article-lead { font-size: 1rem; }
+            .article-h2 { font-size: 1.2rem; }
             .thesis-block { position: static !important; margin-top: 2rem; }
-            .art-readmore { padding: 1.5rem 1.25rem !important; border-radius: 20px !important; }
+            #page-article-1 main,
+            #page-article-2 main,
+            #page-article-3 main { padding-left: 1.25rem !important; padding-right: 1.25rem !important; padding-top: 2rem !important; }
+            .art-readmore { padding: 1.5rem 1.25rem !important; border-radius: 20px !important; margin-top: 2.5rem !important; }
             .art-readmore .grid { grid-template-columns: 1fr !important; }
             .art-readmore-share { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
+            #page-article-1 footer,
+            #page-article-2 footer,
+            #page-article-3 footer { flex-direction: column !important; gap: .75rem !important; text-align: center; }
+            #page-article-1 footer > div,
+            #page-article-2 footer > div,
+            #page-article-3 footer > div { flex-direction: column !important; gap: .5rem; }
         }
     </style>
 </head>
