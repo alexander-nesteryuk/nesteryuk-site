@@ -487,6 +487,37 @@
         .hc-dot.hc-active { background:rgba(255,255,255,0.9); width:28px; }
         .hc-wrap { display:flex; align-items:center; justify-content:center; padding: 1.5rem 0; }
         @media (min-width:1024px) { .hc-wrap { padding-right:2rem; } }
+        /* Chat skills block */
+        .skills-chat-window { background:#fff; border-radius:20px; box-shadow:0 4px 32px rgba(0,0,0,0.08); overflow:hidden; display:flex; flex-direction:column; }
+        .skills-chat-header { background:#1a1f2e; padding:16px 20px; display:flex; align-items:center; gap:12px; }
+        .skills-chat-avatar { width:40px; height:40px; border-radius:50%; background:linear-gradient(135deg,#3B5BDB,#2AABEE); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:14px; flex-shrink:0; }
+        .skills-chat-name { color:#fff; font-weight:600; font-size:15px; }
+        .skills-chat-role { color:#9ca3af; font-size:12px; display:flex; align-items:center; gap:4px; }
+        .skills-chat-messages { padding:24px 20px; display:flex; flex-direction:column; gap:12px; min-height:280px; max-height:440px; overflow-y:auto; background:#f8f9fc; }
+        @media(max-width:767px){ .skills-chat-messages { max-height:360px; } }
+        .skills-msg { display:flex; align-items:flex-end; gap:8px; animation:skillsFadeIn .35s ease; }
+        @keyframes skillsFadeIn { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:translateY(0)} }
+        .skills-msg.skills-user { flex-direction:row-reverse; }
+        .skills-avatar-sm { width:30px; height:30px; border-radius:50%; background:linear-gradient(135deg,#3B5BDB,#2AABEE); display:flex; align-items:center; justify-content:center; color:#fff; font-size:11px; font-weight:700; flex-shrink:0; }
+        .skills-bubble { max-width:72%; padding:12px 16px; border-radius:18px; font-size:14px; line-height:1.5; color:#1a1f2e; }
+        .skills-msg.skills-bot .skills-bubble { background:#fff; border-bottom-left-radius:4px; box-shadow:0 1px 4px rgba(0,0,0,0.08); }
+        .skills-msg.skills-user .skills-bubble { background:#3B5BDB; color:#fff; border-bottom-right-radius:4px; }
+        .skills-bubble .sc-title { font-weight:700; font-size:15px; margin-bottom:4px; color:#1a1f2e; }
+        .skills-bubble .sc-desc { font-size:13px; color:#4b5563; line-height:1.6; }
+        .skills-typing { display:flex; align-items:flex-end; gap:8px; }
+        .skills-typing-bubble { background:#fff; border-radius:18px; border-bottom-left-radius:4px; padding:12px 16px; box-shadow:0 1px 4px rgba(0,0,0,0.08); display:flex; gap:4px; align-items:center; }
+        .skills-typing-bubble span { width:7px; height:7px; background:#9ca3af; border-radius:50%; animation:scBounce 1.2s infinite; }
+        .skills-typing-bubble span:nth-child(2){animation-delay:.2s} .skills-typing-bubble span:nth-child(3){animation-delay:.4s}
+        @keyframes scBounce { 0%,60%,100%{transform:translateY(0)} 30%{transform:translateY(-6px)} }
+        .skills-chat-footer { padding:14px 20px; background:#fff; border-top:1px solid #e5e7eb; display:flex; align-items:center; min-height:60px; }
+        .sc-btn-next { background:#3B5BDB; color:#fff; border:none; border-radius:24px; padding:10px 22px; font-size:14px; font-weight:600; cursor:pointer; transition:background .2s,transform .1s; display:flex; align-items:center; gap:6px; }
+        .sc-btn-next:hover { background:#2f4dc4; } .sc-btn-next:active { transform:scale(.97); } .sc-btn-next:disabled { background:#c7d2fe; cursor:default; }
+        .sc-progress-row { display:flex; gap:6px; margin-right:auto; }
+        .sc-dot { width:8px; height:8px; border-radius:50%; background:#e5e7eb; transition:background .3s; }
+        .sc-dot.done { background:#3B5BDB; } .sc-dot.active { background:#f59e0b; }
+        .sc-final-row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+        .sc-btn-tg { display:inline-flex; align-items:center; gap:7px; padding:10px 18px; background:#2AABEE; color:#fff; border-radius:24px; text-decoration:none; font-size:14px; font-weight:600; transition:background .2s; }
+        .sc-btn-tg:hover { background:#1a95d4; }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -574,9 +605,10 @@
                         <a href="https://t.me/s_nesteryuk" target="_blank" rel="noopener noreferrer" class="bg-brand-blue hover:bg-blue-500 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)]"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
                             Написать в Telegram
                         </a>
-                        <a href="cv.html" target="_blank" class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
-                            Скачать CV
+                        <a href="cv.html" target="_blank" class="border border-white/20 hover:border-white/40 text-white px-8 py-4 rounded-full font-semibold flex items-center gap-2.5 transition-all"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"/></svg>
+                            Посмотреть CV
                         </a>
+                        <a href="cv.pdf" download class="border border-white/10 hover:border-white/30 text-white/70 hover:text-white px-4 py-4 rounded-full flex items-center transition-all" title="Скачать PDF"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></a>
                         <button id="funny-btn" onclick="nextFunnyMsg()" class="funny-btn text-slate-300 hover:text-white font-medium transition-colors border border-white/20 hover:border-white/40 px-5 py-3.5 rounded-full text-sm">Кнопка</button>
                     </div>
                 </div>
@@ -606,7 +638,7 @@
                         <p class="text-slate-500 font-medium leading-snug text-sm">млн просмотров</p>
                     </div>
                     <div class="stat-card bg-white rounded-[28px] p-6 border border-slate-200/60 shadow-sm flex flex-col justify-center min-h-[160px] stat-card-animate">
-                        <h3 class="text-[36px] font-black text-brand-blue tracking-tighter mb-1 leading-none"><span class="stat-num" data-target="50">50 0000</span><span class="stat-suffix">+</span></h3>
+                        <h3 class="text-[36px] font-black text-brand-blue tracking-tighter mb-1 leading-none"><span class="stat-num" data-target="50">50 000</span><span class="stat-suffix">+</span></h3>
                         <p class="text-slate-500 font-medium leading-snug text-sm">роликов</p>
                     </div>
                     <div class="stat-card bg-white rounded-[28px] p-6 border border-slate-200/60 shadow-sm flex flex-col justify-center min-h-[160px] stat-card-animate">
@@ -638,7 +670,7 @@
                 <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-10">
                     <div>
                         <h2 class="text-2xl font-bold text-slate-900 tracking-tight mb-2">Клиенты и партнёры</h2>
-                        <p class="text-slate-500 font-medium">Три проекта, по которым видно масштаб, зону ответственности и мой результат:</p>
+                        <p class="text-slate-500 font-medium">Шесть компаний — по ним виден масштаб, зона ответственности и мой результат:</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
@@ -756,8 +788,26 @@
                     <div class="w-1.5 h-8 bg-amber-400 rounded-full"></div>
                     <h2 class="text-3xl font-bold text-slate-900 tracking-tight">Что закрываю как руководитель</h2>
                 </div>
-                <p class="text-slate-500 text-lg mb-10 ml-6">Зоны, за которые я обычно отвечаю в проекте.</p>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+                <p class="text-slate-500 text-lg mb-8 ml-6">Директор по контенту — зоны ответственности</p>
+                <!-- Chat window -->
+                <div class="skills-chat-window">
+                    <div class="skills-chat-header">
+                        <div class="skills-chat-avatar">АН</div>
+                        <div>
+                            <div class="skills-chat-name">Александр Нестерюк</div>
+                            <div class="skills-chat-role">
+                                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block"></span>
+                                В сети · Директор по контенту
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills-chat-messages" id="scMessages"></div>
+                    <div class="skills-chat-footer" id="scFooter">
+                        <div class="sc-progress-row" id="scDots"></div>
+                        <button class="sc-btn-next" id="scBtnNext" onclick="scHandleNext()">Начать <span>→</span></button>
+                    </div>
+                </div>
+                <div class="hidden">
                     <div class="bg-brand-blue rounded-[28px] p-7 shadow-xl shadow-blue-600/20 text-white relative overflow-hidden">
                         <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center mb-5 border border-white/10">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path><path d="M2 12h20"></path></svg>
@@ -925,7 +975,7 @@
                             <p class="text-slate-500 text-sm leading-relaxed">Регулярно пересобираю рабочие механики: усиливаю то, что даёт результат, и убираю лишнее.</p>
                         </div>
                     </div>
-                </div>
+                </div></div>
             </section>
             <!-- ARTICLES -->
             <section id="articles">
@@ -973,7 +1023,7 @@
                     <!-- Right column: 2 stacked light cards -->
                     <div class="flex flex-col gap-6">
                         <!-- Card 1 – violet accent -->
-                        <a href="#" onclick="event.preventDefault();showPage('page-article-2')" class="art-side-card flex-1">
+                        <a href="#article-2" onclick="event.preventDefault();showPage('page-article-2')" class="art-side-card flex-1">
                             <div class="art-side-accent" style="background:linear-gradient(90deg,#8B5CF6,#A78BFA)"></div>
                             <div class="p-6 flex flex-col flex-1">
                                 <span class="text-[11px] font-bold tracking-[.12em] text-violet-600 uppercase mb-3">Управление</span>
@@ -986,7 +1036,7 @@
                             </div>
                         </a>
                         <!-- Card 2 – green accent -->
-                        <a href="#" onclick="event.preventDefault();showPage('page-article-3')" class="art-side-card flex-1">
+                        <a href="#article-3" onclick="event.preventDefault();showPage('page-article-3')" class="art-side-card flex-1">
                             <div class="art-side-accent" style="background:linear-gradient(90deg,#10B981,#34D399)"></div>
                             <div class="p-6 flex flex-col flex-1">
                                 <span class="text-[11px] font-bold tracking-[.12em] text-emerald-600 uppercase mb-3">Digital</span>
@@ -1587,8 +1637,8 @@
                         <div class="text-slate-500 text-sm font-medium">изделий</div>
                     </div>
                     <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm">
-                        <div class="text-xl font-black text-slate-900 mb-1">вложена любовь</div>
-                        <div class="text-slate-500 text-sm font-medium">и...немного нервов :)</div>
+                        <div class="text-xl font-black text-slate-900 mb-1">4 года</div>
+                        <div class="text-slate-500 text-sm font-medium">в ремесле</div>
                     </div>
                 </div>
                 <section class="grid lg:grid-cols-12 gap-12 lg:gap-20">
@@ -1894,7 +1944,7 @@
                 <p class="text-slate-500 text-sm">© 2026 Александр Нестерюк.</p>
                 <div class="flex items-center gap-6">
                     <a href="https://t.me/s_nesteryuk" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">@s_nesteryuk</a>
-                    <a href="/cv.pdf" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Скачать CV</a>
+                    <a href="cv.html" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Посмотреть CV</a>
                 </div>
             </div>
         </footer>
@@ -2026,7 +2076,7 @@
                 <p class="text-slate-500 text-sm">© 2026 Александр Нестерюк.</p>
                 <div class="flex items-center gap-6">
                     <a href="https://t.me/s_nesteryuk" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">@s_nesteryuk</a>
-                    <a href="/cv.pdf" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Скачать CV</a>
+                    <a href="cv.html" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Посмотреть CV</a>
                 </div>
             </div>
         </footer>
@@ -2157,7 +2207,7 @@
                 <p class="text-slate-500 text-sm">© 2026 Александр Нестерюк.</p>
                 <div class="flex items-center gap-6">
                     <a href="https://t.me/s_nesteryuk" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">@s_nesteryuk</a>
-                    <a href="/cv.pdf" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Скачать CV</a>
+                    <a href="cv.html" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Посмотреть CV</a>
                 </div>
             </div>
         </footer>
@@ -2192,20 +2242,31 @@
             const card = el.closest('.stat-card-animate') || el.parentElement;
             if(card) countObserver.observe(card);
         });
+        const pageHashes = { 'page-article-1': 'article-1', 'page-article-2': 'article-2', 'page-article-3': 'article-3' };
         function showPage(pageId, scrollTarget) {
-            document.querySelectorAll('.page').forEach(page => {
-                page.classList.remove('active');
-            });
+            document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
+            if (pageHashes[pageId]) {
+                history.pushState(null, '', '#' + pageHashes[pageId]);
+            } else if (!scrollTarget) {
+                history.pushState(null, '', window.location.pathname);
+            }
             if (scrollTarget) {
                 setTimeout(() => {
                     const el = document.getElementById(scrollTarget);
                     if (el) el.scrollIntoView({behavior:'smooth'});
                 }, 50);
-            } else {
+            } else if (!pageHashes[pageId]) {
                 window.scrollTo(0, 0);
             }
         }
+        // Deep-link on load
+        (function() {
+            const h = window.location.hash;
+            if (h === '#article-1') showPage('page-article-1');
+            else if (h === '#article-2') showPage('page-article-2');
+            else if (h === '#article-3') showPage('page-article-3');
+        })();
         
         function showProjects(tabId) {
             showPage('page-projects');
@@ -2371,5 +2432,118 @@
             btn.textContent = funnyMsgs[funnyIdx];
             setTimeout(() => btn.classList.remove('btn-bounce'), 500);
         }
+
+        // ── Chat skills block ──────────────────────────────────────────
+        (function() {
+            const scComps = [
+                { icon:'📝', title:'Контент и маркетинговая стратегия', desc:'Разработка контент-стратегии с нуля: позиционирование, TOV, матрица контента, редполитика, контент-план на квартал. Связка с бизнес-целями и воронкой продаж.' },
+                { icon:'📱', title:'Digital-маркетинг', desc:'Управление digital-каналами: SEO, SMM, email, мессенджеры, платный трафик. Координация агентств и подрядчиков, контроль KPI и бюджетов.' },
+                { icon:'🎬', title:'Креатив и продакшн', desc:'Генерация идей и управление производством: тексты, видео, подкасты, визуал. Постановка ТЗ, контроль качества, выстраивание редакционных процессов.' },
+                { icon:'👥', title:'Команда и найм', desc:'Формирование и развитие команды контента: редакторы, копирайтеры, SMM, дизайнеры. Онбординг, грейды, обратная связь, мотивация.' },
+                { icon:'⚙️', title:'Процессы и операционка', desc:'Выстраивание редакционных и производственных процессов: от идеи до публикации. Инструменты, трекинг задач, взаимодействие с другими отделами.' },
+                { icon:'📊', title:'Аналитика и экономика', desc:'Аналитика контент-эффективности: охваты, вовлечённость, конверсии, ROI. Управление бюджетом, отчётность для C-level, принятие решений на основе данных.' }
+            ];
+            const scUserReplies = ['Готов!','А дальше?','Интересно, что ещё?','Продолжай','У нас мэтч! Продолжай!','Интересно, а ещё?','И последнее?'];
+            const scNextLabels  = ['Готов!','А дальше?','Интересно, что ещё?','Продолжай','У нас мэтч! Продолжай!','Интересно, а ещё?','И последнее?'];
+            const scIntro = 'Привет! 👋 Давайте расскажу, какие зоны я обычно закрываю. Их 6. Готовы?';
+
+            const scMsgs  = document.getElementById('scMessages');
+            const scFooter= document.getElementById('scFooter');
+            const scBtn   = document.getElementById('scBtnNext');
+            const scDotsEl= document.getElementById('scDots');
+            if (!scMsgs) return;
+
+            let scStep = 0;
+            let scStarted = false;
+
+            scComps.forEach((_, i) => {
+                const d = document.createElement('div');
+                d.className = 'sc-dot'; d.id = 'sc-dot-' + i;
+                scDotsEl.appendChild(d);
+            });
+
+            function scScrollBottom() { setTimeout(() => { scMsgs.scrollTop = scMsgs.scrollHeight; }, 50); }
+
+            function scBotBubble(html, delay) {
+                delay = delay || 0;
+                return new Promise(resolve => {
+                    const t = document.createElement('div');
+                    t.className = 'skills-msg skills-bot skills-typing';
+                    t.innerHTML = '<div class="skills-avatar-sm">АН</div><div class="skills-typing-bubble"><span></span><span></span><span></span></div>';
+                    scMsgs.appendChild(t); scScrollBottom();
+                    setTimeout(() => {
+                        t.remove();
+                        const m = document.createElement('div');
+                        m.className = 'skills-msg skills-bot';
+                        m.innerHTML = '<div class="skills-avatar-sm">АН</div><div class="skills-bubble">' + html + '</div>';
+                        scMsgs.appendChild(m); scScrollBottom(); resolve();
+                    }, delay + 700);
+                });
+            }
+
+            function scUserBubble(text) {
+                const m = document.createElement('div');
+                m.className = 'skills-msg skills-user';
+                m.innerHTML = '<div class="skills-bubble">' + text + '</div>';
+                scMsgs.appendChild(m); scScrollBottom();
+            }
+
+            function scUpdateDots() {
+                scComps.forEach((_, i) => {
+                    const d = document.getElementById('sc-dot-' + i);
+                    if (!d) return;
+                    d.className = 'sc-dot' + (i < scStep ? ' done' : i === scStep ? ' active' : '');
+                });
+            }
+
+            window.scHandleNext = async function() {
+                scBtn.disabled = true;
+                if (!scStarted) {
+                    scStarted = true;
+                    scBtn.innerHTML = scNextLabels[0] + ' <span>→</span>';
+                    scBtn.disabled = false;
+                    return;
+                }
+                scUserBubble(scUserReplies[scStep]);
+                const c = scComps[scStep];
+                await scBotBubble('<div class="sc-title">' + c.icon + ' ' + c.title + '</div><div class="sc-desc">' + c.desc + '</div>', 200);
+                scUpdateDots();
+                scStep++;
+                if (scStep < scComps.length) {
+                    scBtn.innerHTML = scNextLabels[scStep] + ' <span>→</span>';
+                    scBtn.disabled = false;
+                } else {
+                    scUserBubble(scUserReplies[scUserReplies.length - 1]);
+                    await scBotBubble('Было приятно познакомиться! 🎉', 200);
+                    scFooter.innerHTML = '<div class="sc-final-row"><a href="https://t.me/s_nesteryuk" target="_blank" class="sc-btn-tg"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12l-6.869 4.326-2.96-.924c-.643-.204-.657-.643.136-.953l11.57-4.461c.537-.194 1.006.131.829.941z"/></svg>Написать в Telegram</a></div>';
+                }
+            };
+
+            // Auto-start intro when section scrolls into view
+            const scSection = document.getElementById('skills');
+            if (scSection && 'IntersectionObserver' in window) {
+                const obs = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting && !scStarted) {
+                        scStarted = true;
+                        scBotBubble(scIntro, 300).then(() => {
+                            scBtn.innerHTML = scNextLabels[0] + ' <span>→</span>';
+                            scBtn.disabled = false;
+                        });
+                        obs.disconnect();
+                    }
+                }, { threshold: 0.2 });
+                obs.observe(scSection);
+            } else if (scSection) {
+                // Fallback: start after 500ms
+                setTimeout(() => {
+                    scStarted = true;
+                    scBotBubble(scIntro, 300).then(() => {
+                        scBtn.innerHTML = scNextLabels[0] + ' <span>→</span>';
+                        scBtn.disabled = false;
+                    });
+                }, 500);
+            }
+        })();
+        // ── End chat skills block ──────────────────────────────────────
     </script>
 </body></html>
