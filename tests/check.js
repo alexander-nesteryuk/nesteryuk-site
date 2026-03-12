@@ -39,9 +39,9 @@ test(
 
 console.log('\n=== ARTICLES SECTION ===');
 test(
-    'Articles right column has h-full',
-    html.includes('flex flex-col gap-6 h-full') || html.includes('h-full flex flex-col gap-6'),
-    'Right column div needs h-full for desktop height matching'
+    'Articles right column: no flex-1 stretch (natural card heights)',
+    !html.includes('art-side-card flex-1'),
+    'art-side-card should NOT have flex-1 — cards must be at natural height, not stretched'
 );
 test(
     'Articles mobile carousel: snap-x + hide-scrollbar',
@@ -100,6 +100,18 @@ test(
         return segment.includes('justify-content:flex-end') || segment.includes('justify-content: flex-end') || segment.includes('ml-auto') || segment.includes('margin-left:auto');
     })(),
     'Telegram button should be right-aligned in the final chat row'
+);
+
+console.log('\n=== STATS ===');
+test(
+    '50 000 роликов stat: data-target="50000" (not 50)',
+    html.includes('data-target="50000"'),
+    'Change data-target="50" to data-target="50000" — JS counter was showing "50" instead of "50 000"'
+);
+test(
+    'animateCountUp formats thousands with spaces',
+    html.includes('replace(/') && (html.includes('\\u00a0') || html.includes("' '")),
+    'animateCountUp must format 50000 as "50 000" using replace with space'
 );
 
 console.log('\n=== GENERAL STRUCTURE ===');
