@@ -49,9 +49,18 @@ test(
     'Mobile carousel should have snap-x snap-mandatory wrapper and snap-start cards'
 );
 test(
-    'Articles desktop grid hidden on mobile (lg:hidden → lg:grid)',
-    html.includes('hidden lg:grid') && html.includes('lg:hidden'),
-    'Desktop grid should be hidden on mobile; mobile carousel hidden on desktop'
+    'Articles: reliable CSS classes art-carousel / art-grid used',
+    html.includes('class="art-carousel') && html.includes('class="art-grid"'),
+    'Use art-carousel and art-grid CSS classes (not hidden lg:grid Tailwind — CDN order unreliable)'
+);
+test(
+    'art-side-card has visible border',
+    (function() {
+        const idx = html.indexOf('.art-side-card');
+        const seg = html.slice(idx, idx + 300);
+        return seg.includes('border:1px solid') || seg.includes('border: 1px solid');
+    })(),
+    'art-side-card must have border:1px solid #e2e8f0 to be visible on near-white background'
 );
 test(
     'Featured article card present',

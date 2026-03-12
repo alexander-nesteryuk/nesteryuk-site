@@ -260,8 +260,17 @@
         .art-feat-badge { display:inline-block; background:rgba(255,255,255,0.12); border:1px solid rgba(255,255,255,0.2); color:#fff; font-size:11px; font-weight:700; letter-spacing:.1em; padding:6px 14px; border-radius:100px; }
         .art-feat-btn { display:inline-flex; align-items:center; background:#2563EB; color:#fff; font-weight:600; font-size:15px; padding:13px 28px; border-radius:100px; text-decoration:none; transition:background 0.2s,transform 0.2s; }
         .art-feat-btn:hover { background:#1D4ED8; transform:translateY(-2px); }
-        .art-side-card { background:#fff; border-radius:24px; display:flex; flex-direction:column; box-shadow:0 2px 20px rgba(0,0,0,0.07); transition:transform 0.3s,box-shadow 0.3s; overflow:hidden; text-decoration:none; color:inherit; }
-        .art-side-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.12); }
+        .art-side-card { background:#fff; border-radius:24px; display:flex; flex-direction:column; box-shadow:0 2px 16px rgba(0,0,0,0.07); border:1px solid #e2e8f0; transition:transform 0.3s,box-shadow 0.3s; overflow:hidden; text-decoration:none; color:inherit; }
+        .art-side-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.12); border-color:#cbd5e1; }
+        /* Reliable mobile/desktop toggle for articles (not dependent on Tailwind CSS order) */
+        .art-carousel { display:flex; }
+        .art-grid    { display:none; }
+        .art-nav-dt  { display:none; }
+        @media (min-width:1024px) {
+            .art-carousel { display:none !important; }
+            .art-grid     { display:grid !important; grid-template-columns:3fr 2fr; gap:1.5rem; }
+            .art-nav-dt   { display:flex !important; }
+        }
         .art-side-accent { height:4px; flex-shrink:0; }
         .art-nav-dot { height:8px; border-radius:100px; display:inline-block; }
         .art-nav-btn { width:44px; height:44px; border:1.5px solid #E2E8F0; border-radius:50%; display:flex; align-items:center; justify-content:center; background:#fff; cursor:pointer; transition:background 0.2s,border-color 0.2s; }
@@ -985,7 +994,7 @@
                         <p class="text-slate-500 text-base lg:text-lg ml-[18px]">Делюсь опытом управлением большой командой, первыми контент-заводами в РФ и своими ошибками</p>
                     </div>
                     <!-- Nav: dots + arrows — desktop only -->
-                    <div class="hidden lg:flex items-center gap-3 mt-1 flex-shrink-0">
+                    <div class="art-nav-dt items-center gap-3 mt-1 flex-shrink-0">
                         <div class="flex items-center gap-1.5">
                             <span class="art-nav-dot w-6 bg-brand-blue"></span>
                             <span class="art-nav-dot w-2 bg-slate-300"></span>
@@ -1000,7 +1009,7 @@
                 </div>
 
                 <!-- Mobile: horizontal snap-scroll carousel -->
-                <div class="lg:hidden -mx-4 px-4 pb-3 flex gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
+                <div class="art-carousel -mx-4 px-4 pb-3 gap-4 overflow-x-auto snap-x snap-mandatory hide-scrollbar">
                     <!-- Card 1 — featured -->
                     <div class="snap-start flex-shrink-0 w-[88vw] art-feat-card p-7 flex flex-col justify-between min-h-[380px] cursor-pointer" onclick="showPage('page-article-1')">
                         <div>
@@ -1038,7 +1047,7 @@
                 </div>
 
                 <!-- Desktop: grid layout (big left + 2 right) -->
-                <div class="hidden lg:grid grid-cols-[3fr_2fr] gap-6">
+                <div class="art-grid">
                     <!-- Featured card (dark, left) -->
                     <div class="art-feat-card p-10 flex flex-col justify-between min-h-[500px] cursor-pointer" onclick="showPage('page-article-1')">
                         <div>
