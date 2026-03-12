@@ -2301,7 +2301,7 @@
                     const el = document.getElementById(scrollTarget);
                     if (el) el.scrollIntoView({behavior:'smooth'});
                 }, 50);
-            } else if (!pageHashes[pageId]) {
+            } else {
                 window.scrollTo(0, 0);
             }
         }
