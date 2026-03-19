@@ -146,25 +146,57 @@
         .glow-anim { animation: pulse-glow 4s ease-in-out infinite; }
         .yt-levitate { animation: levitate 4s ease-in-out infinite; }
         
-        /* Privery glassmorphism stat cards — Apple style */
-        .stat-card-white {
-            background: rgba(255,255,255,0.72);
-            backdrop-filter: blur(28px) saturate(180%);
-            -webkit-backdrop-filter: blur(28px) saturate(180%);
-            border: 1px solid rgba(255,255,255,0.88);
-            box-shadow: 0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
-            transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease;
+        /* ── Apple glassmorphism stat cards ── */
+        .pgs-card {
+            position: relative;
+            overflow: hidden;
+            background: rgba(255,255,255,0.58);
+            backdrop-filter: blur(32px) saturate(200%);
+            -webkit-backdrop-filter: blur(32px) saturate(200%);
+            border: 1px solid rgba(255,255,255,0.82);
+            border-radius: 28px;
+            box-shadow:
+                0 8px 32px rgba(0,0,0,0.09),
+                0 2px 8px rgba(0,0,0,0.04),
+                inset 0 1px 0 rgba(255,255,255,0.95);
+            padding: 36px 40px;
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
             cursor: default;
+            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease;
         }
-        .stat-card-white:hover {
-            transform: scale(1.045) translateY(-4px);
-            box-shadow: 0 28px 64px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.95);
+        .pgs-card:hover {
+            transform: scale(1.04) translateY(-7px);
+            box-shadow:
+                0 36px 80px rgba(0,0,0,0.15),
+                0 8px 24px rgba(0,0,0,0.08),
+                inset 0 1px 0 rgba(255,255,255,0.95);
         }
-        .stat-card-white .pgs-num {
+        /* Colored semicircle — bottom-right corner, half-clipped */
+        .pgs-card::before {
+            content: '';
+            position: absolute;
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            bottom: -80px;
+            right: -55px;
+            pointer-events: none;
+            opacity: 0.55;
+            transition: transform 0.38s cubic-bezier(0.34,1.56,0.64,1), opacity 0.35s ease;
+        }
+        .pgs-card:hover::before { transform: scale(1.28); opacity: 0.78; }
+        .pgs-card--green::before  { background: radial-gradient(circle at 40% 40%, #34d399, #059669 75%); }
+        .pgs-card--blue::before   { background: radial-gradient(circle at 40% 40%, #60a5fa, #2563eb 75%); }
+        .pgs-card--purple::before { background: radial-gradient(circle at 40% 40%, #a78bfa, #7c3aed 75%); }
+        /* Number: gradient text + independent scale */
+        .pgs-num {
             display: inline-block;
-            transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1);
+            transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1);
         }
-        .stat-card-white:hover .pgs-num { transform: scale(1.06); }
+        .pgs-card:hover .pgs-num { transform: scale(1.07); }
         .pgs-num-text {
             background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
             -webkit-background-clip: text;
@@ -176,6 +208,10 @@
             line-height: 1;
         }
         @media (min-width:1024px) { .pgs-num-text { font-size: 52px; } }
+        @media (max-width:480px)  { .pgs-num-text { font-size: 34px; } .pgs-card { padding: 26px 24px; min-height: 150px; } }
+        /* Section: overlap hero from below */
+        .pgs-section { position: relative; z-index: 10; margin-top: -88px; }
+        @media (max-width:768px)  { .pgs-section { margin-top: -44px; } }
         .stat-plus { display: inline-block; transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), color 0.2s; }
         .stat-card:hover .stat-plus, .stat-card-white:hover .stat-plus { transform: scale(1.7); color: #2563EB; }
         .skill-card { transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
@@ -1592,24 +1628,27 @@
                         </div>
                     </div>
                 </section>
-                <section class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-24" style="position:relative;z-index:10;margin-top:-56px;padding:0 4px">
-                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
-                        <div class="pgs-num mb-2">
-                            <span class="pgs-num-text">110 000 000</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                <section class="pgs-section grid grid-cols-1 md:grid-cols-3 gap-5 mb-24">
+                    <!-- Card 1: views — green semicircle -->
+                    <div class="pgs-card pgs-card--green">
+                        <div class="pgs-num mb-3">
+                            <span class="pgs-num-text">110 000 000</span><span class="stat-plus text-amber-400 font-black ml-1" style="font-size:28px">+</span>
                         </div>
-                        <p class="text-slate-500 font-medium leading-snug text-base">просмотров сгенерировано</p>
+                        <p class="text-slate-500 font-medium text-base leading-snug">просмотров сгенерировано</p>
                     </div>
-                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
-                        <div class="pgs-num mb-2">
-                            <span class="pgs-num-text">33 000</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                    <!-- Card 2: videos — blue semicircle -->
+                    <div class="pgs-card pgs-card--blue">
+                        <div class="pgs-num mb-3">
+                            <span class="pgs-num-text">33 000</span><span class="stat-plus text-amber-400 font-black ml-1" style="font-size:28px">+</span>
                         </div>
-                        <p class="text-slate-500 font-medium leading-snug text-base">роликов произведено</p>
+                        <p class="text-slate-500 font-medium text-base leading-snug">роликов произведено</p>
                     </div>
-                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
-                        <div class="pgs-num mb-2">
-                            <span class="pgs-num-text">130</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                    <!-- Card 3: team — purple semicircle -->
+                    <div class="pgs-card pgs-card--purple">
+                        <div class="pgs-num mb-3">
+                            <span class="pgs-num-text">130</span><span class="stat-plus text-amber-400 font-black ml-1" style="font-size:28px">+</span>
                         </div>
-                        <p class="text-slate-500 font-medium leading-snug text-base">специалистов в пуле</p>
+                        <p class="text-slate-500 font-medium text-base leading-snug">специалистов в пуле</p>
                     </div>
                 </section>
                 <section class="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-24">
