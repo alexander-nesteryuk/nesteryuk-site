@@ -574,11 +574,13 @@
         .skif-short-title { font-size:10px; font-weight:600; color:#475569; margin-top:2px; line-height:1.3; }
         .skif-short-line { height:2px; width:28px; background:#FF0000; border-radius:2px; margin-top:4px; }
         /* Branded short placeholder */
-        .skif-short-bg { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px; }
-        .skif-short-bg-icon { width:48px; height:48px; border-radius:50%; background:rgba(255,255,255,0.15); border:1.5px solid rgba(255,255,255,0.2); display:flex; align-items:center; justify-content:center; }
-        .skif-short-bg-brand { font-size:8px; font-weight:900; letter-spacing:.22em; color:rgba(255,255,255,0.5); text-transform:uppercase; }
-        .skif-short-overlay { position:absolute; bottom:0; left:0; right:0; padding:28px 10px 10px; background:linear-gradient(to top,rgba(0,0,0,0.75) 0%,transparent 100%); z-index:2; }
-        .skif-short-overlay-title { font-size:9px; font-weight:800; color:rgba(255,255,255,0.92); text-transform:uppercase; letter-spacing:.05em; line-height:1.35; }
+        .skif-short-bg { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:12px; }
+        .skif-short-glow { position:absolute; top:38%; left:50%; transform:translate(-50%,-50%); width:160px; height:160px; border-radius:50%; filter:blur(40px); pointer-events:none; }
+        .skif-short-bg-icon { width:60px; height:60px; border-radius:50%; background:rgba(255,255,255,0.13); border:1.5px solid rgba(255,255,255,0.3); display:flex; align-items:center; justify-content:center; position:relative; z-index:1; }
+        .skif-short-bg-brand { font-size:8px; font-weight:900; letter-spacing:.22em; color:rgba(255,255,255,0.45); text-transform:uppercase; position:relative; z-index:1; }
+        .skif-short-overlay { position:absolute; bottom:0; left:0; right:0; padding:70px 12px 12px; background:linear-gradient(to top,rgba(0,0,0,0.9) 0%,rgba(0,0,0,0.45) 55%,transparent 100%); z-index:2; }
+        .skif-short-overlay-views { font-size:20px; font-weight:900; color:#fff; line-height:1; margin-bottom:5px; }
+        .skif-short-overlay-title { font-size:9px; font-weight:800; color:rgba(255,255,255,0.75); text-transform:uppercase; letter-spacing:.05em; line-height:1.35; }
         /* BTS (behind the scenes) */
         .skif-bts-card { }
         .skif-bts-thumb { aspect-ratio:4/3; background:#f1f5f9; border-radius:16px; overflow:hidden; transition:transform .2s; }
@@ -1862,80 +1864,86 @@
                         <h2 class="text-xl font-bold text-slate-900">Shorts &amp; Вертикальный контент</h2>
                     </div>
                     <div class="skif-shorts-row">
-                        <!-- Short 1: 3,5 млн -->
+                        <!-- Short 1: 3,5 млн — фиолетовый -->
                         <a href="https://www.youtube.com/shorts/3M0siANF-8c" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#1E1044 0%,#0B1221 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#2D0B6B 0%,#0D0B22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(139,92,246,0.6)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Рокерская мелодия</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">3,5 млн</div><span class="skif-short-overlay-title">Рокерская мелодия</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">3,5 млн</span><p class="skif-short-title">РОКЕРСКАЯ мелодия</p><div class="skif-short-line"></div></div>
                         </a>
-                        <!-- Short 2: 3,5 млн -->
+                        <!-- Short 2: 3,5 млн — красный -->
                         <a href="https://www.youtube.com/shorts/ulyHEbMmBck" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#0D1A38 0%,#1A1432 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#3B0A0A 0%,#0D0B22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(239,68,68,0.55)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Холстинин</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">3,5 млн</div><span class="skif-short-overlay-title">Холстинин</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">3,5 млн</span><p class="skif-short-title">ХОЛСТИНИН</p><div class="skif-short-line"></div></div>
                         </a>
-                        <!-- Short 3: 3,2 млн -->
+                        <!-- Short 3: 3,2 млн — синий -->
                         <a href="https://www.youtube.com/shorts/EvpcnUmNhfw" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#0F1B38 0%,#1A0A32 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#071A4A 0%,#0B0D22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(59,130,246,0.55)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Самая популярная</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">3,2 млн</div><span class="skif-short-overlay-title">Самая популярная</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">3,2 млн</span><p class="skif-short-title">САМАЯ ПОПУЛЯРНАЯ</p><div class="skif-short-line"></div></div>
                         </a>
-                        <!-- Short 4: 1,4 млн -->
+                        <!-- Short 4: 1,4 млн — янтарный -->
                         <a href="https://www.youtube.com/shorts/KJNAw4i2JR0" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#1C0D3A 0%,#0B1221 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#2B1400 0%,#0D0B22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(245,158,11,0.55)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Безумно дорогая гитара</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">1,4 млн</div><span class="skif-short-overlay-title">Безумно дорогая гитара</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">1,4 млн</span><p class="skif-short-title">БЕЗУМНО дорогая гитара</p><div class="skif-short-line"></div></div>
                         </a>
-                        <!-- Short 5: 1,3 млн -->
+                        <!-- Short 5: 1,3 млн — изумрудный -->
                         <a href="https://www.youtube.com/shorts/P21YmkMQHAw" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#150E2E 0%,#0B1824 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#003B1A 0%,#0B0D22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(16,185,129,0.5)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Популярная гитара</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">1,3 млн</div><span class="skif-short-overlay-title">Популярная гитара</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">1,3 млн</span><p class="skif-short-title">ПОПУЛЯРНАЯ гитара</p><div class="skif-short-line"></div></div>
                         </a>
-                        <!-- Short 6: 1,2 млн -->
+                        <!-- Short 6: 1,2 млн — розовый -->
                         <a href="https://www.youtube.com/shorts/sk4T2RyxTFQ" target="_blank" rel="noopener noreferrer" class="skif-short-card" style="text-decoration:none">
                             <div class="skif-short-thumb">
                                 <span class="skif-shorts-badge">SHORTS</span>
-                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#1A1432 0%,#0B1221 50%,#1E0A3C 100%)">
-                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" width="22" height="22"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
+                                <div class="skif-short-bg" style="background:linear-gradient(160deg,#3B0028 0%,#0D0B22 100%)">
+                                    <div class="skif-short-glow" style="background:rgba(236,72,153,0.5)"></div>
+                                    <div class="skif-short-bg-icon"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5" width="26" height="26"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg></div>
                                     <span class="skif-short-bg-brand">SKIFMUSIC</span>
                                 </div>
-                                <div class="skif-short-overlay"><span class="skif-short-overlay-title">Гитаристка-виртуоз</span></div>
+                                <div class="skif-short-overlay"><div class="skif-short-overlay-views">1,2 млн</div><span class="skif-short-overlay-title">Гитаристка-виртуоз</span></div>
                                 <div class="skif-short-play"><div><svg viewBox="0 0 24 24" fill="#374151" width="14" height="14"><path d="M8 5v14l11-7z"/></svg></div></div>
                             </div>
                             <div class="skif-short-meta"><span class="skif-short-views">1,2 млн</span><p class="skif-short-title">ГИТАРИСТКА-ВИРТУОЗ</p><div class="skif-short-line"></div></div>
@@ -1969,12 +1977,20 @@
                             <div class="mb-4">
                                 <span class="bg-red-600 text-white text-xs font-bold px-3 py-1 rounded-md tracking-wide uppercase">▶ Экспертное видео</span>
                             </div>
-                            <a href="https://www.youtube.com/watch?v=C5YWa0hbrOI" target="_blank" rel="noopener noreferrer" class="w-full rounded-2xl overflow-hidden relative mb-4 group block" style="aspect-ratio:16/9;display:block;text-decoration:none">
-                                <img src="https://img.youtube.com/vi/C5YWa0hbrOI/mqdefault.jpg" alt="Как выбрать электрогитару новичку?" style="width:100%;height:100%;object-fit:cover;border-radius:16px" loading="lazy">
-                                <div class="absolute inset-0 flex items-center justify-center" style="border-radius:16px">
-                                    <div class="w-10 h-10 rounded-full bg-white/80 flex items-center justify-center shadow-md group-hover:scale-110 transition-transform">
-                                        <svg viewBox="0 0 24 24" fill="#374151" width="16" height="16"><path d="M8 5v14l11-7z"/></svg>
+                            <a href="https://www.youtube.com/watch?v=C5YWa0hbrOI" target="_blank" rel="noopener noreferrer" class="w-full rounded-2xl overflow-hidden relative mb-4 group block" style="aspect-ratio:16/9;display:block;text-decoration:none;background:linear-gradient(135deg,#1A0A3B 0%,#0B1230 50%,#1A1432 100%)">
+                                <!-- Glow -->
+                                <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:180px;height:180px;border-radius:50%;background:rgba(124,58,237,0.35);filter:blur(40px);pointer-events:none"></div>
+                                <!-- Brand label -->
+                                <div style="position:absolute;top:12px;left:12px;font-size:8px;font-weight:900;letter-spacing:.2em;color:rgba(255,255,255,0.45);text-transform:uppercase;z-index:1">SKIFMUSIC</div>
+                                <!-- Center icon -->
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:1">
+                                    <div style="width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.85);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 18px rgba(0,0,0,0.4)" class="group-hover:scale-110 transition-transform">
+                                        <svg viewBox="0 0 24 24" fill="#1e1b4b" width="20" height="20"><path d="M8 5v14l11-7z"/></svg>
                                     </div>
+                                </div>
+                                <!-- Bottom title overlay -->
+                                <div style="position:absolute;bottom:0;left:0;right:0;padding:40px 14px 14px;background:linear-gradient(to top,rgba(0,0,0,0.85),transparent);z-index:1">
+                                    <div style="font-size:11px;font-weight:800;color:rgba(255,255,255,0.9);text-transform:uppercase;letter-spacing:.04em;line-height:1.35">Как выбрать электрогитару новичку?</div>
                                 </div>
                             </a>
                             <div>
