@@ -735,7 +735,7 @@
         @media (max-width:900px) {
             .privery-creators-grid { grid-template-columns:repeat(3,1fr) !important; }
         }
-        @media (max-width:420px) {
+        @media (max-width:600px) {
             .privery-metric-grid { grid-template-columns:1fr !important; }
         }
         @media (max-width:600px) {
@@ -811,9 +811,9 @@
         .privery-lightbox-img { max-width:92vw; max-height:90vh; object-fit:contain; border-radius:14px; box-shadow:0 32px 80px rgba(0,0,0,0.7); cursor:default; display:block; }
         .privery-lightbox-close { position:fixed; top:18px; right:24px; color:rgba(255,255,255,0.8); font-size:28px; cursor:pointer; line-height:1; background:rgba(255,255,255,0.1); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
         .privery-lightbox-close:hover { background:rgba(255,255,255,0.2); color:#fff; }
-        /* Work screenshot cards */
-        .privery-work-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.07); cursor:pointer; transition:transform 0.22s ease, box-shadow 0.22s ease; }
-        .privery-work-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.13); }
+        /* Work screenshot cards — Apple glassmorphism */
+        .privery-work-card { background:rgba(255,255,255,0.62); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border-radius:20px; overflow:hidden; box-shadow:0 4px 24px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.95); border:1px solid rgba(255,255,255,0.78); cursor:pointer; transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease; }
+        .privery-work-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 24px 56px rgba(0,0,0,0.13), inset 0 1px 0 rgba(255,255,255,0.95); }
         .privery-work-browser-bar { background:#f1f3f5; padding:9px 14px; display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(0,0,0,0.06); }
         .privery-work-url { flex:1; background:rgba(0,0,0,0.06); border-radius:6px; padding:3px 10px; font-size:10px; color:rgba(0,0,0,0.38); font-family:monospace; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; margin-left:4px; }
         .privery-work-browser-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
@@ -1661,31 +1661,31 @@
                             <p class="text-xl text-slate-800 font-medium leading-snug">Строю контент-заводы под ключ.</p>
                             <p>Я собирал это направление с нуля: полный найм команды, работа с креаторами и командой агентства, сценарии, производство, KPI, контроль качества, дистрибуция и аналитика. Помимо контент-стратегии и продакшна отвечал за построение команды, воронку найма, оргдизайн функции, ФОТ/P&amp;L-контур и операционное управление delivery. Задача была вполне прикладная: выпускать много, быстро и без просадки по качеству.</p>
                             <p>За короткий срок мы выстроили рабочую схему, в которой каждый этап — от подбора людей до отчётности — был привязан к срокам, цифрам и задаче клиента. Результат: 33 000+ роликов, 110+ млн просмотров и пул из 130+ специалистов и креаторов.</p>
-                            <div class="bg-slate-900 rounded-[20px] p-6 border-l-4 border-emerald-400 mt-2">
+                            <div class="rounded-[20px] p-6 border-l-4 border-emerald-400 mt-2" style="background:rgba(15,23,42,0.82);backdrop-filter:blur(20px) saturate(160%);-webkit-backdrop-filter:blur(20px) saturate(160%);border-top:1px solid rgba(255,255,255,0.08);border-right:1px solid rgba(255,255,255,0.06);border-bottom:1px solid rgba(255,255,255,0.06);box-shadow:0 8px 32px rgba(0,0,0,0.22),inset 0 1px 0 rgba(255,255,255,0.07)">
                                 <p class="text-white font-semibold text-base leading-relaxed">Собрал команду из 20 специалистов в агентстве и выстроил команду, которая обеспечила масштаб, скорость и качество результата за короткий срок.</p>
                             </div>
                         </div>
                     </div>
-                    <div class="lg:col-span-6 bg-white rounded-[32px] p-8 border border-slate-200/60 shadow-sm">
+                    <div class="lg:col-span-6 rounded-[32px] p-8" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(32px) saturate(200%);-webkit-backdrop-filter:blur(32px) saturate(200%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.95)">
                         <div class="flex items-center gap-3 mb-6"><div class="w-1.5 h-6 rounded-full" style="background:#4ade80"></div><h3 class="font-bold text-slate-900 text-lg">Что входит в систему</h3></div>
                         <div class="space-y-3">
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-5 py-3.5 border border-slate-100">
+                            <div class="flex items-center gap-3 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#4ade80"></div>
                                 <span class="text-slate-700 font-medium text-sm">Найм и обучение команды креаторов</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-5 py-3.5 border border-slate-100">
+                            <div class="flex items-center gap-3 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#4ade80"></div>
                                 <span class="text-slate-700 font-medium text-sm">Сценарии, съёмка, монтаж — конвейер</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-5 py-3.5 border border-slate-100">
+                            <div class="flex items-center gap-3 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#4ade80"></div>
                                 <span class="text-slate-700 font-medium text-sm">AI-инструменты в производстве</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-5 py-3.5 border border-slate-100">
+                            <div class="flex items-center gap-3 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#4ade80"></div>
                                 <span class="text-slate-700 font-medium text-sm">KPI, аналитика, контроль качества</span>
                             </div>
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-2xl px-5 py-3.5 border border-slate-100">
+                            <div class="flex items-center gap-3 rounded-2xl px-5 py-3.5" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-2 h-2 rounded-full flex-shrink-0" style="background:#4ade80"></div>
                                 <span class="text-slate-700 font-medium text-sm">Дистрибуция на 6 платформах</span>
                             </div>
