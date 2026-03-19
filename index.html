@@ -606,8 +606,8 @@
         /* Carousel */
         .skif-carousel-wrap { position:relative; padding:0 40px; overflow:hidden; }
         .skif-carousel { display:flex; gap:16px; }
-        .skif-video-card { flex:0 0 calc((100% - 32px)/3); background:#fff; border-radius:20px; border:1px solid #e2e8f0; overflow:hidden; cursor:pointer; transition:transform .2s,box-shadow .2s; }
-        .skif-video-card:hover { transform:translateY(-4px); box-shadow:0 8px 28px rgba(0,0,0,0.10); }
+        .skif-video-card { flex:0 0 calc((100% - 32px)/3); background:rgba(255,255,255,0.62); backdrop-filter:blur(24px) saturate(180%); -webkit-backdrop-filter:blur(24px) saturate(180%); border-radius:20px; border:1px solid rgba(255,255,255,0.82); box-shadow:0 4px 20px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95); overflow:hidden; cursor:pointer; transition:transform 0.35s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.35s ease; }
+        .skif-video-card:hover { transform:translateY(-6px) scale(1.02); box-shadow:0 20px 48px rgba(0,0,0,0.12),inset 0 1px 0 rgba(255,255,255,0.95); }
         .skif-thumb-wrap { position:relative; width:100%; aspect-ratio:16/9; overflow:hidden; }
         .skif-thumb-placeholder { width:100%; height:100%; background:#f1f5f9; display:flex; align-items:center; justify-content:center; }
         .skif-thumb-label { font-size:11px; font-weight:600; color:#94a3b8; letter-spacing:.06em; }
@@ -1990,15 +1990,15 @@
                     </div>
                 </section>
                 <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
-                    <div class="bg-white rounded-[32px] p-8 border border-slate-200/60 shadow-sm">
+                    <div class="rounded-[32px] p-8" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.95)">
                         <h3 class="text-[40px] font-black text-brand-blue tracking-tighter mb-2 leading-none">18k</h3>
                         <p class="text-slate-500 font-medium text-lg">подписчиков в Telegram за 3 месяца</p>
                     </div>
-                    <div class="bg-white rounded-[32px] p-8 border border-slate-200/60 shadow-sm">
+                    <div class="rounded-[32px] p-8" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.95)">
                         <h3 class="text-[40px] font-black text-brand-blue tracking-tighter mb-2 leading-none">200k+</h3>
                         <p class="text-slate-500 font-medium text-lg">целевых переходов</p>
                     </div>
-                    <div class="bg-white rounded-[32px] p-8 border border-slate-200/60 shadow-sm">
+                    <div class="rounded-[32px] p-8" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(28px) saturate(190%);-webkit-backdrop-filter:blur(28px) saturate(190%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 8px 32px rgba(0,0,0,0.08),0 2px 8px rgba(0,0,0,0.04),inset 0 1px 0 rgba(255,255,255,0.95)">
                         <h3 class="text-[40px] font-black text-brand-blue tracking-tighter mb-2 leading-none">×3</h3>
                         <p class="text-slate-500 font-medium text-lg">рост активных покупателей</p>
                     </div>
@@ -2011,15 +2011,15 @@
                     </div>
                     <div class="space-y-4">
                         <div class="flex items-center gap-4 mb-4"><div class="w-1.5 h-6 bg-orange-500 rounded-full"></div><h2 class="text-2xl font-bold text-slate-900">Что я построил</h2></div>
-                        <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm flex items-start gap-4">
+                        <div class="rounded-[24px] p-6 flex items-start gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 20px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg></div>
                             <div><h4 class="font-bold text-slate-900 mb-1">Telegram как главный канал</h4><p class="text-slate-500 text-sm">Не просто канал, а живая точка контакта с аудиторией</p></div>
                         </div>
-                        <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm flex items-start gap-4">
+                        <div class="rounded-[24px] p-6 flex items-start gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 20px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg></div>
                             <div><h4 class="font-bold text-slate-900 mb-1">Influence-направление</h4><p class="text-slate-500 text-sm">50+ блогеров — от отбора до контроля результата</p></div>
                         </div>
-                        <div class="bg-white rounded-[24px] p-6 border border-slate-200/60 shadow-sm flex items-start gap-4">
+                        <div class="rounded-[24px] p-6 flex items-start gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 20px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="w-10 h-10 bg-orange-50 rounded-xl flex items-center justify-center text-orange-500 flex-shrink-0"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg></div>
                             <div><h4 class="font-bold text-slate-900 mb-1">Рекламная система</h4><p class="text-slate-500 text-sm">Внутренняя реклама WB + внешнее продвижение</p></div>
                         </div>
@@ -2108,19 +2108,19 @@
                 <div class="mb-16">
                     <!-- Stats grid -->
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
-                        <div class="bg-white rounded-[20px] p-6 border border-slate-200/60 shadow-sm">
+                        <div class="rounded-[20px] p-6" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 6px 24px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="text-3xl font-black leading-none mb-2" style="color:#feba4f">90 000 000+</div>
                             <div class="text-slate-500 text-sm font-medium">просмотров</div>
                         </div>
-                        <div class="bg-white rounded-[20px] p-6 border border-slate-200/60 shadow-sm">
+                        <div class="rounded-[20px] p-6" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 6px 24px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="text-3xl font-black leading-none mb-2" style="color:#feba4f">140+</div>
                             <div class="text-slate-500 text-sm font-medium">интервью с музыкантами</div>
                         </div>
-                        <div class="bg-white rounded-[20px] p-6 border border-slate-200/60 shadow-sm">
+                        <div class="rounded-[20px] p-6" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 6px 24px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="text-3xl font-black leading-none mb-2" style="color:#feba4f">3 → 35</div>
                             <div class="text-slate-500 text-sm font-medium">рост сети магазинов</div>
                         </div>
-                        <div class="bg-white rounded-[20px] p-6 border border-slate-200/60 shadow-sm">
+                        <div class="rounded-[20px] p-6" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 6px 24px rgba(0,0,0,0.07),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="text-3xl font-black leading-none mb-2" style="color:#feba4f">5 000+</div>
                             <div class="text-slate-500 text-sm font-medium">роликов создано</div>
                         </div>
@@ -2142,7 +2142,7 @@
                                 <span class="w-1 h-5 rounded-full inline-block" style="background:#feba4f"></span>Форматы контента
                             </h3>
                             <div class="space-y-3">
-                                <div class="bg-white rounded-[16px] p-4 border border-slate-200/60 flex items-center gap-4">
+                                <div class="rounded-[16px] p-4 flex items-center gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 16px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.95)">
                                     <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fef3c7">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" width="16" height="16"><circle cx="15" cy="5" r="1"/><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                                     </div>
@@ -2151,7 +2151,7 @@
                                         <div class="text-xs text-slate-400 mt-0.5">Пушной, Ария и другие легенды сцены</div>
                                     </div>
                                 </div>
-                                <div class="bg-white rounded-[16px] p-4 border border-slate-200/60 flex items-center gap-4">
+                                <div class="rounded-[16px] p-4 flex items-center gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 16px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.95)">
                                     <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fef3c7">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" width="16" height="16"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
                                     </div>
@@ -2160,7 +2160,7 @@
                                         <div class="text-xs text-slate-400 mt-0.5">Контент, который помогал выбирать и покупать</div>
                                     </div>
                                 </div>
-                                <div class="bg-white rounded-[16px] p-4 border border-slate-200/60 flex items-center gap-4">
+                                <div class="rounded-[16px] p-4 flex items-center gap-4" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 4px 16px rgba(0,0,0,0.06),inset 0 1px 0 rgba(255,255,255,0.95)">
                                     <div class="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#fef3c7">
                                         <svg viewBox="0 0 24 24" fill="none" stroke="#b45309" stroke-width="2" width="16" height="16"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
                                     </div>
@@ -2175,7 +2175,7 @@
 
                     <!-- Ключевые результаты (text metrics) -->
                     <div class="grid md:grid-cols-2 gap-5">
-                        <div class="bg-white rounded-[20px] p-7 border border-slate-200/60 shadow-sm">
+                        <div class="rounded-[20px] p-7" style="background:rgba(255,255,255,0.62);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);border:1px solid rgba(255,255,255,0.82);box-shadow:0 8px 32px rgba(0,0,0,0.08),inset 0 1px 0 rgba(255,255,255,0.95)">
                             <div class="space-y-5">
                                 <div>
                                     <div class="text-[10px] font-bold tracking-widest uppercase text-slate-400 mb-1">Подписчики YouTube</div>
@@ -2203,7 +2203,7 @@
                                 <div class="text-lg font-bold text-slate-900 mb-3">Серебряная кнопка YouTube</div>
                                 <p class="text-slate-500 text-sm leading-relaxed mb-5">Это не история про один удачный ролик. Это итог нескольких лет системной работы: команда, регулярность, tone of voice и контент, который смотрят не из вежливости. Канал стал реальным активом бренда.</p>
                             </div>
-                            <div class="flex items-center gap-3 bg-slate-50 rounded-xl p-4">
+                            <div class="flex items-center gap-3 rounded-xl p-4" style="background:rgba(255,255,255,0.72);border:1px solid rgba(255,255,255,0.9);box-shadow:0 2px 8px rgba(0,0,0,0.04)">
                                 <div class="w-8 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style="background:#FF0000">
                                     <svg viewBox="0 0 24 24" fill="white" width="14" height="14"><path d="M8 5v14l11-7z"/></svg>
                                 </div>
