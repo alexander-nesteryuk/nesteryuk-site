@@ -211,6 +211,26 @@
         }
         @media (min-width:1024px) { .pgs-num-text { font-size: 52px; } }
         @media (max-width:480px)  { .pgs-num-text { font-size: 34px; } .pgs-card { padding: 26px 24px; min-height: 150px; } }
+        /* Brand-color gradient text variants */
+        .pgs-num-text--amber {
+            background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pgs-num-text--orange {
+            background: linear-gradient(135deg, #fb923c 0%, #ea580c 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .pgs-card--coffee::before { background: radial-gradient(circle at 40% 40%, #d97706, #92400e 75%); }
+        .pgs-num-text--coffee {
+            background: linear-gradient(135deg, #d97706 0%, #b45309 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
         /* Section: overlap hero from below */
         .pgs-section { position: relative; z-index: 10; margin-top: -88px; }
         @media (max-width:768px)  { .pgs-section { margin-top: -44px; } }
@@ -1992,21 +2012,21 @@
                     </div>
                 </section>
                 <section class="pgs-section grid grid-cols-1 md:grid-cols-3 gap-5 mb-24">
-                    <div class="pgs-card pgs-card--blue">
+                    <div class="pgs-card pgs-card--coffee">
                         <div class="pgs-num mb-3">
-                            <span class="pgs-num-text">18k</span>
+                            <span class="pgs-num-text pgs-num-text--coffee">18 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#d97706">+</span>
                         </div>
                         <p class="text-slate-500 font-medium text-base leading-snug">подписчиков в Telegram за 3 месяца</p>
                     </div>
-                    <div class="pgs-card pgs-card--green">
+                    <div class="pgs-card pgs-card--amber">
                         <div class="pgs-num mb-3">
-                            <span class="pgs-num-text">200k</span><span class="stat-plus text-amber-400 font-black ml-1" style="font-size:28px">+</span>
+                            <span class="pgs-num-text pgs-num-text--amber">200 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#d97706">+</span>
                         </div>
                         <p class="text-slate-500 font-medium text-base leading-snug">целевых переходов</p>
                     </div>
-                    <div class="pgs-card pgs-card--purple">
+                    <div class="pgs-card pgs-card--coffee">
                         <div class="pgs-num mb-3">
-                            <span class="pgs-num-text">×3</span>
+                            <span class="pgs-num-text pgs-num-text--coffee">×3</span>
                         </div>
                         <p class="text-slate-500 font-medium text-base leading-snug">рост активных покупателей</p>
                     </div>
@@ -2118,25 +2138,25 @@
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-5 mb-10">
                         <div class="pgs-card pgs-card--amber">
                             <div class="pgs-num mb-3">
-                                <span class="pgs-num-text" style="background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%)">90 000 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
+                                <span class="pgs-num-text pgs-num-text--amber">90 000 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
                             </div>
                             <p class="text-slate-500 font-medium text-base leading-snug">просмотров</p>
                         </div>
                         <div class="pgs-card pgs-card--orange">
                             <div class="pgs-num mb-3">
-                                <span class="pgs-num-text" style="background:linear-gradient(135deg,#fb923c 0%,#ea580c 100%)">140</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
+                                <span class="pgs-num-text pgs-num-text--orange">140</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
                             </div>
                             <p class="text-slate-500 font-medium text-base leading-snug">интервью с музыкантами</p>
                         </div>
                         <div class="pgs-card pgs-card--amber">
                             <div class="pgs-num mb-3">
-                                <span class="pgs-num-text" style="background:linear-gradient(135deg,#fbbf24 0%,#d97706 100%)">3 → 35</span>
+                                <span class="pgs-num-text pgs-num-text--amber">3 → 35</span>
                             </div>
                             <p class="text-slate-500 font-medium text-base leading-snug">рост сети магазинов</p>
                         </div>
                         <div class="pgs-card pgs-card--orange">
                             <div class="pgs-num mb-3">
-                                <span class="pgs-num-text" style="background:linear-gradient(135deg,#fb923c 0%,#ea580c 100%)">5 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
+                                <span class="pgs-num-text pgs-num-text--orange">5 000</span><span class="stat-plus font-black ml-1" style="font-size:28px;color:#feba4f">+</span>
                             </div>
                             <p class="text-slate-500 font-medium text-base leading-snug">роликов создано</p>
                         </div>
