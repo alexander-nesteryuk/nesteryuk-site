@@ -849,6 +849,435 @@
         .privery-work-title { font-size:13px; font-weight:600; color:#1e293b; line-height:1.45; }
         /* Creator thumb clickable */
         .privery-creator-thumb { cursor:pointer; }
+
+        /* ================================================================
+           LIQUID GLASS — Apple-inspired redesign
+           All panels become translucent glass floating over aurora gradient
+           ================================================================ */
+
+        /* ── 1. AURORA PAGE BACKGROUND ── */
+        html, body {
+            background-color: transparent !important;
+        }
+        body {
+            background: #edf2fb !important;
+            position: relative;
+        }
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            background:
+                radial-gradient(ellipse at 12% 38%, rgba(96,165,250,0.38) 0%, transparent 52%),
+                radial-gradient(ellipse at 86% 12%, rgba(167,139,250,0.28) 0%, transparent 50%),
+                radial-gradient(ellipse at 64% 88%, rgba(52,211,153,0.24) 0%, transparent 48%),
+                radial-gradient(ellipse at 30% 72%, rgba(251,191,36,0.14) 0%, transparent 44%),
+                radial-gradient(ellipse at 75% 55%, rgba(244,114,182,0.12) 0%, transparent 40%),
+                linear-gradient(155deg, #eef2ff 0%, #f0fdf4 48%, #fffbeb 100%);
+            animation: liquidAurora 32s ease-in-out infinite alternate;
+            pointer-events: none;
+        }
+        @keyframes liquidAurora {
+            0%   { opacity: 1;    transform: scale(1) rotate(0deg); }
+            33%  { opacity: 0.88; transform: scale(1.015) rotate(0.3deg); }
+            66%  { opacity: 0.94; transform: scale(1.025) rotate(-0.2deg); }
+            100% { opacity: 1;    transform: scale(1) rotate(0deg); }
+        }
+
+        /* ── 2. HEADER — floating glass ── */
+        .glass-panel {
+            background: rgba(255,255,255,0.74) !important;
+            backdrop-filter: blur(48px) saturate(200%) !important;
+            -webkit-backdrop-filter: blur(48px) saturate(200%) !important;
+            border-bottom: 1px solid rgba(255,255,255,0.62) !important;
+            box-shadow: 0 4px 24px rgba(31,38,135,0.09), inset 0 1px 0 rgba(255,255,255,0.92) !important;
+        }
+        #mobile-menu {
+            background: rgba(255,255,255,0.86) !important;
+            backdrop-filter: blur(40px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(40px) saturate(180%) !important;
+        }
+        #hamburger-btn {
+            background: rgba(255,255,255,0.68) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-color: rgba(255,255,255,0.7) !important;
+        }
+
+        /* ── 3. HERO SECTION — dark glass ── */
+        .hero-gradient {
+            background: rgba(7,12,26,0.80) !important;
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 20px 72px rgba(0,0,0,0.26), inset 0 1.5px 0 rgba(255,255,255,0.12) !important;
+        }
+        /* Silver "award" badge levitating in hero */
+        .yt-levitate {
+            background: rgba(255,255,255,0.90) !important;
+            backdrop-filter: blur(28px) saturate(180%) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+            border: 1px solid rgba(255,255,255,0.75) !important;
+            border-top-color: rgba(255,255,255,0.95) !important;
+            box-shadow: 0 10px 36px rgba(0,0,0,0.16), inset 0 1.5px 0 rgba(255,255,255,0.98) !important;
+        }
+
+        /* ── 4. NUMBERS — light glass stat cards ── */
+        .stat-card {
+            background: rgba(255,255,255,0.64) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.56) !important;
+            border-top-color: rgba(255,255,255,0.92) !important;
+            box-shadow:
+                0 8px 32px rgba(31,38,135,0.07),
+                0 2px 8px rgba(0,0,0,0.03),
+                inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        /* Silver-button dark card */
+        .stat-card-gradient {
+            background: rgba(9,14,26,0.84) !important;
+            backdrop-filter: blur(44px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 10px 36px rgba(0,0,0,0.24), inset 0 1.5px 0 rgba(255,255,255,0.09) !important;
+        }
+
+        /* ── 5. CLIENTS — light glass panel + glass chips ── */
+        #clients {
+            background: rgba(255,255,255,0.60) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.90) !important;
+            box-shadow: 0 8px 40px rgba(31,38,135,0.07), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        .client-card {
+            background: rgba(255,255,255,0.52) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255,255,255,0.58) !important;
+            border-top-color: rgba(255,255,255,0.88) !important;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.82) !important;
+        }
+        .client-card:hover {
+            background: rgba(255,255,255,0.75) !important;
+            border-color: rgba(255,255,255,0.78) !important;
+            box-shadow: 0 10px 28px rgba(31,38,135,0.12), inset 0 1px 0 rgba(255,255,255,0.92) !important;
+        }
+
+        /* ── 6. HR CTA STRIP — green-tinted light glass ── */
+        .lg-hr-cta {
+            background: rgba(240,253,244,0.68) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(167,243,208,0.48) !important;
+            border-top-color: rgba(220,252,231,0.82) !important;
+            box-shadow: 0 8px 40px rgba(16,185,129,0.09), inset 0 1.5px 0 rgba(255,255,255,0.82) !important;
+        }
+
+        /* ── 7. CASE CARDS (Ключевые проекты) — light glass ── */
+        .case-card {
+            background: rgba(255,255,255,0.62) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.92) !important;
+            box-shadow:
+                0 8px 32px rgba(31,38,135,0.07),
+                inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        .case-card:hover {
+            background: rgba(255,255,255,0.80) !important;
+            border-color: rgba(255,255,255,0.72) !important;
+            box-shadow: 0 28px 60px rgba(31,38,135,0.14), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        .case-card .case-arrow {
+            background: rgba(255,255,255,0.62) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            border-color: rgba(255,255,255,0.6) !important;
+        }
+
+        /* ── 8. SKILLS — glass chat window ── */
+        .skills-chat-window {
+            background: rgba(255,255,255,0.64) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.92) !important;
+            box-shadow: 0 8px 40px rgba(31,38,135,0.08), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+            border-radius: 24px !important;
+            overflow: hidden !important;
+        }
+        .skills-chat-header {
+            background: rgba(13,18,34,0.88) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+        }
+        .skills-chat-messages {
+            background: rgba(248,250,252,0.72) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+        .skills-chat-footer {
+            background: rgba(255,255,255,0.78) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-top: 1px solid rgba(255,255,255,0.55) !important;
+        }
+        .skills-typing-bubble {
+            background: rgba(255,255,255,0.88) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+        }
+        .skills-msg.skills-bot .skills-bubble {
+            background: rgba(255,255,255,0.85) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+        }
+
+        /* ── 9. "РОЛЬ ШИРЕ КОНТЕНТА" — dark glass ── */
+        .bg-brand-card {
+            background: rgba(8,13,26,0.80) !important;
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.17) !important;
+            box-shadow: 0 20px 68px rgba(0,0,0,0.24), inset 0 1.5px 0 rgba(255,255,255,0.09) !important;
+        }
+        .bg-brand-card .bg-white\/5 {
+            background: rgba(255,255,255,0.07) !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+            border-color: rgba(255,255,255,0.11) !important;
+        }
+
+        /* ── 10. MANAGEMENT SCALE + HOW I WORK — light glass cards ── */
+        .bg-white.rounded-\[28px\] {
+            background: rgba(255,255,255,0.62) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.92) !important;
+            box-shadow:
+                0 6px 28px rgba(31,38,135,0.06),
+                inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+
+        /* ── 11. ARTICLES — dark feat + light side ── */
+        .art-feat-card {
+            background: rgba(9,20,38,0.84) !important;
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 14px 52px rgba(0,0,0,0.20), inset 0 1.5px 0 rgba(255,255,255,0.10) !important;
+        }
+        .art-side-card {
+            background: rgba(255,255,255,0.62) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.90) !important;
+            box-shadow: 0 4px 24px rgba(31,38,135,0.06), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        .art-side-card:hover {
+            background: rgba(255,255,255,0.80) !important;
+            box-shadow: 0 18px 52px rgba(31,38,135,0.12), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+        .art-nav-btn {
+            background: rgba(255,255,255,0.64) !important;
+            backdrop-filter: blur(16px) !important;
+            -webkit-backdrop-filter: blur(16px) !important;
+            border-color: rgba(255,255,255,0.58) !important;
+        }
+
+        /* ── 12. ABOUT — dark glass panel + hobby chips ── */
+        .about-card {
+            background: rgba(7,12,26,0.80) !important;
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 20px 72px rgba(0,0,0,0.26), inset 0 1.5px 0 rgba(255,255,255,0.10) !important;
+        }
+        .hobby-card {
+            background: rgba(255,255,255,0.07) !important;
+            backdrop-filter: blur(20px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(20px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.20) !important;
+        }
+        .hobby-card:hover {
+            background: rgba(255,255,255,0.12) !important;
+            border-color: rgba(255,255,255,0.22) !important;
+            box-shadow: 0 18px 44px rgba(0,0,0,0.30) !important;
+        }
+
+        /* ── 13. ARCHIVE — light glass ── */
+        .bg-white.rounded-\[40px\] {
+            background: rgba(255,255,255,0.62) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.54) !important;
+            border-top-color: rgba(255,255,255,0.92) !important;
+            box-shadow: 0 8px 40px rgba(31,38,135,0.07), inset 0 1.5px 0 rgba(255,255,255,0.97) !important;
+        }
+
+        /* ── 14. CTA — dark glass ── */
+        .cta-gradient {
+            background: rgba(7,12,26,0.84) !important;
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.28), inset 0 1.5px 0 rgba(255,255,255,0.10) !important;
+        }
+
+        /* ── 15. FOOTER — light glass ── */
+        footer {
+            background: rgba(255,255,255,0.74) !important;
+            backdrop-filter: blur(44px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(44px) saturate(190%) !important;
+            border-top: 1px solid rgba(255,255,255,0.60) !important;
+            box-shadow: 0 -4px 24px rgba(31,38,135,0.05), inset 0 1px 0 rgba(255,255,255,0.92) !important;
+        }
+
+        /* ── 16. PGS CARDS — refined liquid glass ── */
+        .pgs-card {
+            background: rgba(255,255,255,0.68) !important;
+            backdrop-filter: blur(52px) saturate(210%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(210%) !important;
+            border: 1px solid rgba(255,255,255,0.58) !important;
+            border-top-color: rgba(255,255,255,0.94) !important;
+            box-shadow:
+                0 8px 32px rgba(31,38,135,0.08),
+                0 2px 8px rgba(0,0,0,0.03),
+                inset 0 1.5px 0 rgba(255,255,255,0.99) !important;
+        }
+        .pgs-card:hover {
+            background: rgba(255,255,255,0.82) !important;
+            box-shadow:
+                0 36px 80px rgba(31,38,135,0.14),
+                0 8px 24px rgba(0,0,0,0.05),
+                inset 0 1.5px 0 rgba(255,255,255,0.99) !important;
+        }
+
+        /* ── 17. BACK-TO-TOP button — glass ── */
+        #back-to-top {
+            background: rgba(37,99,235,0.86) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(99,155,255,0.42) !important;
+            box-shadow: 0 6px 20px rgba(37,99,235,0.44), inset 0 1px 0 rgba(255,255,255,0.28) !important;
+        }
+        #back-to-top:hover {
+            background: rgba(29,78,216,0.92) !important;
+            box-shadow: 0 10px 28px rgba(37,99,235,0.54), inset 0 1px 0 rgba(255,255,255,0.28) !important;
+        }
+
+        /* ── 18. BUTTONS — glass tint ── */
+        a.bg-brand-blue, button.bg-brand-blue {
+            background: rgba(37,99,235,0.88) !important;
+            backdrop-filter: blur(8px) !important;
+            -webkit-backdrop-filter: blur(8px) !important;
+            box-shadow: 0 4px 16px rgba(37,99,235,0.36), inset 0 1px 0 rgba(255,255,255,0.22) !important;
+        }
+        a.bg-brand-blue:hover, button.bg-brand-blue:hover {
+            background: rgba(29,78,216,0.94) !important;
+            box-shadow: 0 8px 24px rgba(37,99,235,0.48), inset 0 1px 0 rgba(255,255,255,0.22) !important;
+        }
+
+        /* ── 19. SKIF VIDEO CARDS — enhanced glass ── */
+        .skif-video-card {
+            background: rgba(255,255,255,0.70) !important;
+            backdrop-filter: blur(36px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(36px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.66) !important;
+            border-top-color: rgba(255,255,255,0.96) !important;
+            box-shadow: 0 6px 24px rgba(31,38,135,0.07), inset 0 1px 0 rgba(255,255,255,0.99) !important;
+        }
+        .skif-carousel-arrow {
+            background: rgba(255,255,255,0.75) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-color: rgba(255,255,255,0.65) !important;
+        }
+
+        /* ── 20. PRIVERY WORK CARDS — enhanced glass ── */
+        .privery-work-card {
+            background: rgba(255,255,255,0.70) !important;
+            backdrop-filter: blur(36px) saturate(190%) !important;
+            -webkit-backdrop-filter: blur(36px) saturate(190%) !important;
+            border: 1px solid rgba(255,255,255,0.66) !important;
+            border-top-color: rgba(255,255,255,0.96) !important;
+            box-shadow: 0 6px 24px rgba(31,38,135,0.07), inset 0 1px 0 rgba(255,255,255,0.99) !important;
+        }
+
+        /* ── 21. PROJECT PAGE HEADER (page-projects sub-nav) ── */
+        #page-projects .glass-panel .border-t {
+            background: rgba(248,250,252,0.75) !important;
+            backdrop-filter: blur(24px) !important;
+            -webkit-backdrop-filter: blur(24px) !important;
+        }
+        .project-tab-btn.bg-white {
+            background: rgba(255,255,255,0.68) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            border-color: rgba(255,255,255,0.65) !important;
+        }
+
+        /* ── 22. LIGHTBOX glass badge ── */
+        #silverLightbox .slb-badge {
+            background: rgba(10,14,24,0.88) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border-color: rgba(255,255,255,0.14) !important;
+        }
+        #silverLightbox .slb-close {
+            background: rgba(255,255,255,0.14) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+        }
+
+        /* ── 23. HERO PRIVERY/SKIF/ROCO section headers — dark glass ── */
+        .hero-gradient-privery,
+        .hero-gradient-skif,
+        .hero-gradient-skif-detail,
+        .hero-gradient-roco,
+        .hero-gradient-leather,
+        .hero-gradient-bike,
+        .hero-gradient-grace {
+            backdrop-filter: blur(52px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(52px) saturate(160%) !important;
+            border: 1px solid rgba(255,255,255,0.10) !important;
+            border-top-color: rgba(255,255,255,0.18) !important;
+            box-shadow: 0 16px 64px rgba(0,0,0,0.24), inset 0 1.5px 0 rgba(255,255,255,0.10) !important;
+        }
+
+        /* ── MOBILE FINE-TUNING ── */
+        @media (max-width: 640px) {
+            body::before {
+                background:
+                    radial-gradient(ellipse at 0% 20%, rgba(96,165,250,0.40) 0%, transparent 55%),
+                    radial-gradient(ellipse at 100% 5%, rgba(167,139,250,0.30) 0%, transparent 50%),
+                    radial-gradient(ellipse at 50% 95%, rgba(52,211,153,0.28) 0%, transparent 48%),
+                    linear-gradient(175deg, #eef2ff 0%, #f0fdf4 50%, #fffbeb 100%);
+            }
+            .hero-gradient {
+                border-radius: 24px !important;
+            }
+            .about-card, .cta-gradient, .bg-brand-card {
+                border-radius: 24px !important;
+            }
+            .case-card, .art-feat-card {
+                border-radius: 24px !important;
+            }
+        }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -1025,7 +1454,7 @@
                 </div>
             </section>
             <!-- HR CTA STRIP -->
-            <div class="rounded-[32px] p-10 lg:p-14 flex flex-col sm:flex-row items-center justify-between gap-8 border border-emerald-200 relative overflow-hidden" style="background: linear-gradient(135deg, #e8f5e9 0%, #f8faff 55%, #eef2ff 100%)">
+            <div class="lg-hr-cta rounded-[32px] p-10 lg:p-14 flex flex-col sm:flex-row items-center justify-between gap-8 border border-emerald-200 relative overflow-hidden">
                 <div class="absolute -top-10 -right-10 w-56 h-56 bg-emerald-100 rounded-full blur-[70px] opacity-60 pointer-events-none"></div>
                 <div class="relative z-10 text-center sm:text-left">
                     <div class="flex items-center justify-center sm:justify-start gap-2.5 mb-3">
