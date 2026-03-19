@@ -671,8 +671,25 @@
             .privery-creators-grid { grid-template-columns:repeat(3,1fr) !important; }
         }
         @media (max-width:600px) {
-            .privery-creators-grid { grid-template-columns:repeat(2,1fr) !important; }
+            /* Creator cards: horizontal scroll on mobile (cleaner than orphan grid) */
+            .privery-creators-grid {
+                display:flex !important;
+                overflow-x:auto !important;
+                gap:12px !important;
+                padding-bottom:12px;
+                scroll-snap-type:x mandatory;
+                -webkit-overflow-scrolling:touch;
+            }
+            .privery-creator-card {
+                flex-shrink:0;
+                width:155px;
+                scroll-snap-align:start;
+            }
             .privery-work-grid { grid-template-columns:1fr !important; }
+        }
+        /* Zoom icon: always visible on touch devices (no hover support) */
+        @media (hover:none) {
+            .privery-work-zoom { opacity:0.85 !important; }
         }
         /* Lightbox */
         .privery-lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; padding:20px; cursor:pointer; }
@@ -2042,7 +2059,7 @@
                             <span class="w-2 h-2 rounded-full bg-violet-500 inline-block"></span>
                             <span class="text-xs font-bold tracking-[0.18em] uppercase text-slate-500">Ключевые результаты</span>
                         </div>
-                        <h2 class="text-5xl lg:text-[56px] font-black text-slate-900 mb-5 leading-tight">Рост до <span style="color:#7C3AED">144&nbsp;000</span> подписчиков</h2>
+                        <h2 class="text-3xl sm:text-4xl lg:text-[56px] font-black text-slate-900 mb-5 leading-tight">Рост до <span style="color:#7C3AED">144&nbsp;000</span> подписчиков</h2>
                         <p class="text-slate-500 text-lg leading-relaxed max-w-md mx-auto lg:mx-0">Органическое развитие канала SKIFMUSIC: от магазина инструментов до крупнейшего музыкального медиа</p>
                     </div>
                     <!-- Floating silver button + STATUS badge -->
