@@ -597,6 +597,82 @@
             .skif-video-card { flex:0 0 calc(100%); }
             .skif-shorts-row { grid-template-columns:repeat(3,minmax(90px,1fr)); }
         }
+        /* PRIVERY creator profile cards */
+        .privery-creator-card {
+            border-radius:20px;
+            overflow:hidden;
+            background:linear-gradient(160deg,#0a1f12 0%,#061209 100%);
+            border:1px solid rgba(74,222,128,0.15);
+            transition:transform 0.25s ease,box-shadow 0.25s ease;
+            cursor:default;
+        }
+        .privery-creator-card:hover {
+            transform:translateY(-4px);
+            box-shadow:0 16px 48px rgba(74,222,128,0.18);
+        }
+        .privery-creator-thumb {
+            width:100%;
+            aspect-ratio:4/5;
+            object-fit:cover;
+            object-position:top center;
+            display:block;
+        }
+        .privery-creator-info {
+            padding:14px 16px 16px;
+        }
+        .privery-platform-badge {
+            display:inline-flex;
+            align-items:center;
+            gap:5px;
+            font-size:10px;
+            font-weight:700;
+            letter-spacing:0.06em;
+            text-transform:uppercase;
+            padding:3px 8px;
+            border-radius:6px;
+            margin-bottom:8px;
+        }
+        .privery-platform-yt { background:rgba(255,0,0,0.15); color:#ff4444; }
+        .privery-platform-tt { background:rgba(255,255,255,0.08); color:#e0e0e0; }
+        .privery-creator-name {
+            font-size:13px;
+            font-weight:800;
+            color:#fff;
+            line-height:1.25;
+            margin-bottom:10px;
+        }
+        .privery-metrics-row {
+            display:flex;
+            gap:8px;
+        }
+        .privery-metric-pill {
+            flex:1;
+            background:rgba(74,222,128,0.08);
+            border:1px solid rgba(74,222,128,0.15);
+            border-radius:8px;
+            padding:6px 8px;
+            text-align:center;
+        }
+        .privery-metric-val {
+            font-size:12px;
+            font-weight:900;
+            color:#4ade80;
+            line-height:1;
+            margin-bottom:2px;
+        }
+        .privery-metric-lbl {
+            font-size:9px;
+            font-weight:600;
+            color:rgba(255,255,255,0.45);
+            letter-spacing:0.04em;
+            text-transform:uppercase;
+        }
+        @media (max-width:900px) {
+            .privery-creators-grid { grid-template-columns:repeat(3,1fr) !important; }
+        }
+        @media (max-width:600px) {
+            .privery-creators-grid { grid-template-columns:repeat(2,1fr) !important; }
+        }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -1430,6 +1506,151 @@
                             </div>
                         </div>
                     </div>
+                </section>
+                <!-- PRIVERY CREATOR PROFILES SECTION -->
+                <section class="mb-10">
+                    <h2 class="text-3xl font-black text-white mb-2">Рост до <span style="color:#4ade80">110 000 000+</span> просмотров</h2>
+                    <p class="text-slate-400 text-sm mb-8">Авторы, которых вели в рамках проекта Privery</p>
+                    <!-- Creator cards grid -->
+                    <div class="privery-creators-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:16px;">
+                        <!-- Card 1: Марина -->
+                        <div class="privery-creator-card">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <img src="images/privery-creator-1.jpg" alt="Марина" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="privery-creator-info">
+                                <div class="privery-platform-badge privery-platform-yt">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                                    YouTube
+                                </div>
+                                <div class="privery-creator-name">Марина</div>
+                                <div class="privery-metrics-row">
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">1.54К</div>
+                                        <div class="privery-metric-lbl">Подпис.</div>
+                                    </div>
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">6.3М</div>
+                                        <div class="privery-metric-lbl">Топ ролик</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 2: Лена & Семейка -->
+                        <div class="privery-creator-card">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <img src="images/privery-creator-2.jpg" alt="Лена и Семейка" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="privery-creator-info">
+                                <div class="privery-platform-badge privery-platform-yt">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/></svg>
+                                    YouTube
+                                </div>
+                                <div class="privery-creator-name">Лена&nbsp;&amp; Семейка</div>
+                                <div class="privery-metrics-row">
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">768</div>
+                                        <div class="privery-metric-lbl">Подпис.</div>
+                                    </div>
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">3.7М</div>
+                                        <div class="privery-metric-lbl">Топ ролик</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 3: prikhaaa.katyaaa -->
+                        <div class="privery-creator-card">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <img src="images/privery-creator-3.jpg" alt="prikhaaa.katyaaa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="privery-creator-info">
+                                <div class="privery-platform-badge privery-platform-tt">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+                                    TikTok
+                                </div>
+                                <div class="privery-creator-name">prikhaaa.katyaaa</div>
+                                <div class="privery-metrics-row">
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">176</div>
+                                        <div class="privery-metric-lbl">Подпис.</div>
+                                    </div>
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">221К</div>
+                                        <div class="privery-metric-lbl">Топ ролик</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 4: alina.chepys -->
+                        <div class="privery-creator-card">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <img src="images/privery-creator-4.jpg" alt="alina.chepys" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="privery-creator-info">
+                                <div class="privery-platform-badge privery-platform-tt">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+                                    TikTok
+                                </div>
+                                <div class="privery-creator-name">alina.chepys</div>
+                                <div class="privery-metrics-row">
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">484</div>
+                                        <div class="privery-metric-lbl">Подпис.</div>
+                                    </div>
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">2.3М</div>
+                                        <div class="privery-metric-lbl">Топ ролик</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Card 5: marina.techno -->
+                        <div class="privery-creator-card">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                                <img src="images/privery-creator-5.jpg" alt="marina.techno" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
+                                <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+                                </div>
+                            </div>
+                            <div class="privery-creator-info">
+                                <div class="privery-platform-badge privery-platform-tt">
+                                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.76a4.85 4.85 0 0 1-1.01-.07z"/></svg>
+                                    TikTok
+                                </div>
+                                <div class="privery-creator-name">marina.techno</div>
+                                <div class="privery-metrics-row">
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">4 984</div>
+                                        <div class="privery-metric-lbl">Подпис.</div>
+                                    </div>
+                                    <div class="privery-metric-pill">
+                                        <div class="privery-metric-val">3.8М</div>
+                                        <div class="privery-metric-lbl">Топ ролик</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Disclaimer -->
+                    <p style="font-style:italic;color:rgba(255,255,255,0.4);font-size:12px;margin-bottom:20px;">*Это лишь часть профилей, так как общее число аккаунтов было более 400</p>
+                    <!-- Все кейсы button -->
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 font-bold px-7 py-3 rounded-full transition-all hover:-translate-y-0.5" style="background:#4ade80;color:#071a0e;font-size:15px;" id="privery-all-cases-btn">
+                        Все кейсы
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                    </a>
                 </section>
                 <div class="cta-gradient rounded-[32px] p-10 text-center border border-slate-800 mt-8">
                     <h3 class="text-2xl font-black text-white mb-3">Хотите работать вместе?</h3>
