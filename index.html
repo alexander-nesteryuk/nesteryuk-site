@@ -146,8 +146,36 @@
         .glow-anim { animation: pulse-glow 4s ease-in-out infinite; }
         .yt-levitate { animation: levitate 4s ease-in-out infinite; }
         
-        .stat-card-white { transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; }
-        .stat-card-white:hover { transform: translateY(-4px); box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08); border-color: currentColor; }
+        /* Privery glassmorphism stat cards — Apple style */
+        .stat-card-white {
+            background: rgba(255,255,255,0.72);
+            backdrop-filter: blur(28px) saturate(180%);
+            -webkit-backdrop-filter: blur(28px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.88);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.07), 0 2px 8px rgba(0,0,0,0.04), inset 0 1px 0 rgba(255,255,255,0.9);
+            transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.32s ease;
+            cursor: default;
+        }
+        .stat-card-white:hover {
+            transform: scale(1.045) translateY(-4px);
+            box-shadow: 0 28px 64px rgba(0,0,0,0.12), 0 8px 24px rgba(0,0,0,0.07), inset 0 1px 0 rgba(255,255,255,0.95);
+        }
+        .stat-card-white .pgs-num {
+            display: inline-block;
+            transition: transform 0.32s cubic-bezier(0.34,1.56,0.64,1);
+        }
+        .stat-card-white:hover .pgs-num { transform: scale(1.06); }
+        .pgs-num-text {
+            background: linear-gradient(135deg, #2563eb 0%, #7c3aed 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-size: 44px;
+            font-weight: 900;
+            letter-spacing: -0.04em;
+            line-height: 1;
+        }
+        @media (min-width:1024px) { .pgs-num-text { font-size: 52px; } }
         .stat-plus { display: inline-block; transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), color 0.2s; }
         .stat-card:hover .stat-plus, .stat-card-white:hover .stat-plus { transform: scale(1.7); color: #2563EB; }
         .skill-card { transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease; }
@@ -1564,18 +1592,24 @@
                         </div>
                     </div>
                 </section>
-                <section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
-                    <div class="stat-card-white bg-white rounded-[32px] p-8 lg:p-10 border border-slate-200/60 shadow-sm flex flex-col justify-center h-full min-h-[200px]">
-                        <h3 class="text-[44px] font-black text-brand-blue tracking-tighter mb-2 leading-none">110 000 000<span class="stat-plus text-amber-400">+</span></h3>
-                        <p class="text-slate-500 font-medium leading-snug text-lg">просмотров сгенерировано</p>
+                <section class="grid grid-cols-1 md:grid-cols-3 gap-5 mb-24" style="position:relative;z-index:10;margin-top:-56px;padding:0 4px">
+                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
+                        <div class="pgs-num mb-2">
+                            <span class="pgs-num-text">110 000 000</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                        </div>
+                        <p class="text-slate-500 font-medium leading-snug text-base">просмотров сгенерировано</p>
                     </div>
-                    <div class="stat-card-white bg-white rounded-[32px] p-8 lg:p-10 border border-slate-200/60 shadow-sm flex flex-col justify-center h-full min-h-[200px]">
-                        <h3 class="text-[44px] font-black text-brand-blue tracking-tighter mb-2 leading-none">33 000<span class="stat-plus text-amber-400">+</span></h3>
-                        <p class="text-slate-500 font-medium leading-snug text-lg">роликов произведено</p>
+                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
+                        <div class="pgs-num mb-2">
+                            <span class="pgs-num-text">33 000</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                        </div>
+                        <p class="text-slate-500 font-medium leading-snug text-base">роликов произведено</p>
                     </div>
-                    <div class="stat-card-white bg-white rounded-[32px] p-8 lg:p-10 border border-slate-200/60 shadow-sm flex flex-col justify-center h-full min-h-[200px]">
-                        <h3 class="text-[44px] font-black text-brand-blue tracking-tighter mb-2 leading-none">130<span class="stat-plus text-amber-400">+</span></h3>
-                        <p class="text-slate-500 font-medium leading-snug text-lg">специалистов в пуле</p>
+                    <div class="stat-card-white rounded-[28px] p-8 lg:p-10 flex flex-col justify-center min-h-[200px]">
+                        <div class="pgs-num mb-2">
+                            <span class="pgs-num-text">130</span><span class="stat-plus text-amber-400 text-[32px] font-black ml-1">+</span>
+                        </div>
+                        <p class="text-slate-500 font-medium leading-snug text-base">специалистов в пуле</p>
                     </div>
                 </section>
                 <section class="grid lg:grid-cols-12 gap-10 lg:gap-16 mb-24">
