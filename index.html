@@ -674,6 +674,27 @@
             .privery-creators-grid { grid-template-columns:repeat(2,1fr) !important; }
             .privery-work-grid { grid-template-columns:1fr !important; }
         }
+        /* Lightbox */
+        .privery-lightbox { display:none; position:fixed; inset:0; z-index:9999; background:rgba(0,0,0,0.92); align-items:center; justify-content:center; padding:20px; cursor:pointer; }
+        .privery-lightbox.open { display:flex; }
+        .privery-lightbox-img { max-width:92vw; max-height:90vh; object-fit:contain; border-radius:14px; box-shadow:0 32px 80px rgba(0,0,0,0.7); cursor:default; display:block; }
+        .privery-lightbox-close { position:fixed; top:18px; right:24px; color:rgba(255,255,255,0.8); font-size:28px; cursor:pointer; line-height:1; background:rgba(255,255,255,0.1); border-radius:50%; width:40px; height:40px; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
+        .privery-lightbox-close:hover { background:rgba(255,255,255,0.2); color:#fff; }
+        /* Work screenshot cards */
+        .privery-work-card { background:#fff; border-radius:20px; overflow:hidden; box-shadow:0 4px 20px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.07); cursor:pointer; transition:transform 0.22s ease, box-shadow 0.22s ease; }
+        .privery-work-card:hover { transform:translateY(-5px); box-shadow:0 16px 40px rgba(0,0,0,0.13); }
+        .privery-work-browser-bar { background:#f1f3f5; padding:9px 14px; display:flex; align-items:center; gap:6px; border-bottom:1px solid rgba(0,0,0,0.06); }
+        .privery-work-browser-dot { width:10px; height:10px; border-radius:50%; flex-shrink:0; }
+        .privery-work-img-wrap { position:relative; overflow:hidden; background:#f0f2f5; height:210px; }
+        .privery-work-img-wrap img { width:100%; height:100%; object-fit:cover; object-position:top left; display:block; transition:transform 0.4s ease; }
+        .privery-work-card:hover .privery-work-img-wrap img { transform:scale(1.04); }
+        .privery-work-zoom { position:absolute; bottom:10px; right:10px; background:rgba(255,255,255,0.92); border-radius:8px; width:32px; height:32px; display:flex; align-items:center; justify-content:center; opacity:0; transition:opacity 0.2s ease; box-shadow:0 2px 8px rgba(0,0,0,0.15); }
+        .privery-work-card:hover .privery-work-zoom { opacity:1; }
+        .privery-work-caption { padding:14px 18px 18px; }
+        .privery-work-cat { font-size:9px; font-weight:800; letter-spacing:0.1em; text-transform:uppercase; color:#16a34a; margin-bottom:6px; }
+        .privery-work-title { font-size:13px; font-weight:600; color:#1e293b; line-height:1.45; }
+        /* Creator thumb clickable */
+        .privery-creator-thumb { cursor:pointer; }
     </style>
 </head>
 <body class="text-slate-900 w-full min-h-screen selection:bg-blue-200 selection:text-blue-900 relative flex flex-col">
@@ -1516,7 +1537,7 @@
                     <div class="privery-creators-grid" style="display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-bottom:16px;">
                         <!-- Card 1: Марина -->
                         <div class="privery-creator-card">
-                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;" onclick="priveryOpenLightbox('images/privery-creator-1.png','Марина')">
                                 <img src="images/privery-creator-1.png" alt="Марина" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1542,7 +1563,7 @@
                         </div>
                         <!-- Card 2: Лена & Семейка -->
                         <div class="privery-creator-card">
-                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;" onclick="priveryOpenLightbox('images/privery-creator-2.png','Лена &amp; Семейка')">
                                 <img src="images/privery-creator-2.png" alt="Лена и Семейка" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1568,7 +1589,7 @@
                         </div>
                         <!-- Card 3: prikhaaa.katyaaa -->
                         <div class="privery-creator-card">
-                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;" onclick="priveryOpenLightbox('images/privery-creator-3.png','prikhaaa.katyaaa')">
                                 <img src="images/privery-creator-3.png" alt="prikhaaa.katyaaa" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1594,7 +1615,7 @@
                         </div>
                         <!-- Card 4: alina.chepys -->
                         <div class="privery-creator-card">
-                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;" onclick="priveryOpenLightbox('images/privery-creator-4.png','alina.chepys')">
                                 <img src="images/privery-creator-4.png" alt="alina.chepys" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1620,7 +1641,7 @@
                         </div>
                         <!-- Card 5: marina.techno -->
                         <div class="privery-creator-card">
-                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
+                            <div class="privery-creator-thumb" style="aspect-ratio:4/5;background:linear-gradient(160deg,#0d2b1a 0%,#061209 100%);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;" onclick="priveryOpenLightbox('images/privery-creator-5.png','marina.techno')">
                                 <img src="images/privery-creator-5.png" alt="marina.techno" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;" onerror="this.style.display='none'">
                                 <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:0;">
                                     <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(74,222,128,0.2)" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1656,62 +1677,70 @@
 
                 <!-- HOW THE WORK WAS ORGANIZED -->
                 <section class="mb-10">
-                    <h2 class="text-3xl font-black text-white mb-8">Как была устроена работа</h2>
-                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;" class="privery-work-grid">
+                    <h2 class="text-3xl font-black text-slate-900 mb-8">Как была устроена работа</h2>
+                    <div class="privery-work-grid" style="display:grid;grid-template-columns:repeat(2,1fr);gap:20px;">
                         <!-- Screenshot 1 -->
-                        <div style="border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#0a1f12 0%,#061209 100%);border:1px solid rgba(74,222,128,0.12);">
-                            <div style="position:relative;width:100%;overflow:hidden;border-radius:20px 20px 0 0;background:#0d1f14;">
-                                <img src="images/privery-work-1.png" alt="Воронка скаута" style="width:100%;display:block;border-radius:20px 20px 0 0;" onerror="this.parentElement.style.minHeight='200px'">
-                                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(6,18,9,0.7) 100%);pointer-events:none;border-radius:20px 20px 0 0;"></div>
+                        <div class="privery-work-card" onclick="priveryOpenLightbox('images/privery-work-1.png','Воронка скаута')">
+                            <div class="privery-work-browser-bar">
+                                <div class="privery-work-browser-dot" style="background:#ff5f57"></div>
+                                <div class="privery-work-browser-dot" style="background:#febc2e"></div>
+                                <div class="privery-work-browser-dot" style="background:#28c840"></div>
                             </div>
-                            <div style="padding:16px 20px 20px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                                    <div style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
-                                    <span style="font-size:10px;font-weight:700;color:#4ade80;letter-spacing:0.08em;text-transform:uppercase;">Скаутинг</span>
-                                </div>
-                                <p style="font-size:14px;font-weight:600;color:#e2e8f0;line-height:1.45;">Воронка скаута – просматривали сотни резюме</p>
+                            <div class="privery-work-img-wrap">
+                                <img src="images/privery-work-1.png" alt="Воронка скаута" loading="lazy" onerror="this.parentElement.style.minHeight='160px'">
+                                <div class="privery-work-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+                            </div>
+                            <div class="privery-work-caption">
+                                <div class="privery-work-cat">Скаутинг</div>
+                                <div class="privery-work-title">Воронка скаута — просматривали сотни резюме</div>
                             </div>
                         </div>
                         <!-- Screenshot 2 -->
-                        <div style="border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#0a1f12 0%,#061209 100%);border:1px solid rgba(74,222,128,0.12);">
-                            <div style="position:relative;width:100%;overflow:hidden;border-radius:20px 20px 0 0;background:#0d1f14;">
-                                <img src="images/privery-work-2.png" alt="Работа трендвотчеров" style="width:100%;display:block;border-radius:20px 20px 0 0;" onerror="this.parentElement.style.minHeight='200px'">
-                                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(6,18,9,0.7) 100%);pointer-events:none;border-radius:20px 20px 0 0;"></div>
+                        <div class="privery-work-card" onclick="priveryOpenLightbox('images/privery-work-2.png','Работа трендвотчеров')">
+                            <div class="privery-work-browser-bar">
+                                <div class="privery-work-browser-dot" style="background:#ff5f57"></div>
+                                <div class="privery-work-browser-dot" style="background:#febc2e"></div>
+                                <div class="privery-work-browser-dot" style="background:#28c840"></div>
                             </div>
-                            <div style="padding:16px 20px 20px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                                    <div style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
-                                    <span style="font-size:10px;font-weight:700;color:#4ade80;letter-spacing:0.08em;text-transform:uppercase;">Трендвотчинг</span>
-                                </div>
-                                <p style="font-size:14px;font-weight:600;color:#e2e8f0;line-height:1.45;">Работа трендвотчеров – просматривать сотни роликов в день в поиске бриллиантов</p>
+                            <div class="privery-work-img-wrap">
+                                <img src="images/privery-work-2.png" alt="Работа трендвотчеров" loading="lazy" onerror="this.parentElement.style.minHeight='160px'">
+                                <div class="privery-work-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+                            </div>
+                            <div class="privery-work-caption">
+                                <div class="privery-work-cat">Трендвотчинг</div>
+                                <div class="privery-work-title">Работа трендвотчеров — просматривать сотни роликов в день в поиске бриллиантов</div>
                             </div>
                         </div>
                         <!-- Screenshot 3 -->
-                        <div style="border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#0a1f12 0%,#061209 100%);border:1px solid rgba(74,222,128,0.12);">
-                            <div style="position:relative;width:100%;overflow:hidden;border-radius:20px 20px 0 0;background:#0d1f14;">
-                                <img src="images/privery-work-3.png" alt="Конверсия скаута" style="width:100%;display:block;border-radius:20px 20px 0 0;" onerror="this.parentElement.style.minHeight='200px'">
-                                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(6,18,9,0.7) 100%);pointer-events:none;border-radius:20px 20px 0 0;"></div>
+                        <div class="privery-work-card" onclick="priveryOpenLightbox('images/privery-work-3.png','Конверсия скаута')">
+                            <div class="privery-work-browser-bar">
+                                <div class="privery-work-browser-dot" style="background:#ff5f57"></div>
+                                <div class="privery-work-browser-dot" style="background:#febc2e"></div>
+                                <div class="privery-work-browser-dot" style="background:#28c840"></div>
                             </div>
-                            <div style="padding:16px 20px 20px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                                    <div style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
-                                    <span style="font-size:10px;font-weight:700;color:#4ade80;letter-spacing:0.08em;text-transform:uppercase;">Аналитика</span>
-                                </div>
-                                <p style="font-size:14px;font-weight:600;color:#e2e8f0;line-height:1.45;">Конверсия скаута</p>
+                            <div class="privery-work-img-wrap">
+                                <img src="images/privery-work-3.png" alt="Конверсия скаута" loading="lazy" onerror="this.parentElement.style.minHeight='160px'">
+                                <div class="privery-work-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+                            </div>
+                            <div class="privery-work-caption">
+                                <div class="privery-work-cat">Аналитика</div>
+                                <div class="privery-work-title">Конверсия скаута</div>
                             </div>
                         </div>
                         <!-- Screenshot 4 -->
-                        <div style="border-radius:20px;overflow:hidden;background:linear-gradient(160deg,#0a1f12 0%,#061209 100%);border:1px solid rgba(74,222,128,0.12);">
-                            <div style="position:relative;width:100%;overflow:hidden;border-radius:20px 20px 0 0;background:#0d1f14;">
-                                <img src="images/privery-work-4.png" alt="Распределение ЦА блогеров" style="width:100%;display:block;border-radius:20px 20px 0 0;" onerror="this.parentElement.style.minHeight='200px'">
-                                <div style="position:absolute;inset:0;background:linear-gradient(to bottom,transparent 60%,rgba(6,18,9,0.7) 100%);pointer-events:none;border-radius:20px 20px 0 0;"></div>
+                        <div class="privery-work-card" onclick="priveryOpenLightbox('images/privery-work-4.png','Распределения ЦА блогеров')">
+                            <div class="privery-work-browser-bar">
+                                <div class="privery-work-browser-dot" style="background:#ff5f57"></div>
+                                <div class="privery-work-browser-dot" style="background:#febc2e"></div>
+                                <div class="privery-work-browser-dot" style="background:#28c840"></div>
                             </div>
-                            <div style="padding:16px 20px 20px;">
-                                <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                                    <div style="width:6px;height:6px;border-radius:50%;background:#4ade80;flex-shrink:0;"></div>
-                                    <span style="font-size:10px;font-weight:700;color:#4ade80;letter-spacing:0.08em;text-transform:uppercase;">Аналитика</span>
-                                </div>
-                                <p style="font-size:14px;font-weight:600;color:#e2e8f0;line-height:1.45;">Распределения ЦА блогеров</p>
+                            <div class="privery-work-img-wrap">
+                                <img src="images/privery-work-4.png" alt="Распределения ЦА блогеров" loading="lazy" onerror="this.parentElement.style.minHeight='160px'">
+                                <div class="privery-work-zoom"><svg viewBox="0 0 24 24" fill="none" stroke="#374151" stroke-width="2" width="16" height="16"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/><path d="M11 8v6M8 11h6"/></svg></div>
+                            </div>
+                            <div class="privery-work-caption">
+                                <div class="privery-work-cat">Аналитика</div>
+                                <div class="privery-work-title">Распределения ЦА блогеров</div>
                             </div>
                         </div>
                     </div>
@@ -3400,5 +3429,29 @@
 
         goTo(0);
     })();
+
+    /* ===== Privery Lightbox ===== */
+    (function() {
+        var lb = document.createElement('div');
+        lb.id = 'priveryLightbox';
+        lb.className = 'privery-lightbox';
+        lb.innerHTML = '<div class="privery-lightbox-close" onclick="priveryCloseLightbox()">&#215;</div><img id="priveryLightboxImg" class="privery-lightbox-img" src="" alt="">';
+        lb.addEventListener('click', function(e) { if (e.target === lb) priveryCloseLightbox(); });
+        document.body.appendChild(lb);
+    })();
+
+    window.priveryOpenLightbox = function(src, alt) {
+        var lb = document.getElementById('priveryLightbox');
+        var img = document.getElementById('priveryLightboxImg');
+        img.src = src;
+        img.alt = alt || '';
+        lb.classList.add('open');
+        document.body.style.overflow = 'hidden';
+    };
+    window.priveryCloseLightbox = function() {
+        document.getElementById('priveryLightbox').classList.remove('open');
+        document.body.style.overflow = '';
+    };
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') priveryCloseLightbox(); });
     </script>
 </body></html>
