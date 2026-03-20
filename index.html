@@ -553,16 +553,19 @@
             .thesis-block { position: static !important; margin-top: 2rem; }
             #page-article-1 main,
             #page-article-2 main,
-            #page-article-3 main { padding-left: 1.25rem !important; padding-right: 1.25rem !important; padding-top: 2rem !important; }
+            #page-article-3 main,
+            #page-article-4 main { padding-left: 1.25rem !important; padding-right: 1.25rem !important; padding-top: 2rem !important; }
             .art-readmore { padding: 1.5rem 1.25rem !important; border-radius: 20px !important; margin-top: 2.5rem !important; }
             .art-readmore .grid { grid-template-columns: 1fr !important; }
             .art-readmore-share { flex-direction: column !important; align-items: flex-start !important; gap: 1rem !important; }
             #page-article-1 footer,
             #page-article-2 footer,
-            #page-article-3 footer { flex-direction: column !important; gap: .75rem !important; text-align: center; }
+            #page-article-3 footer,
+            #page-article-4 footer { flex-direction: column !important; gap: .75rem !important; text-align: center; }
             #page-article-1 footer > div,
             #page-article-2 footer > div,
-            #page-article-3 footer > div { flex-direction: column !important; gap: .5rem; }
+            #page-article-3 footer > div,
+            #page-article-4 footer > div { flex-direction: column !important; gap: .5rem; }
         }
         /* ===== Hobby Photo Carousel ===== */
         .hobby-carousel { position:relative; width:240px; height:240px; border-radius:20px; overflow:hidden; cursor:pointer; flex-shrink:0; box-shadow:0 20px 60px rgba(0,0,0,0.45); }
@@ -860,7 +863,7 @@
             background-color: transparent !important;
         }
         body {
-            background: #edf2fb !important;
+            background: #ffffff !important;
             position: relative;
         }
         body::before {
@@ -869,12 +872,10 @@
             inset: 0;
             z-index: -1;
             background:
-                radial-gradient(ellipse at 12% 38%, rgba(96,165,250,0.38) 0%, transparent 52%),
-                radial-gradient(ellipse at 86% 12%, rgba(167,139,250,0.28) 0%, transparent 50%),
-                radial-gradient(ellipse at 64% 88%, rgba(52,211,153,0.24) 0%, transparent 48%),
-                radial-gradient(ellipse at 30% 72%, rgba(251,191,36,0.14) 0%, transparent 44%),
-                radial-gradient(ellipse at 75% 55%, rgba(244,114,182,0.12) 0%, transparent 40%),
-                linear-gradient(155deg, #eef2ff 0%, #f0fdf4 48%, #fffbeb 100%);
+                radial-gradient(ellipse at 15% 30%, rgba(96,165,250,0.11) 0%, transparent 52%),
+                radial-gradient(ellipse at 85% 10%, rgba(167,139,250,0.09) 0%, transparent 50%),
+                radial-gradient(ellipse at 60% 90%, rgba(99,102,241,0.07) 0%, transparent 48%),
+                #ffffff;
             animation: liquidAurora 32s ease-in-out infinite alternate;
             pointer-events: none;
         }
@@ -1263,10 +1264,9 @@
         @media (max-width: 640px) {
             body::before {
                 background:
-                    radial-gradient(ellipse at 0% 20%, rgba(96,165,250,0.40) 0%, transparent 55%),
-                    radial-gradient(ellipse at 100% 5%, rgba(167,139,250,0.30) 0%, transparent 50%),
-                    radial-gradient(ellipse at 50% 95%, rgba(52,211,153,0.28) 0%, transparent 48%),
-                    linear-gradient(175deg, #eef2ff 0%, #f0fdf4 50%, #fffbeb 100%);
+                    radial-gradient(ellipse at 0% 20%, rgba(96,165,250,0.10) 0%, transparent 55%),
+                    radial-gradient(ellipse at 100% 5%, rgba(167,139,250,0.08) 0%, transparent 50%),
+                    #ffffff;
             }
             .hero-gradient {
                 border-radius: 24px !important;
@@ -1798,6 +1798,16 @@
                             <div class="flex items-center gap-1.5 text-emerald-600 font-semibold text-sm mt-4">Подробнее <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
                         </div>
                     </a>
+                    <!-- Card 4 — orange/red -->
+                    <a href="#article-4" onclick="event.preventDefault();showPage('page-article-4')" class="snap-start flex-shrink-0 w-[80vw] art-side-card">
+                        <div class="art-side-accent" style="background:linear-gradient(90deg,#F97316,#EF4444)"></div>
+                        <div class="p-6 flex flex-col flex-1">
+                            <span class="text-[11px] font-bold tracking-[.12em] text-orange-600 uppercase mb-3">SMM</span>
+                            <h4 class="text-slate-900 font-bold text-base leading-snug mb-3">SMM умер — и вы готовы к этому диалогу</h4>
+                            <p class="text-slate-500 text-sm leading-relaxed flex-1">3000 резюме, сотни собеседований и честный разговор о том, что больше не работает.</p>
+                            <div class="flex items-center gap-1.5 text-orange-600 font-semibold text-sm mt-4">Подробнее <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></div>
+                        </div>
+                    </a>
                 </div>
 
                 <!-- Desktop: grid layout (big left + 2 right) -->
@@ -1818,16 +1828,15 @@
                             <span class="text-slate-400 text-sm">Время чтения: 10 минут</span>
                         </div>
                     </div>
-                    <!-- Right column: 2 stacked light cards -->
-                    <div class="flex flex-col gap-6">
+                    <!-- Right column: 3 stacked light cards -->
+                    <div class="flex flex-col gap-4">
                         <!-- Card 1 – violet accent -->
                         <a href="#article-2" onclick="event.preventDefault();showPage('page-article-2')" class="art-side-card">
                             <div class="art-side-accent" style="background:linear-gradient(90deg,#8B5CF6,#A78BFA)"></div>
-                            <div class="p-6 flex flex-col">
-                                <span class="text-[11px] font-bold tracking-[.12em] text-violet-600 uppercase mb-3">Управление</span>
-                                <h4 class="text-slate-900 font-bold text-lg leading-snug mb-3">130 человек в контенте: что я понял, когда взял на работу лучшего друга – и через полтора месяца с ним расстался</h4>
-                                <p class="text-slate-500 text-sm leading-relaxed">Про делегирование, доверие и почему через полтора месяца пришлось расстаться.</p>
-                                <div class="flex items-center gap-1.5 text-violet-600 font-semibold text-sm mt-4">
+                            <div class="p-5 flex flex-col">
+                                <span class="text-[11px] font-bold tracking-[.12em] text-violet-600 uppercase mb-2">Управление</span>
+                                <h4 class="text-slate-900 font-bold text-base leading-snug mb-2">130 человек в контенте: что я понял, когда взял на работу лучшего друга – и через полтора месяца с ним расстался</h4>
+                                <div class="flex items-center gap-1.5 text-violet-600 font-semibold text-sm mt-3">
                                     Подробнее
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                 </div>
@@ -1836,11 +1845,22 @@
                         <!-- Card 2 – green accent -->
                         <a href="#article-3" onclick="event.preventDefault();showPage('page-article-3')" class="art-side-card">
                             <div class="art-side-accent" style="background:linear-gradient(90deg,#10B981,#34D399)"></div>
-                            <div class="p-6 flex flex-col">
-                                <span class="text-[11px] font-bold tracking-[.12em] text-emerald-600 uppercase mb-3">Digital</span>
-                                <h4 class="text-slate-900 font-bold text-lg leading-snug mb-3">Я просмотрел больше тысячи резюме креативщиков. 95% – не убеждают. И дело не в людях</h4>
-                                <p class="text-slate-500 text-sm leading-relaxed">Что идёт не так в резюме креативщиков и что это говорит о рынке.</p>
-                                <div class="flex items-center gap-1.5 text-emerald-600 font-semibold text-sm mt-4">
+                            <div class="p-5 flex flex-col">
+                                <span class="text-[11px] font-bold tracking-[.12em] text-emerald-600 uppercase mb-2">Digital</span>
+                                <h4 class="text-slate-900 font-bold text-base leading-snug mb-2">Я просмотрел больше тысячи резюме креативщиков. 95% – не убеждают. И дело не в людях</h4>
+                                <div class="flex items-center gap-1.5 text-emerald-600 font-semibold text-sm mt-3">
+                                    Подробнее
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                                </div>
+                            </div>
+                        </a>
+                        <!-- Card 3 – orange accent -->
+                        <a href="#article-4" onclick="event.preventDefault();showPage('page-article-4')" class="art-side-card">
+                            <div class="art-side-accent" style="background:linear-gradient(90deg,#F97316,#EF4444)"></div>
+                            <div class="p-5 flex flex-col">
+                                <span class="text-[11px] font-bold tracking-[.12em] text-orange-600 uppercase mb-2">SMM</span>
+                                <h4 class="text-slate-900 font-bold text-base leading-snug mb-2">SMM умер — и вы готовы к этому диалогу</h4>
+                                <div class="flex items-center gap-1.5 text-orange-600 font-semibold text-sm mt-3">
                                     Подробнее
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
                                 </div>
@@ -3390,6 +3410,11 @@
                         <p class="art-readmore-title">Я просмотрел больше тысячи резюме креативщиков. 95% – не убеждают. И дело не в людях</p>
                         <span class="art-readmore-time">8 мин чтения →</span>
                     </a>
+                    <a href="#" onclick="event.preventDefault();showPage('page-article-4')" class="art-readmore-card">
+                        <p class="art-readmore-cat">SMM</p>
+                        <p class="art-readmore-title">SMM умер — и вы готовы к этому диалогу</p>
+                        <span class="art-readmore-time">7 мин чтения →</span>
+                    </a>
                 </div>
                 <div class="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 art-readmore-share">
                     <p class="text-slate-400 text-sm max-w-sm">Понравилась статья? Готов познакомиться и рассказать про кейс подробнее!</p>
@@ -3522,6 +3547,11 @@
                         <p class="art-readmore-title">Я просмотрел больше тысячи резюме креативщиков. 95% – не убеждают. И дело не в людях</p>
                         <span class="art-readmore-time">8 мин чтения →</span>
                     </a>
+                    <a href="#" onclick="event.preventDefault();showPage('page-article-4')" class="art-readmore-card">
+                        <p class="art-readmore-cat">SMM</p>
+                        <p class="art-readmore-title">SMM умер — и вы готовы к этому диалогу</p>
+                        <span class="art-readmore-time">7 мин чтения →</span>
+                    </a>
                 </div>
                 <div class="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 art-readmore-share">
                     <p class="text-slate-400 text-sm max-w-sm">Понравилась статья? Готов познакомиться и рассказать про кейс подробнее!</p>
@@ -3653,6 +3683,132 @@
                         <p class="art-readmore-title">130 человек в контенте: что я понял, когда взял на работу лучшего друга – и через полтора месяца с ним расстался</p>
                         <span class="art-readmore-time">8 мин чтения →</span>
                     </a>
+                    <a href="#" onclick="event.preventDefault();showPage('page-article-4')" class="art-readmore-card">
+                        <p class="art-readmore-cat">SMM</p>
+                        <p class="art-readmore-title">SMM умер — и вы готовы к этому диалогу</p>
+                        <span class="art-readmore-time">7 мин чтения →</span>
+                    </a>
+                </div>
+                <div class="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 art-readmore-share">
+                    <p class="text-slate-400 text-sm max-w-sm">Понравилась статья? Готов познакомиться и рассказать про кейс подробнее!</p>
+                    <a href="https://t.me/s_nesteryuk" target="_blank" class="art-tg-btn">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.96 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+                        В Telegram
+                    </a>
+                </div>
+            </div>
+        </main>
+        <footer class="text-center py-8 border-t border-slate-200/60 bg-white mt-4">
+            <div class="max-w-[900px] mx-auto px-6 flex items-center justify-between">
+                <p class="text-slate-500 text-sm">© 2026 Александр Нестерюк.</p>
+                <div class="flex items-center gap-6">
+                    <a href="https://t.me/s_nesteryuk" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">@s_nesteryuk</a>
+                    <a href="cv.html" target="_blank" class="text-slate-500 hover:text-brand-blue text-sm transition-colors">Посмотреть CV</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- ==================== ARTICLE 4 ==================== -->
+    <div id="page-article-4" class="page flex-1">
+        <header class="fixed top-0 w-full z-50 glass-panel border-b border-slate-200/60">
+            <div class="max-w-[900px] mx-auto px-6 h-16 flex items-center justify-between">
+                <button onclick="showPage('page-home', 'articles')" class="art-back-btn">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+                    На главную
+                </button>
+                <div onclick="showPage('page-home', 'articles')" class="flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 bg-brand-dark rounded-lg flex items-center justify-center text-white font-bold text-xs">АН</div>
+                </div>
+            </div>
+        </header>
+        <div class="article-hero">
+            <div class="article-hero-inner max-w-[800px] mx-auto">
+                <span class="article-cat-badge">SMM</span>
+                <h1>SMM умер — и вы готовы к этому диалогу</h1>
+                <div class="article-meta-row">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+                    <span>7 минут на чтение</span>
+                    <span class="article-meta-dot"></span>
+                    <span>20 марта 2026</span>
+                </div>
+            </div>
+        </div>
+        <main class="max-w-[900px] mx-auto px-6 py-14">
+            <div class="grid grid-cols-1 lg:grid-cols-[1fr_280px] gap-12">
+                <!-- Article body -->
+                <article>
+                    <p class="article-lead">За последние 2 года я просмотрел более 3000 резюме SMM-специалистов, лично провёл сотни собеседований — будучи директором по контенту. Вывод: 99% — устарело и не соответствует реалиям рынка.</p>
+
+                    <h2 class="article-h2">Что дают типичные 99%</h2>
+                    <p class="article-p">Открываешь отклик — и будто попадаешь в петлю. Одни и те же семь пунктов, бесконечно повторяющихся:</p>
+                    <p class="article-p">«Я не просто про контент, я про прибыль бизнесу» — написано, но ничем не подкреплено. «Я использую тренды: от постов до коротких роликов» — тренды 2021 года, которые уже не работают. «Я пишу на экспертные темы» — не понимая в экспертных темах ничего. «Мой главный кейс — +784 подписчика за полгода без вложений» — congratulations, это провал. «Я даю пользу» — польза не работает, об этом ниже.</p>
+                    <p class="article-p">И, наконец, резюме, оформленное как кофейное меню из 2016 года: коричневые тона, тонкие линии, главное — эстетично. Плюс сопроводительное, скопированное с прошлого отклика — иногда с названием другой компании внутри.</p>
+
+                    <blockquote class="article-quote">Проблема даже не во времени — оно сложное: блокировки, запреты, ограничения. Проблема в том, что старое не работает, а «новое» ещё непонятно. А тех, кто понимает «новое» — всего 1%.</blockquote>
+
+                    <h2 class="article-h2">Три вещи, которые не работают</h2>
+                    <p class="article-p"><strong>Польза.</strong> Ну вообще. На вас не будут подписываться, потому что вы полезны. Часто вы заходите в полезные паблики? Точно. Польза — это не стратегия, это иллюзия стратегии.</p>
+                    <p class="article-p"><strong>Тренды для регионального бизнеса.</strong> Вы потратили 50 000 рублей, сняли трендовый рилс, он залетел. Ролик посмотрел человек из Новосибирска. Поедет он к вам в кофейню в Самаре? Нет. А дальше? Увеличиваем бюджет до 100 000! Тренды — инструмент для федеральных брендов с физическим присутствием везде. Для всех остальных — деньги в трубу.</p>
+                    <p class="article-p"><strong>Метрики вовлечения, подписок, лайков.</strong> Бесполезны, если вы не строите бренд-медиа и рассчитываете на долгосрок. Если вы — бизнес, то охваты и лайки буквально ничего не дают: они не конвертируются в выручку, пока у вас нет выстроенной воронки.</p>
+
+                    <h2 class="article-h2">Что работает вместо этого</h2>
+                    <p class="article-p">Два варианта — и только два.</p>
+                    <p class="article-p"><strong>Первый: бренд-медиа.</strong> Как Точка Банк. Это долго, дорого, но это инвестиция в долгосрок. Здесь придётся часто объясняться перед руководством, почему нет результата здесь и сейчас. Зато через 3–5 лет у вас будет актив, который работает сам.</p>
+                    <p class="article-p"><strong>Второй: аккаунт-рецепшен.</strong> Человек зашёл, понял, что вы существуете, записался. Без танцев с шаманом, без трендов, без пользы. Чётко: кто вы, что делаете, как к вам попасть. Всё остальное — выброшенные деньги.</p>
+
+                    <blockquote class="article-quote">Аккаунт в соцсетях — это либо долгосрочная инвестиция в бренд-медиа, либо цифровая вывеска. Всё, что посередине, — деньги в никуда.</blockquote>
+
+                    <h2 class="article-h2">Кто придёт на смену SMM-специалисту</h2>
+                    <p class="article-p">Я думаю, что привычного SMM-специалиста заменит универсальный брандформанс-менеджер — специалист, который одинаково понимает, как создавать бренд, и при этом опирается на цифры. Не «SMM-щик с насмотренностью», а человек, который говорит на языке unit-экономики и одновременно чувствует, какой контент попадает в нерв аудитории.</p>
+                    <p class="article-p">Реалии рынка такие: ты либо универсальный специалист, либо спец экстра-класса в узком направлении. Середина схлопывается. ИИ забирает рутину, остаются стратег и ремесленник с живой энергией.</p>
+
+                    <h2 class="article-h2">Мы живём в новом мире</h2>
+                    <p class="article-p">Чем быстрее вы это поймёте, тем быстрее сможете избежать попадания в эти 99%. Рынок не ждёт. Блокировки, ИИ, перераспределение внимания — всё это происходит прямо сейчас.</p>
+                    <p class="article-p">Или я не прав и SMM ещё дышит? Буду рад обратной связи — пишите в Telegram.</p>
+                </article>
+
+                <!-- Sidebar -->
+                <aside>
+                    <div class="thesis-block">
+                        <p class="thesis-title">Ключевые тезисы</p>
+                        <div class="thesis-item">
+                            <span class="thesis-num">01</span>
+                            <span class="thesis-text">99% SMM-резюме устарели и не соответствуют рынку 2026 года</span>
+                        </div>
+                        <div class="thesis-item">
+                            <span class="thesis-num">02</span>
+                            <span class="thesis-text">Польза, тренды и метрики вовлечения — три вещи, которые не работают</span>
+                        </div>
+                        <div class="thesis-item">
+                            <span class="thesis-num">03</span>
+                            <span class="thesis-text">Аккаунт — бренд-медиа или рецепшен. Всё остальное — выброшенные деньги</span>
+                        </div>
+                        <div class="thesis-item">
+                            <span class="thesis-num">04</span>
+                            <span class="thesis-text">Будущее за брандформанс-менеджером: бренд + цифры в одной голове</span>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+
+            <!-- Читать далее -->
+            <div class="art-readmore">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-1 h-6 rounded-full" style="background:#F97316"></div>
+                    <span class="text-white font-bold text-xl">Читать далее</span>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                    <a href="#" onclick="event.preventDefault();showPage('page-article-1')" class="art-readmore-card">
+                        <p class="art-readmore-cat">Контент-продакшн</p>
+                        <p class="art-readmore-title">33 000 роликов за полтора месяца: как я построил контент-завод для М.Видео и чуть не убил его нейросетями на второй неделе</p>
+                        <span class="art-readmore-time">10 мин чтения →</span>
+                    </a>
+                    <a href="#" onclick="event.preventDefault();showPage('page-article-3')" class="art-readmore-card">
+                        <p class="art-readmore-cat">Digital</p>
+                        <p class="art-readmore-title">Я просмотрел больше тысячи резюме креативщиков. 95% – не убеждают. И дело не в людях</p>
+                        <span class="art-readmore-time">8 мин чтения →</span>
+                    </a>
                 </div>
                 <div class="border-t border-white/10 pt-6 flex flex-wrap items-center justify-between gap-4 art-readmore-share">
                     <p class="text-slate-400 text-sm max-w-sm">Понравилась статья? Готов познакомиться и рассказать про кейс подробнее!</p>
@@ -3675,7 +3831,7 @@
     </div>
 
     <script>
-        
+
         /* count-up animation for stat cards */
         function animateCountUp(el) {
             const target = parseInt(el.dataset.target);
@@ -3704,7 +3860,7 @@
             const card = el.closest('.stat-card-animate') || el.parentElement;
             if(card) countObserver.observe(card);
         });
-        const pageHashes = { 'page-article-1': 'article-1', 'page-article-2': 'article-2', 'page-article-3': 'article-3' };
+        const pageHashes = { 'page-article-1': 'article-1', 'page-article-2': 'article-2', 'page-article-3': 'article-3', 'page-article-4': 'article-4' };
         function showPage(pageId, scrollTarget) {
             document.querySelectorAll('.page').forEach(page => page.classList.remove('active'));
             document.getElementById(pageId).classList.add('active');
@@ -3728,6 +3884,7 @@
             if (h === '#article-1') showPage('page-article-1');
             else if (h === '#article-2') showPage('page-article-2');
             else if (h === '#article-3') showPage('page-article-3');
+            else if (h === '#article-4') showPage('page-article-4');
         })();
         
         function showProjects(tabId) {
